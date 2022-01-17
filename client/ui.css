@@ -1,0 +1,29 @@
+#b-Brick{
+    width: 100%;
+    height: 30em;
+}
+
+.legoHolder{
+    background-color: grey;
+    padding: 3em;
+    border-radius: 1em;
+    border: black thin solid;
+}
+
+#searchEngine{
+    width: 1em;
+}
+
+section{
+    display: inline-block;
+    
+}
+
+.brickable{
+    width: 10em;
+    border: black thick solid;
+    border-radius: 1em;
+}
+
+
+
