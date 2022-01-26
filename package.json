@@ -14,5 +14,14 @@
     "express": "^4.17.2",
     "install": "^0.13.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-portsoc": "^0.8.2"
+  },   "eslintConfig": {
+    "extends": "portsoc",
+    "root": true,
+    "env": {
+      "browser": true
+    }
+  }
 }
