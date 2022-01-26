@@ -1,6 +1,24 @@
-#b-Brick{
+.b-Brick{
     width: 100%;
     height: 30em;
+}
+
+#HoldingBtns{
+    background-color: black;
+    padding: 2em;
+    
+}
+
+.BtnFace{
+    display: inline;
+}
+
+#filter{
+    display: inline-box;
+}
+
+#co-basket{
+    width: 1em;
 }
 
 .legoHolder{
@@ -14,9 +32,13 @@
     width: 1em;
 }
 
-section{
-    display: inline-block;
+section, #sect1{
+    background-color: grey;
     
+}
+
+#logOut, #loginBtn{
+    height: 1em;
 }
 
 .brickable{

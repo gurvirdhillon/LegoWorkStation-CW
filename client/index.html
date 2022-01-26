@@ -5,24 +5,83 @@
 
 <script src="createDivs.mjs" type="module"></script>
 <script src="index.js"></script>
-<script src="/legoWorkStation/imageChanger.js"></script>
+<script src="imageChanger.js"></script>
 <link rel="stylesheet" href="ui.css">
 
 </head>
 <body>
-<section>
-        <input><img src="https://image.shutterstock.com/image-vector/search-icon-vector-260nw-415924606.jpg" alt="hi" id="searchEngine">
-        <form action="admin.html">
-            <button>Admin?</button>
-        </form>
-        
-</section>
-<p></p>
-<img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ2saRpvL6I8A-2I4TygTWIVZ2cg74dx2szxuDK6trpDY_ZCO_3PTl7jodJXvCpJ8MmFkNi_0euIg&usqp=CAc" alt="blue brick" id="b-Brick">
-<button> < </button>
-<button> > </button>
-<div id="main">
 
+<section id="sect1">
+        <input><button type="submit" id="btnSend"><img src="https://image.shutterstock.com/image-vector/search-icon-vector-260nw-415924606.jpg" alt="hi" id="searchEngine"></button>
+
+    <form action="admin.html">
+        <button>Admin?</button>
+    </form>
+       <form action="" id="">
+       <button><img src="https://icon-library.com/images/checkout-cart-icon/checkout-cart-icon-13.jpg" id="co-basket"></button>
+    </form>
+       <button><img src="img/account-avatar.png" id="loginBtn">Login</button>
+       <button><img src="https://toppng.com/uploads/preview/logout-11551056293ans77of4wy.png" alt="" id="logOut">Log Out</button>
+
+</section>
+
+    <p></p>
+
+<section id="GrabMyFocus"></section>
+
+
+<div id="HoldingBtns">
+<div class="btnFace">
+    <button> < </button>
 </div>
 
+<div class="btnFace">
+    <button> > </button>
+</div>
+
+<template></template>
+
+</div>
+<div id="filter"></div>
+
+<p></p>
+
+<div id="main"></div>
+
 </body>
+
+<script>
+
+const getImage = document.querySelector('#GrabMyFocus');
+
+function MakeImg() {
+    const createImg = document.createElement('img');
+    const changeImg = Math.floor(Math.random()*changeImage);
+    createImg.src = 'https://www.lego.com/cdn/cs/set/assets/blt497da03153fb9a10/21319.jpg?fit=bounds&format=jpg&quality=80&width=1500&height=1500&dpr=1';
+    createImg.alt = 'friends box set';
+    createImg.classList.add('b-Brick');
+    getImage.append(createImg);
+}
+
+function callingAllFuncs() {
+    MakeImg(changeImage);
+}
+
+let changeImage = [
+    {id: 'img1', img: 'http://prod-upp-image-read.ft.com/4d9e1f92-06e5-11e8-9650-9c0ad2d7c5b5'},
+    {id: 'img2', img: 'https://static.turbosquid.com/Preview/2019/05/23__08_00_58/Lego_Brick_2x4_Earth_Green_thumbnail_Square_0000.jpg4A94DF21-68B6-4062-976F-22BD4D4B249ALarge.jpg'},
+    {id: 'img3', img: 'https://media.sketchfab.com/models/fe10ac44c033412bbd43afb86cca6254/thumbnails/198a154f35ab4aa3b5788c6f5e01743f/51298df5fcf343468493c98317dfc219.jpeg'},
+    {id: 'img4', img: 'https://d2t1xqejof9utc.cloudfront.net/screenshots/pics/52e2c2d8f74e756413f7b83b1452f8a3/large.jpg'},
+    {id: 'img5', img: 'https://i5.walmartimages.com/asr/b000b6e8-f9e0-4623-bb68-dab96aa95203_1.580cd8bc01f4505561fabafe80433e6d.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff'},
+    {id: 'img6', img: 'https://www.redcandy.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/e/lego-storage-brick-8-yellow-1.1575472405.jpg'},
+    {id: 'img7', img: 'https://i.ebayimg.com/images/g/af4AAOSwWotb0Elp/s-l400.jpg'},
+];
+
+const getRandomPhoto = changeImage[Math.floor(Math.random()* changeImage.length)];
+const targetPhoto = () => {
+    document.querySelector('#GrabMyFocus').append(getImage);
+};
+
+window.addEventListener('load', callingAllFuncs);
+
+</script>
