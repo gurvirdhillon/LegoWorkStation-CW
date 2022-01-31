@@ -17,7 +17,7 @@
     <form action="admin.html">
         <button>Admin?</button>
     </form>
-       <form action="" id="">
+       <form action="MyCart.html" id="">
        <button><img src="https://icon-library.com/images/checkout-cart-icon/checkout-cart-icon-13.jpg" id="co-basket"></button>
     </form>
        <button><img src="img/account-avatar.png" id="loginBtn">Login</button>
@@ -57,7 +57,18 @@
 <form>
 <div>Price range:
     <input type="range" name="amountRange" min="£0" max="£100" value="0" oninput="this.form.amountInput.value=this.value" />
-    <input type="number" name="amountInput" min="£0" max="£100" value="0" oninput="this.form.amountRange.value=this.value" />
+    <input type="number" name="amountInput" min="£0" max="£50" value="0" oninput="this.form.amountRange.value=this.value" />
+    <details>
+        <summary>Filtered product</summary>
+    <div id="filter">
+        <input type="checkbox">Set
+        <p></p>
+        <input type="checkbox">Brick
+        <p></p>
+        <input type="checkbox">Size
+        <p></p>
+    </div>
+</details>
 </div>
 </form>
 
