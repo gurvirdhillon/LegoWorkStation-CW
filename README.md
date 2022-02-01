@@ -4,8 +4,9 @@
 
 ## Running the project
 
-The page works with a server hosted on port 8080. Just use your terminal and type 
-``console
+The page works with a server hosted on port 8080. Just use your terminal and type
+
+``
 cd legoWorkStation
 
 ``
