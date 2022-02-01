@@ -8,8 +8,12 @@
 #HoldingBtns{
     background-color: black;
     padding: 2em;
-    
+    display: grid;
+    grid-template-columns: repeat(2, 2em);
 }
+
+
+
 
 .BtnFace{
     display: inline;
@@ -24,9 +28,9 @@
 }
 
 .legoHolder{
-    background-color: grey;
+    background-color: rgb(170, 165, 165);
     padding: 3em;
-    border-radius: 1em;
+    border-radius: 0.2em;
     border: black thin solid;
 }
 
@@ -45,9 +49,12 @@ section, #sect1{
 
 .brickable{
     width: 10em;
-    border: black thick solid;
+    border: black thin solid;
     border-radius: 1em;
 }
 
-
+#main{
+    display: grid;
+    grid-template-columns: repeat(5, 15em);
+}
 
