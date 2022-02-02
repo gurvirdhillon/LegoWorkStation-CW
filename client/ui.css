@@ -5,18 +5,10 @@
     height: 30em;
 }
 
-#HoldingBtns{
+footer{
     background-color: black;
-    padding: 2em;
-    display: grid;
-    grid-template-columns: repeat(2, 2em);
-}
-
-
-
-
-.BtnFace{
-    display: inline;
+    color: white;
+    text-align: center;
 }
 
 #filter{
