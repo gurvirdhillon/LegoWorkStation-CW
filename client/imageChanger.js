@@ -1,12 +1,9 @@
 let slideI = 1;
 seeSlides(slideI);
 
-// Next/previous controls
 function addSlides(n) {
   seeSlides(slideI += n);
 }
-
-// Thumbnail image controls
 
 function currentSlide(n) {
   seeSlides(slideI = n);
