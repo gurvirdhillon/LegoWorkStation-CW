@@ -6,7 +6,9 @@
 <script src="createDivs.mjs" type="module"></script>
 <script src="index.js"></script>
 <script src="imageChanger.js"></script>
+<script src="handleBtns.mjs" type="module"></script>
 <link rel="stylesheet" href="ui.css">
+<link rel="stylesheet" href="image.css">
 
 </head>
 <body>
@@ -27,19 +29,42 @@
 
     <p></p>
 
-<section id="GrabMyFocus"></section>
+<!-- <section id="GrabMyFocus"></section> -->
 
+<!-- Slideshow container -->
+<div class="slideshow-container">
 
-<div id="HoldingBtns">
-<div class="btnFace">
-    <button> < </button>
-</div>
-
-<div class="btnFace">
-    <button> > </button>
-</div>
-
-<template></template>
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+      <div class="numbertxt">1 / 3</div>
+      <img src="https://www.lego.com/cdn/cs/set/assets/blt497da03153fb9a10/21319.jpg?fit=bounds&format=jpg&quality=80&width=1500&height=1500&dpr=1" style="width:100%">
+      <div class="text">Friends Lego Set</div>
+    </div>
+  
+    <div class="mySlides fade">
+      <div class="numbertxt">2 / 3</div>
+      <img src="https://www.lego.com/cdn/cs/set/assets/blt4c8901abf00a333a/76239.png?fit=bounds&format=png&width=1500&height=1500&dpr=1" class="LegoSetDisplay">
+      <div class="text">Batman Lego Set</div>
+    </div>
+  
+    <div class="mySlides fade">
+      <div class="numbertxt">3 / 3</div>
+      <img src="https://image.smythstoys.com/zoom/169928.jpg" class="LegoSetDisplay">
+      <div class="text">Your a wizard harry</div>
+    </div>
+  
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
 
 </div>
 <div id="filterParent">
@@ -83,39 +108,3 @@ made by up2016988
 </footer>
 
 </body>
-
-<script>
-
-const getImage = document.querySelector('#GrabMyFocus');
-
-function MakeImg() {
-    const createImg = document.createElement('img');
-    const changeImg = Math.floor(Math.random()*changeImage);
-    createImg.src = 'https://www.lego.com/cdn/cs/set/assets/blt497da03153fb9a10/21319.jpg?fit=bounds&format=jpg&quality=80&width=1500&height=1500&dpr=1';
-    createImg.alt = 'friends box set';
-    createImg.classList.add('b-Brick');
-    getImage.append(createImg);
-}
-
-function callingAllFuncs() {
-    MakeImg(changeImage);
-}
-
-let changeImage = [
-    {id: 'img1', img: 'http://prod-upp-image-read.ft.com/4d9e1f92-06e5-11e8-9650-9c0ad2d7c5b5'},
-    {id: 'img2', img: 'https://static.turbosquid.com/Preview/2019/05/23__08_00_58/Lego_Brick_2x4_Earth_Green_thumbnail_Square_0000.jpg4A94DF21-68B6-4062-976F-22BD4D4B249ALarge.jpg'},
-    {id: 'img3', img: 'https://media.sketchfab.com/models/fe10ac44c033412bbd43afb86cca6254/thumbnails/198a154f35ab4aa3b5788c6f5e01743f/51298df5fcf343468493c98317dfc219.jpeg'},
-    {id: 'img4', img: 'https://d2t1xqejof9utc.cloudfront.net/screenshots/pics/52e2c2d8f74e756413f7b83b1452f8a3/large.jpg'},
-    {id: 'img5', img: 'https://i5.walmartimages.com/asr/b000b6e8-f9e0-4623-bb68-dab96aa95203_1.580cd8bc01f4505561fabafe80433e6d.jpeg?odnHeight=450&odnWidth=450&odnBg=ffffff'},
-    {id: 'img6', img: 'https://www.redcandy.co.uk/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/l/e/lego-storage-brick-8-yellow-1.1575472405.jpg'},
-    {id: 'img7', img: 'https://i.ebayimg.com/images/g/af4AAOSwWotb0Elp/s-l400.jpg'},
-];
-
-const getRandomPhoto = changeImage[Math.floor(Math.random()* changeImage.length)];
-const targetPhoto = () => {
-    document.querySelector('#GrabMyFocus').append(getImage);
-};
-
-window.addEventListener('load', callingAllFuncs);
-
-</script>

@@ -7,22 +7,20 @@ function makeTable(row = 20) {
   }
 }
 
-const getDiv0 = document.querySelector('#div0');
-const createHead = document.createElement('p');
-createHead.textContent = 'hello';
-createHead.append(getDiv0);
+function placeHelloIn() {
+  const grabTheElem = document.querySelector('#div0');
+  const createElem = document.createElement('img');
+  createElem.src = 'https://www.lego.com/cdn/cs/set/assets/blt497da03153fb9a10/21319.jpg?fit=bounds&format=jpg&quality=80&width=1500&height=1500&dpr=1';
+  createElem.alt = 'friends lego set';
+  createElem.title = 'friends';
+  // createElem.classList.add('');
+  grabTheElem.append(createElem);
+}
 
-
-// function placeContent() {
-//   const grabDiv0 = document.querySelector('div0');
-//   const putInText = document.createElement('p');
-//   putInText.textContent = 'Hello';
-//   grabDiv0.appendChild(putInText);
-// }
 
 function getAllFunctions() {
   makeTable();
-//   placeContent();
+  placeHelloIn();
 }
 
 window.addEventListener('load', getAllFunctions);

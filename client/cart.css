@@ -1,5 +1,12 @@
 .tableCart{
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 2em);
     border: black thin solid;
     border-top: black thin solid;
     padding: 1.5em;
+}
+
+img{
+    height: 10em;
 }
