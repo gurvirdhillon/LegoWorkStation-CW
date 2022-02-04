@@ -6,11 +6,42 @@
     <!-- <script src="adminJS/adminDivMkr.js"></script> -->
 </head>
 <body>
-<h1>My Cart</h1>
-<form action="index.html">
-<button>Go back?</button>
+
+    <header>
+        <h1>Welcome to MyCart</h1>
+        
+        <form action="index.html">
+            <button>Go back?</button>
+        </form>
+
+    </header>
+
+<p></p>
+
+<form id="shippingDetails">
+<label>Address1: <input type="" id="add1" placeholder="Address1" required>*</label>
+
+<label>Address2: <input type="" id="add2" placeholder="Address2" required>*</label>
+
+<label>City: <input type="" id="cityAdd" placeholder="City"></label>
+
+<label>County: <input type="" id="CountyAdd" placeholder="County"></label>
+
+<label>Postcode: <input type="" id="PcShipping" placeholder="Postcode" required pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})">*</label>
+
+<label>Email Address: <input type="" id="emailAdd" placeholder="email address" required>*</label>
+
+<label>Phone Number: <input type="tel" id="telephoneNo" placeholder="Phone Number" pattern="[0-9]{5}[0-9]{3}[0-9]{3}"></label>
+<small>Format: 01234567899</small>
+
+<label>Delivery Order instructions: <input type="text" id="specReq" placeholder="leave my parcel by the door?"></label>
+
+<input type="submit" value="submit" id="submitMe">
 </form>
+
 <main>
+
+
 
 </main>
 

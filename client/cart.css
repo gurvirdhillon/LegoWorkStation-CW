@@ -10,3 +10,39 @@
 img{
     height: 10em;
 }
+
+header{
+    background-color: grey;
+    padding-top: 1em;
+    margin: 0 0 0 0;
+}
+
+#DivSeperator{
+    padding: 1em;
+}
+
+#shippingDetails{
+    display: grid;
+    grid-template-columns: repeat(1, 40%);
+    background-color: rgb(156, 144, 144);
+    color: white;
+    margin-right: 50%;
+}
+
+#specReq{
+    width: 20em;
+}
+
+#submitMe{
+    width: 5em;
+}
+
+label, form{
+    display: inline;
+}
+
+/* .HeaderSpacing{
+    display: grid;
+    grid-template-columns: repeat(4, 2em);
+    padding: 2em;
+} */
