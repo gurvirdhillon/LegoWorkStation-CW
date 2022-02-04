@@ -35,7 +35,11 @@ section, #sect1{
     
 }
 
-#logOut, #loginBtn{
+#login, #logout{
+    height: 1em;
+}
+
+.BtnImg{
     height: 1em;
 }
 

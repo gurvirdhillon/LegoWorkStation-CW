@@ -23,7 +23,7 @@ function imagePlacer(where, what) {
 }
 
 // this makes the + button
-function getAddButton(where, what, btn) {
+function getAddButton(where, what) {
   const getBtn = document.createElement('button');
   getBtn.textContent = what.btn;
   getBtn.classList.add('btnElem');
@@ -80,6 +80,6 @@ const db = [
   { id: 'brk6', name: 'green2by4', colour: 'green', x: 4, y: 4, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMvhMQzkvA1m8MesmNCbYhXbTsgWjsTTEgPQ&usqp=CAU', p: '£0.10', btn: '+', quantity: '51', btn2: 'View Details' },
   { id: 'brk7', name: 'red2by1', colour: 'red', x: 2, y: 2, img: 'https://img.brickowl.com/files/image_cache/larger/lego-dark-red-brick-1-x-2-3004-32-442413-56.jpg', p: '£0.05', btn: '+', quantity: '29', btn2: 'View Details' },
   { id: 'brk8', name: 'mixedCrate', colour: 'All', x: 1, y: 1, img: 'https://www.lego.com/cdn/cs/set/assets/blt70237dec0eef084a/10696.jpg?fit=bounds&format=jpg&quality=80&width=1056&height=1056&dpr=1', p: '£40', btn: '+', quantity: '10', btn2: 'View Details' },
-  { id: 'brk9', name: 'Bonzai!', colour: 'All', x: 1, y: 1, img: 'https://www.lego.com/cdn/cs/set/assets/blta0f82238c7a41b0b/10281_alt4.png', p: '£15', btn: '+', quantity: '4', btn2: 'View Details' },
+  { id: 'brk9', name: 'Bonsai!', colour: 'All', x: 1, y: 1, img: 'https://www.lego.com/cdn/cs/set/assets/blta0f82238c7a41b0b/10281_alt4.png', p: '£15', btn: '+', quantity: '4', btn2: 'View Details' },
   { id: 'brk10', name: 'Lego master set', colour: 'All', x: 1, y: 1, img: 'https://www.lego.com/cdn/cs/set/assets/blt62f99776b13a8e94/10297.png', p: '£20', btn: '+', quantity: '10', btn2: 'View Details' },
 ];

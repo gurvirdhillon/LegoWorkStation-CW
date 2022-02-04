@@ -1,7 +1,11 @@
+const getParent = document.querySelector('#main');
+getParent.children = `btn${getBtn}`;
+
+
 function handleBtn() {
   document.body.textContent = 'error';
 }
 
-document.querySelector('.viewMe').addEventListener('click', handleBtn);
+const getBtn = document.querySelector('button').addEventListener('click', handleBtn);
 
 window.addEventListener('load', handleBtn);

@@ -1,43 +1,83 @@
-const sqlite = require('sqlite');
-const uuid = require('uuid');
+async function fetchAuth0Config() {
+  const response = await fetch('auth-config');
+  if (response.ok) {
+    return response.json();
+  } else {
+    throw response;
+  }
+}
+
+let auth0 = null;
+
+async function initializeAuth0Client() {
+  const config = await fetchAuth0Config();
+
+  auth0 = await createAuth0Client({
+    domain: config.domain,
+    client_id: config.client_id,
+  });
+}
+
+
+async function updateAuthUI() {
+  const isAuthenticated = await auth0.isAuthenticated();
+
+  document.getElementById('login').disabled = isAuthenticated;
+  document.getElementById('logout').disabled = !isAuthenticated;
+
+  if (isAuthenticated) {
+    const user = await auth0.getUser();
+    const el = document.getElementById('greeting');
+    el.textContent = `Hello ${user.name} (${user.email})!`;
+  }
+}
+
+async function login() {
+  await auth0.loginWithRedirect({
+    redirect_uri: window.location.origin,
+  });
+}
+
+function logout() {
+  auth0.logout({
+    returnTo: window.location.origin,
+  });
+}
+
+// check for the code and state parameters from Auth0 login redirect
+async function handleAuth0Redirect() {
+  const isAuthenticated = await auth0.isAuthenticated();
+
+  if (isAuthenticated) return;
+
+  const query = window.location.search;
+  if (query.includes('state=')) {
+    try {
+      // process the login state
+      await auth0.handleRedirectCallback();
+    } catch (e) {
+      window.alert(e.message || 'authentication error, sorry');
+      logout();
+    }
+
+    // remove the query parameters
+    window.history.replaceState({}, document.title, '/');
+
+    await updateAuthUI();
+  }
+}
+
+// make sure all interactive elements in the page have code attached to them
+function setupListeners() {
+  document.getElementById('login').addEventListener('click', login);
+  document.getElementById('logout').addEventListener('click', logout);
+}
 
 async function init() {
-  const db = await sqlite.open('./database.sqlite', { verbose: true });
-  await db.migrate({ migrationsPath: './migration-sqlite' });
-  return db;
+  await initializeAuth0Client();
+  await setupListeners();
+  await updateAuthUI();
+  await handleAuth0Redirect();
 }
 
-const dbConnect = init();
-
-export async function legoStock() {
-  const db = await dbConnect;
-  return db.get('SELECT * FROM LegoName ORDER BY legoName DESC LIMIT 50');
-}
-
-export async function findLego(id) {
-  const db = await dbConnect;
-  return db.get('SELECT * FROM LegoName WHERE id = ?', id);
-}
-
-export async function editLego(updateLego) {
-  const db = await dbConnect;
-  const id = updateLego.id;
-  const lego = updateLego.msg;
-
-  const statement = await db.run('UPDATE messages SET msg = ? , time = ? WHERE id = ?', [lego, id]);
-
-  if (statement === 0) throw new Error('lego not found');
-  return findLego(id);
-}
-
-function grabAllFuncs() {
-  init();
-  legoStock();
-  findLego();
-  editLego();
-}
-
-const id = uuid();
-
-window.addEventListener('load', grabAllFuncs);
-
+window.addEventListener('load', init);

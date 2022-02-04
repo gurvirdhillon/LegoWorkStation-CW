@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "a lego workshop that sells lego.",
   "main": "server/server.js",
+  "type": "module",
   "scripts": {
     "test": "npm start",
-    "start": "node server/server.js",
-    "type": "module"
+    "start": "node server/server.js"
   },
   "author": "up2016988@myport.ac.uk",
   "license": "ISC",

@@ -7,12 +7,16 @@
 <script src="index.js"></script>
 <script src="imageChanger.js"></script>
 <script src="handleInput.mjs" type="module"></script>
+<script type="module" href="auth0.js"></script>
 <link rel="stylesheet" href="ui.css">
 <link rel="stylesheet" href="image.css">
+<link rel="icon" href="data:,">
+<script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js" async defer></script>
+
 
 </head>
 <body>
-
+<p id="greeting">Hello!</p>
 <section id="sect1">
         <input type="search" id="SEngine"><button type="submit" id="btnSend"><img src="https://image.shutterstock.com/image-vector/search-icon-vector-260nw-415924606.jpg" alt="hi" id="searchEngine"></button>
 
@@ -22,14 +26,12 @@
        <form action="MyCart.html" id="">
        <button><img src="https://icon-library.com/images/checkout-cart-icon/checkout-cart-icon-13.jpg" id="co-basket"></button>
     </form>
-       <button><img src="img/account-avatar.png" id="loginBtn">Login</button>
-       <button><img src="https://toppng.com/uploads/preview/logout-11551056293ans77of4wy.png" alt="" id="logOut">Log Out</button>
+       <button id="login" disabled="true"><img src="img/account-avatar.png" class="BtnImg">Login</button>
+       <button id="logout" disabled="true"><img src="https://toppng.com/uploads/preview/logout-11551056293ans77of4wy.png" alt="" class="BtnImg">Log Out</button>
 
 </section>
 
-    <p></p>
-
-<!-- <section id="GrabMyFocus"></section> -->
+  <p></p>
 
 <!-- Slideshow container -->
 <div class="slideshow-container">
@@ -108,4 +110,3 @@ made by up2016988
 </footer>
 
 </body>
-
