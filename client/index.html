@@ -19,10 +19,10 @@
 <section id="sect1">
         <input type="search" id="SEngine"><button type="submit" id="btnSend"><img src="https://image.shutterstock.com/image-vector/search-icon-vector-260nw-415924606.jpg" alt="hi" id="searchEngine"></button>
         <p id="greeting">Hello!</p>
-    <form action="admin.html">
+    <form action="./adminPage/admin.html">
         <button>Admin?</button>
     </form>
-       <form action="MyCart.html" id="">
+       <form action="./myCart/MyCart.html" id="">
        <button><img src="https://icon-library.com/images/checkout-cart-icon/checkout-cart-icon-13.jpg" id="co-basket"></button>
     </form>
        <button id="login" disabled="true"><img src="img/account-avatar.png" class="BtnImg">Login</button>
@@ -82,8 +82,18 @@
 
 <form>
 <div>Price range:
-    <!-- <input type="range" name="amountRange" min="0" max="£100" value="0" oninput="this.form.amountInput.value=this.value" />
-    <input type="number" name="amountInput" min="0" max="£50" value="0" oninput="this.form.amountRange.value=this.value" /> -->
+  <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£0 - £10
+  <div></div>
+    <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£11 - £20
+    <div></div>
+    <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£21 - £30
+    <div></div>
+    <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£31 - £40
+    <div></div>
+    <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£41 - £50
+    <div></div>
+    <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£51+
+
     <details>
         <summary>Filter products</summary>
     <div id="filter">
@@ -94,6 +104,7 @@
         <input type="checkbox">Size
         <p></p>
     </div>
+
 </details>
 </div>
 </form>
@@ -103,6 +114,12 @@
 <p></p>
 
 <div id="main"></div>
+
+<nav class="navigationGuide">
+<a href="">1</a>
+<a href="">2</a>
+<a href="">3</a>
+</nav>
 
 <footer>
 made by up2016988

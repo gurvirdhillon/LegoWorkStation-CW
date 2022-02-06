@@ -2,22 +2,24 @@ DROP DATABASE IF EXISTS legoStore;
 
 CREATE DATABASE LegoStore;
 
-/c LegoStore;
+\c LegoStore;
 
-CREATE TABLE legoDetails(
-    legoName VARCHAR(30), 
-    colour varchar(15),
-    LegoSet BINARY, -- Yes or No
-    Price DECIMAL
-
+CREATE TABLE displayLego(
+    id CHAR(5),
+    legoName VARCHAR(20),
+    colour VARCHAR(10),
+    x char(1),
+    y CHAR(1),
+    img text
 );
+
 
 CREATE TABLE theme(
     themeID char(10),
-    theme varchar(30)
+    ThemeName varchar(30)
 );
 
 CREATE TABLE part(
-    partNumber INT(4),
-    partName varchar(30),
+    partNumber INT,
+    partName varchar(30)
 );

@@ -58,6 +58,7 @@ function loadFunctions() {
   imagePlacer();
   getQuantity(db);
   makeViewDetails(db);
+  nameSpecialEdition(db);
 }
 
 function makeViewDetails(where, what) {
@@ -82,4 +83,17 @@ const db = [
   { id: 'brk8', name: 'mixed Crate', colour: 'All', x: 1, y: 1, img: 'https://www.lego.com/cdn/cs/set/assets/blt70237dec0eef084a/10696.jpg?fit=bounds&format=jpg&quality=80&width=1056&height=1056&dpr=1', p: '£40', btn: '+', quantity: '10', btn2: 'View Details' },
   { id: 'brk9', name: 'Bonsai!', colour: 'All', x: 1, y: 1, img: 'https://www.lego.com/cdn/cs/set/assets/blta0f82238c7a41b0b/10281_alt4.png', p: '£15', btn: '+', quantity: '4', btn2: 'View Details' },
   { id: 'brk10', name: 'Lego master set', colour: 'All', x: 1, y: 1, img: 'https://www.lego.com/cdn/cs/set/assets/blt62f99776b13a8e94/10297.png', p: '£20', btn: '+', quantity: '10', btn2: 'View Details' },
+  { id: 'brk11', name: 'the education bundle', colour: 'All', x: 1, y: 1, img: 'https://m.media-amazon.com/images/I/913of9-AzGL._AC_SL1500_.jpg', p: '£30', btn: '+', quantity: '40', btn2: 'View details' },
+  { id: 'brk12', name: 'the ol\' saloon', colour: 'All', x: 1, y: 1, img: 'https://images.brickset.com/sets/large/10270-1.jpg?201912060155', p: '£45', btn: '+', quantity: '5', btn2: 'View details' },
+  { id: 'brk13', name: 'the plane!', colour: 'All', x: 1, y: 1, img: 'https://image.smythstoys.com/picture/desktop/175255.jpg', p: '£15', btn: '+', quantity: '35', btn2: 'View details' },
+  { id: 'brk14', name: 'The ultimate minecraft set', colour: '', x: 1, y: 1, img: 'https://www.lego.com/cdn/cs/set/assets/blt80c15b943de11110/21174.jpg?fit=bounds&format=jpg&quality=80&width=1500&height=1500&dpr=1', p: '£25', btn: '+', quantity: '5', btn2: 'View Details' },
+  { id: 'brk15', name: 'The victors colloseum', colour: 'All', x: 1, y: 1, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBrcOj8mpzGMMJSi7LIibOyaCqP4Nhrw3DeA&usqp=CAU', p: '£400', btn: '+', quantity: '2', btn2: 'View details' },
 ];
+
+function nameSpecialEdition() {
+  const grabSpecialItem = document.querySelector('#brk12');
+  const makeSpecialOffer = document.createElement('div');
+  makeSpecialOffer.classList('specialOffer');
+  makeSpecialOffer.textContent = 'Limited edition! Buy before its sold out!';
+  grabSpecialItem.appendChild(makeSpecialOffer);
+}

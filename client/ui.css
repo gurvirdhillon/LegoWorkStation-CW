@@ -1,4 +1,9 @@
 /* this is for the index.html page. */
+body{
+    background-image: url('https://media.istockphoto.com/vectors/brick-wall-vector-id503260737?b=1&k=20&m=503260737&s=170667a&w=0&h=zxFKEm2ulkaSdkbEblf766Cw5y3-hw465K0yGi3JC1M=');
+    background-size: 100%;
+    color: white;
+}
 
 .b-Brick{
     width: 100%;
@@ -52,5 +57,11 @@ section, #sect1{
 #main{
     display: grid;
     grid-template-columns: repeat(5, 15em);
+}
+
+.navigationGuide{
+    background-color: grey;
+    text-align: center;
+    
 }
 
