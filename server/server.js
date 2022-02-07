@@ -21,5 +21,5 @@ app.use(express.static(path.join(path.dirname(url.fileURLToPath(import.meta.url)
 // start the server
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}!`);
+  console.log(`please type on your browser localhost:${PORT}`);
 });
