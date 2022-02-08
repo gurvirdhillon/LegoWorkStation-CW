@@ -22,3 +22,7 @@ function onlyOne(checkbox) {
 }
 onlyOne();
 // code extracted from https://stackoverflow.com/questions/9709209/html-select-only-one-checkbox-in-a-group
+
+const viewMe = document.querySelector('.viewMe');
+
+console.log(viewMe);
