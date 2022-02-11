@@ -22,14 +22,12 @@
     <form action="./adminPage/admin.html">
         <button>Admin?</button>
     </form>
-       <form action="./myCart/MyCart.html">
        <button><img src="https://icon-library.com/images/checkout-cart-icon/checkout-cart-icon-13.jpg" id="co-basket"></button>
        <details>
          <summary>settings</summary>
          <input id=pageWidth type=range min=10 max=80 value=30 step=1></input>
          <span>Page Width</span>
        </details>
-    </form>
        <button id="login" disabled="true"><img src="img/account-avatar.png" class="BtnImg">Login</button>
        <button id="logout" disabled="true"><img src="https://toppng.com/uploads/preview/logout-11551056293ans77of4wy.png" alt="" class="BtnImg">Log Out</button>
 
@@ -87,18 +85,19 @@
 
 <form>
 <div>Price range:
-  <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£0 - £10
+<div></div>
+  <input type="checkbox" name="check" onclick="onlyOne(this)">£0 - £10
   <div></div>
-    <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£11 - £20
-    <div></div>
-    <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£21 - £30
-    <div></div>
-    <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£31 - £40
-    <div></div>
-    <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£41 - £50
-    <div></div>
-    <input type="checkbox" name="check" class="priceRange" onclick="onlyOne(this)">£51+
-
+  <input type="checkbox" name="check" onclick="onlyOne(this)">£11 - £20
+  <div></div>
+  <input type="checkbox" name="check" onclick="onlyOne(this)">£21 - £30
+  <div></div>
+  <input type="checkbox" name="check" onclick="onlyOne(this)">£31 - £40
+  <div></div>
+  <input type="checkbox" name="check" onclick="onlyOne(this)">£41 - £50
+  <div></div>
+  <input type="checkbox" name="check" onclick="onlyOne(this)">£51+
+    
     <details>
         <summary>Filter products</summary>
     <div id="filter">
@@ -131,3 +130,17 @@ made by up2016988
 </footer>
 
 </body>
+
+<script>
+    function onlyOne(checkbox) {
+  const checkboxes = document.getElementsByName('check');
+  checkboxes.forEach((item) => {
+    if (item !== checkbox) item.checked = false;
+  });
+}
+
+window.addEventListener('load', onlyOne);
+
+// code extracted from https://stackoverflow.com/questions/9709209/html-select-only-one-checkbox-in-a-group
+
+</script>
