@@ -1,5 +1,5 @@
 async function fetchAuth0Config() {
-  const response = await fetch('auth-config');
+  const response = await fetch('/auth-config');
   if (response.ok) {
     return response.json();
   } else {
@@ -16,6 +16,8 @@ async function initializeAuth0Client() {
     domain: config.domain,
     client_id: config.client_id,
   });
+
+  console.log(auth0);
 }
 
 
@@ -28,7 +30,7 @@ async function updateAuthUI() {
   if (isAuthenticated) {
     const user = await auth0.getUser();
     const el = document.getElementById('greeting');
-    el.textContent = `Hello ${user.name} (${user.email})!`;
+    el.textContent = `Hello ${user.name}!`;
   }
 }
 
