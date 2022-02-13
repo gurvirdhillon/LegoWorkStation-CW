@@ -15,7 +15,7 @@ console
 npm start
 Then type:
 
-localhost:8080
+* localhost:8080
 on your browser.
 
 ## Testing the project
