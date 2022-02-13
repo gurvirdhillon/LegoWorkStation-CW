@@ -18,6 +18,12 @@ Then type:
 localhost:8080
 on your browser.
 
+## Testing the project
+
+```console
+npm run test.only
+```
+
 ## Built using
 
 HTML and CSS
