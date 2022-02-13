@@ -14,13 +14,12 @@ cd legoWorkStation
 npm start
 ```
 
-Then type:
+Then on your search engine type:
 
 ```console
 localhost:8080
 ```
 
-on your browser.
 
 ## Testing the project
 
