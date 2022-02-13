@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "npm start",
+    "test.only": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "start": "node server/server.js"
   },
   "author": "up2016988@myport.ac.uk",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-portsoc": "^0.8.2",
+    "eslint-plugin-jest": "^26.1.0",
     "jest": "^27.5.1"
   },
   "eslintConfig": {
