@@ -10,8 +10,10 @@ The page works with a server hosted on port 8080. Just use your terminal and typ
 cd legoWorkStation
 ```
 
-console
+```console
 npm start
+```
+
 Then type:
 
 ```console
