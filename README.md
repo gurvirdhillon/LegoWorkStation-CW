@@ -22,6 +22,8 @@ on your browser.
 
 ## Testing the project
 
+I have used testing to allow for better maintainability.
+
 ```console
 npm run test.only
 ```
