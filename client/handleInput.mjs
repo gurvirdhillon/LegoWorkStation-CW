@@ -5,12 +5,6 @@ function templateAppear() {
 
 }
 
-function loadAllFunctions() {
-  templateAppear();
-}
-
-window.addEventListener('load', loadAllFunctions);
-
 // handles the + input.
 const getAllButtons = document.querySelectorAll('.viewMe');
 getAllButtons.forEach(
@@ -43,4 +37,18 @@ function filterColour() {
   }
 }
 
+// handles clicking the second and third page.
+const grabBlockGenerator1 = document.querySelector('#BlkGen2', '#BlkGen3');
+grabBlockGenerator1.addEventListener('click', replaceLego);
 
+function replaceLego() {
+  const removeDiv = document.querySelector('#main');
+  removeDiv.remove();
+}
+
+function loadAllFunctions() {
+  templateAppear();
+  replaceLego();
+}
+
+window.addEventListener('load', loadAllFunctions);
