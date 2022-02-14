@@ -20,7 +20,6 @@ Then on your search engine type:
 localhost:8080
 ```
 
-
 ## Testing the project
 
 I have used testing to allow for better maintainability.
