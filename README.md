@@ -4,7 +4,7 @@
 
 ## Running the project
 
-The page works with a server hosted on port 8080. Just use your terminal and type
+The page works with a server hosted on port 8080. Just use your terminal and type:
 
 ```console
 cd legoWorkStation
@@ -30,9 +30,9 @@ npm run test.only
 
 ## Built using
 
-HTML and CSS
-JavaScript
-NodeJS
-ExpressJS
-AJAX
-Jest
+* HTML and CSS
+* JavaScript
+* NodeJS
+* ExpressJS
+* AJAX
+* Jest
