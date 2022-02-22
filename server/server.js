@@ -13,6 +13,7 @@ app.get('/auth-config', (req, res) => {
 });
 
 app.get('/api/hello', (req, res) => {
+  // used to test if the extended url works.
   res.send(`Hello! The time is ${new Date()}`);
 });
 
@@ -26,10 +27,6 @@ app.get('/api/bricks', (req, res) =>{
   res.send(JSON.stringify(bricks));
 });
 
-// trying to get the id and append it to the page.
-// app.get('/', function (req, res) {
-//   res.send('id: ', req.query.id);
-// });
 
 // this will serve the files present in static/ inside this stage
 app.use(express.static(path.join(path.dirname(url.fileURLToPath(import.meta.url)), '../client')));
