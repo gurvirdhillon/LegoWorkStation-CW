@@ -25,12 +25,12 @@ function imagePlacer(where, what) {
 // this makes the + button
 function getAddButton(where) {
   const getBtn = document.createElement('button');
-  getBtn.textContent = '+';
+  getBtn.textContent = 'Add to basket';
   getBtn.classList.add('btnElem');
   where.append(getBtn);
 }
 
-function getPriceAndDescription(where, what, p) {
+function getPriceAndDescription(where, what) {
   const getPrice = document.createElement('p');
   getPrice.textContent = what.p;
   where.append(getPrice);
@@ -52,8 +52,8 @@ function giveName(where, what) {
 async function loadFunctions() {
   const response = await fetch('/api/bricks');
   const db = await response.json();
-  //console.log(data);
-  //const db = JSON.parse(data);
+  // console.log(data);
+  // const db = JSON.parse(data);
   makeDiv(db);
 }
 
@@ -80,6 +80,14 @@ function addToBasket(event) {
   DivMade.textContent = 'hello';
   targetLocation.body.append(DivMade);
 }
+
+const btn1 = document.querySelector('#btn1');
+const basketHolder = document.querySelector('#basketToggle');
+
+btn1.addEventListener('click', (e) =>{
+  const openBasket = basketHolder.textContent.cloneNode(true);
+  document.body.append(openBasket);
+});
 
 
 window.addEventListener('load', loadFunctions);
