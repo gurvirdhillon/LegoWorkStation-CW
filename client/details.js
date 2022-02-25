@@ -12,8 +12,8 @@ async function init() {
   imagePlace.src = `${brickDetails.img}`;
   imagePlace.classList.add('brickImage');
   const colour = document.querySelector('#colourSpan');
-  colour.textContent = brickDetails.colour;
+  colour.textContent = `colour: ${brickDetails.colour}`;
+  const price = document.querySelector('#price');
+  price.textContent = `${brickDetails.p}`;
 }
 window.addEventListener('load', init);
-
-

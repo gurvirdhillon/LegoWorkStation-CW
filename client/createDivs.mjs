@@ -70,30 +70,23 @@ function detailsHandler(event) {
   window.location = `details.html?brick=${id}`;
 }
 
-const targetLocation = document.querySelector('#basketToggle');
-const targetBasket = document.querySelector('#btn1');
-targetBasket.addEventListener('click', addToBasket);
+const targetB = document.querySelector('#basketToggle');
+const targetBtn = document.querySelector('#btn1');
+targetBtn.addEventListener('click', addToBasket);
 
 function addToBasket(event) {
   // something similar to details handler.
   const DivMade = document.createElement('div');
   DivMade.textContent = 'hello';
-  targetLocation.body.append(DivMade);
+  targetB.body.append(DivMade);
 }
-
-const btn1 = document.querySelector('#btn1');
-const basketHolder = document.querySelector('#basketToggle');
-
-btn1.addEventListener('click', (e) =>{
-  const openBasket = basketHolder.textContent.cloneNode(true);
-  document.body.append(openBasket);
-});
-
 
 window.addEventListener('load', loadFunctions);
 
-// const db2 = [
-//   { id: 'brk16', name: 'blue 2 by 2 brick', colour: 'blue', x: 2, y: 2, img: 'https://static.turbosquid.com/Preview/2019/05/23__08_00_58/Lego_Brick_2x2_Dark_Azur_thumbnail_Square_0000.jpgADD1F740-B5A1-4226-9FEE-6E6F7DCA2FE6Large.jpg', p: '£', quantity: '40' },
-//   { id: 'brk17', name: 'cabinet brick', colour: 'blue', x: 2, y: 2, img: 'https://www.lego.com/cdn/cs/set/assets/blt1b165be7adfb300f/5005403_alt2.jpg', p: '£0.50', quantity: '40' },
-//   { id: 'brk18', name: '', colour: '', x: 2, y: 2, img: '', p: '£', quantity: '' },
-// ];
+const b1 = document.querySelector('#btn1');
+const t1 = document.querySelector('#basketToggle');
+
+b1.addEventListener("click", (e) =>{
+  const cloned = t1.content.cloneNode(true);
+  document.body.append(cloned);
+});

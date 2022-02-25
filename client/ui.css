@@ -88,6 +88,7 @@ footer{
 #main{
     display: grid;
     grid-template-columns: repeat(5, 15em);
+    
 }
 
 .navigationGuide{
@@ -101,8 +102,10 @@ summary{
 }
 
 .brickImage{
-    width: 20%;
-    height: 20%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
 }
 
 .viewMe:hover{
