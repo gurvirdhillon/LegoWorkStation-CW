@@ -5,6 +5,15 @@ async function init() {
   brickId = brickId[1];
   const response = await fetch(`/api/brick?id=${brickId}`);
   const brickDetails = await response.json();
-  console.log(brickDetails);
+  // console.log(brickDetails);
+  const title = document.querySelector('#productTitle');
+  title.textContent = brickDetails.name;
+  const imagePlace = document.querySelector('#imageId');
+  imagePlace.src = `${brickDetails.img}`;
+  imagePlace.classList.add('brickImage');
+  const colour = document.querySelector('#colourSpan');
+  colour.textContent = brickDetails.colour;
 }
 window.addEventListener('load', init);
+
+

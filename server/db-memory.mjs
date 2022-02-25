@@ -29,3 +29,4 @@ export function getBrick(id) {
   }
   return null;
 }
+

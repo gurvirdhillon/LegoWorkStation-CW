@@ -99,3 +99,13 @@ footer{
 summary{
     cursor: pointer;
 }
+
+.brickImage{
+    width: 20%;
+    height: 20%;
+}
+
+.viewMe:hover{
+    background: red;
+    color: white;
+}
