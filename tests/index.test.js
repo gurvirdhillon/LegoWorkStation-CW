@@ -1,6 +1,4 @@
-import { add } from '../src/index.js';
-
-test('adds 1 + 2 to equal 3', () => {
-    expect(add(1, 2)).toBe(3);
+import { getBrick } from '../src/index.js';
+test('loops through the id of the bricks', () =>{
+    expect(getBrick.id).toBe(getBrick.id);
 });
-// real unit test to be added.
