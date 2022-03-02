@@ -58,11 +58,13 @@ async function loadFunctions() {
 }
 
 function makeViewDetails(where) {
+  const brick = document.querySelector('.brickable');
   const createBtn = document.createElement('button');
   createBtn.textContent = 'View details';
   createBtn.classList.add('viewMe');
   where.append(createBtn);
   createBtn.addEventListener('click', detailsHandler);
+  brick.addEventListener('click', detailsHandler);
 }
 
 function detailsHandler(event) {
@@ -70,23 +72,4 @@ function detailsHandler(event) {
   window.location = `details.html?brick=${id}`;
 }
 
-const targetB = document.querySelector('#basketToggle');
-const targetBtn = document.querySelector('#btn1');
-targetBtn.addEventListener('click', addToBasket);
-
-function addToBasket(event) {
-  // something similar to details handler.
-  const DivMade = document.createElement('div');
-  DivMade.textContent = 'hello';
-  targetB.body.append(DivMade);
-}
-
 window.addEventListener('load', loadFunctions);
-
-const b1 = document.querySelector('#btn1');
-const t1 = document.querySelector('#basketToggle');
-
-b1.addEventListener("click", (e) =>{
-  const cloned = t1.content.cloneNode(true);
-  document.body.append(cloned);
-});

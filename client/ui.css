@@ -1,12 +1,6 @@
 /* this is for the index.html page. */
-body{
+body {
     color: black
-}
-
-#greeting{
-    position: absolute;
-    left: 25em;
-    top: 0.6em;
 }
 
 #adminBtn{
@@ -27,16 +21,20 @@ body{
     right: 0.6em;
 }
 
-#settingsBar{
+#BasketBar{
+    top: 3em;
+    right: 0;
     position: absolute;
-    right: 1em;
-    /* right: 0em; */
-    /* position: relative; */
+}
+
+#filterParent>#sect1{
+    grid-area: head;
+    background-color: #8ca0ff;
 }
 
 .b-Brick{
     width: 100%;
-    height: 30em;
+    height: 30%;
 }
 
 footer{
@@ -56,13 +54,17 @@ footer{
 
 .legoHolder{
     background-color: rgb(170, 165, 165);
-    padding: 3em;
+    /* padding: 1.5em; */
     border-radius: 0.2em;
     border: black thin solid;
 }
 
 #searchEngine{
     width: 1em;
+}
+
+#sect1{
+    display: flex;
 }
 
 #sect1, section{
@@ -86,15 +88,20 @@ footer{
 }
 
 #main{
+    grid-area: head;
     display: grid;
-    grid-template-columns: repeat(5, 15em);
-    
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: ; */
+    grid-template-areas: "head head head";
+                         /* "master master other" */
+                         /* "another lowermaster lowermaster"; */
+    height: 100vh;
+    width: 100vw;
 }
 
 .navigationGuide{
     background-color: grey;
     text-align: center;
-    
 }
 
 summary{
@@ -111,4 +118,11 @@ summary{
 .viewMe:hover{
     background: red;
     color: white;
+}
+
+.HoldMyItems{
+    float: right;
+    border: thick solid black;
+    border-radius: 1em;
+    
 }

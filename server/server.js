@@ -22,7 +22,7 @@ app.get('/api/brick', (req, res) => {
   res.send(JSON.stringify(db.getBrick(req.query.id)));
 });
 
-app.get('/api/bricks', (req, res) =>{
+app.get('/api/bricks', (req, res) => {
   const bricks = db.getAllBricks();
   res.send(JSON.stringify(bricks));
 });

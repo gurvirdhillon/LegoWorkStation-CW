@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "npm start",
-    "test.only": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test.only": "jest test/index.test.js",
     "start": "node server/server.js"
   },
   "author": "up2016988@myport.ac.uk",

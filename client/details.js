@@ -17,3 +17,30 @@ async function init() {
   price.textContent = `${brickDetails.p}`;
 }
 window.addEventListener('load', init);
+
+// functionality not working down at the bottom
+const grabElem = document.querySelector('.check');
+grabElem.addEventListener('onclick', onlyOne);
+
+function onlyOne(checkbox) {
+  const checkboxes = document.getElementsByName('check');
+  checkboxes.forEach((item) => {
+    if (item !== checkbox) item.checked = false;
+  });
+}
+
+window.addEventListener('load', onlyOne);
+
+// code extracted from https://stackoverflow.com/questions/9709209/html-select-only-one-checkbox-in-a-group
+
+const targetNavGuide = document.querySelector('.navigationGuide');
+
+function makeNavigationMenu(NavMe = 3) {
+  for (let i = 0; i < NavMe; i++) {
+    const navigationButton = document.createElement('nav');
+    navigationButton.textContent = `hello${i}`;
+    targetNavGuide.append(navigationButton);
+  }
+}
+
+window.addEventListener('load', makeNavigationMenu);
