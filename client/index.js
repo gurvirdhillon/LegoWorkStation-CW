@@ -17,7 +17,7 @@ async function initializeAuth0Client() {
     client_id: config.client_id,
   });
 
-  console.log(auth0);
+  // console.log(auth0);
 }
 
 

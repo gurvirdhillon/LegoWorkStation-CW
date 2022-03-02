@@ -24,6 +24,7 @@ body {
 #BasketBar{
     top: 3em;
     right: 0;
+    left: 90vw;
     position: absolute;
 }
 
@@ -40,7 +41,9 @@ body {
 footer{
     background-color: black;
     color: white;
-    text-align: center;
+    /* text-align: center; */
+    grid-area: auto;
+    display: grid;
 }
 
 #filter{
