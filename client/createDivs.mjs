@@ -1,3 +1,5 @@
+import { addProductToCart } from './localStorage.mjs';
+
 function makeDiv(data) {
   const main = document.querySelector('#main');
   for (const row of data) {
@@ -6,9 +8,9 @@ function makeDiv(data) {
     createDiv.id = `${row.id}`;
     main.appendChild(createDiv);
     imagePlacer(createDiv, row);
-    getAddButton(createDiv, row);
     giveName(createDiv, row);
     getPriceAndDescription(createDiv, row);
+    getAddButton(createDiv, row);
     getQuantity(createDiv, row);
     makeViewDetails(createDiv, row);
   }
@@ -23,10 +25,11 @@ function imagePlacer(where, what) {
 }
 
 // this makes the + button
-function getAddButton(where) {
+export function getAddButton(where, row) {
   const getBtn = document.createElement('button');
   getBtn.textContent = 'Add to basket';
   getBtn.classList.add('btnElem');
+  getBtn.addEventListener('click', () => addProductToCart(row.id));
   where.append(getBtn);
 }
 

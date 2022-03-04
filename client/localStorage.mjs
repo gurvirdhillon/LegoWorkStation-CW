@@ -1,20 +1,19 @@
-import {getBrick} from '../server/db-memory.mjs';
-
-const grabContent = document.querySelector('.btnElem');
-grabContent.addEventListener('click', triggerStorageEvent);
-
 // event listener that is triggered when a button is clicked.
 // for loop that checks all the ID's of the legoDivs
 // then stringifys all the children within that ID and keeps it in storage.
 
-function triggerStorageEvent() {
-  localStorage.setItem('getBrick', `${getBrick.id}`);
+export function addProductToCart(id) {
+  const holdMyData = { id };
+  // localStorage.setItem('getBrick', `${getBrick.id}`);
+  // console.log(id);
+  console.log(holdMyData);
 }
 
-console.log(localStorage);
-
 function init() {
-  triggerStorageEvent();
 }
 
 window.addEventListener('load', init);
+
+
+// export the function that will do some storage (handle the click on the button)
+// inside createDivs.mjs import that function and add it as an eventListener when creating the buttons
