@@ -27,7 +27,6 @@ app.get('/api/bricks', (req, res) => {
   res.send(JSON.stringify(bricks));
 });
 
-
 // this will serve the files present in static/ inside this stage
 app.use(express.static(path.join(path.dirname(url.fileURLToPath(import.meta.url)), '../client')));
 

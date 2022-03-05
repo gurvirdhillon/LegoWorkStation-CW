@@ -9,6 +9,7 @@
 <script src="localStorage.mjs" type="module"></script>
 <script type="module" href="auth0.js"></script>
 <link rel="stylesheet" href="ui.css">
+<script src="filterEvents.js" type="module"></script>
 <!-- <link rel="icon" href="data:,"> -->
 <script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js" async defer></script>
 
@@ -27,6 +28,7 @@
           <span class="showItems">
 
           </span>
+          <button id="checkout" disabled="true">Checkout</button>
         </div>
        </details>
        
@@ -52,18 +54,17 @@
 <form>
 <div>Price range:
 <div></div>
-    <input type="checkbox" name="check" onclick="onlyOne(this)">£0 - £10
+    <input type="checkbox" class="checkBox">£0 - £10
 <div></div>
-    <input type="checkbox" name="check" onclick="onlyOne(this)">£11 - £20
+    <input type="checkbox" class="checkBox">£11 - £20
 <div></div>
-    <input type="checkbox" name="check" onclick="onlyOne(this)">£21 - £30
+    <input type="checkbox" class="checkBox">£21 - £30
 <div></div>
-    <input type="checkbox" name="check" onclick="onlyOne(this)">£31 - £40
+    <input type="checkbox" class="checkBox">£31 - £40
 <div></div>
-    <input type="checkbox" name="check" onclick="onlyOne(this)">£41 - £50
+    <input type="checkbox" class="checkBox">£41 - £50
 <div></div>
-    <input type="checkbox" name="check" onclick="onlyOne(this)">£51+
-  
+    <input type="checkbox" class="checkBox">£51+
     
     <details>
         <summary>Filter products</summary>
@@ -95,7 +96,7 @@
 made by up2016988
 </footer>
 
-<script>
+<!-- <script>
   function onlyOne(checkbox) {
     const checkboxes = document.getElementsByName('check');
     checkboxes.forEach((item) => {
@@ -103,9 +104,9 @@ made by up2016988
     });
 }
 
-window.addEventListener('load', onlyOne);
+window.addEventListener('load', onlyOne); -->
 
-// code extracted from https://stackoverflow.com/questions/9709209/html-select-only-one-checkbox-in-a-group
+<!-- code extracted from https://stackoverflow.com/questions/9709209/html-select-only-one-checkbox-in-a-group -->
 
 </script>
 
