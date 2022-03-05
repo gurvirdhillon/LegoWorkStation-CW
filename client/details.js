@@ -20,7 +20,7 @@ window.addEventListener('load', init);
 
 // functionality not working down at the bottom
 const grabElem = document.querySelector('.check');
-grabElem.addEventListener('onclick', onlyOne);
+grabElem.addEventListener('click', onlyOne);
 
 function onlyOne(checkbox) {
   const checkboxes = document.getElementsByName('check');

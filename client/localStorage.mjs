@@ -3,10 +3,12 @@
 // then stringifys all the children within that ID and keeps it in storage.
 
 export function addProductToCart(id) {
-  // const holdMyData = { id: id };
-  // localStorage.setItem('getBrick', `${getBrick.id}`);
-  console.log(id);
-  // console.log(holdMyData.id);
+  const holdArrOfIds = Array(id);
+  console.log(holdArrOfIds);
+  const targetBasket = document.querySelector('.showItems');
+  targetBasket.textContent = holdArrOfIds;
+  holdArrOfIds.appendChild(targetBasket);
+  // console.log(id);
 }
 
 function init() {
