@@ -18,8 +18,7 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.get('/api/brick', (req, res) => {
-  const brick = db.getBrick(req.query.id);
-  brick();
+  // const brick = db.getBrick(req.query.id);
   res.send(JSON.stringify(db.getBrick(req.query.id)));
 });
 

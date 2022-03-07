@@ -2,19 +2,12 @@
 // for loop that checks all the ID's of the legoDivs
 // then stringifys all the children within that ID and keeps it in storage.
 
+
 export function addProductToCart(id) {
-  const holdArrOfIds = Array(id);
-  console.log(holdArrOfIds);
   const targetBasket = document.querySelector('.showItems');
-  if (targetBasket === holdArrOfIds) {
-    const createElem = document.createElement('li');
-    createElem.textContent = holdArrOfIds;
-    createElem.append(targetBasket);
-  }
-  targetBasket.textContent = holdArrOfIds;
-  holdArrOfIds.append(targetBasket);
-  console.log(id);
+  targetBasket.textContent = id;
 }
+
 
 function init() {
 }
