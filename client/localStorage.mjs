@@ -6,9 +6,14 @@ export function addProductToCart(id) {
   const holdArrOfIds = Array(id);
   console.log(holdArrOfIds);
   const targetBasket = document.querySelector('.showItems');
+  if (targetBasket === holdArrOfIds) {
+    const createElem = document.createElement('li');
+    createElem.textContent = holdArrOfIds;
+    createElem.append(targetBasket);
+  }
   targetBasket.textContent = holdArrOfIds;
-  holdArrOfIds.appendChild(targetBasket);
-  // console.log(id);
+  holdArrOfIds.append(targetBasket);
+  console.log(id);
 }
 
 function init() {
