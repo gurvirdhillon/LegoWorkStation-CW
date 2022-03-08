@@ -9,6 +9,16 @@ export function addProductToCart(id) {
 }
 
 
+// attaching music to a button so when checkout is clicked music begins
+
+const playMusic = document.querySelector('#checkout');
+playMusic.addEventListener('click', play);
+
+function play() {
+  const audio = document.querySelector('#audio');
+  audio.play();
+}
+
 function init() {
 }
 
