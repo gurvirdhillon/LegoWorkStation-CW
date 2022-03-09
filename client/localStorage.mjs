@@ -1,7 +1,7 @@
 // for loop that checks all the ID's of the legoDivs
 // then stringifys all the children within that ID and keeps it in storage.
 
-export function addProductToCart(id, next) {
+export function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
   JSON.stringify(id);
   targetBasket.textContent = id;
