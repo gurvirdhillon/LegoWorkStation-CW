@@ -1,10 +1,14 @@
-// event listener that is triggered when a button is clicked.
 // for loop that checks all the ID's of the legoDivs
 // then stringifys all the children within that ID and keeps it in storage.
 
-export function addProductToCart(id) {
+export function addProductToCart(id, next) {
   const targetBasket = document.querySelector('.showItems');
+  JSON.stringify(id);
   targetBasket.textContent = id;
+  if (targetBasket === id) {
+    const createLi = document.createElement('li');
+    createLi.textContent = id.next;
+  }
 }
 
 // export the function that will do some storage (handle the click on the button)
