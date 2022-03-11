@@ -1,15 +1,18 @@
 // for loop that checks all the ID's of the legoDivs
 // then stringifys all the children within that ID and keeps it in storage.
 
-export function addProductToCart(id) {
+const basket = [{ id: 'quantity' }];
+console.log(basket);
+
+export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
-  JSON.stringify(id);
-  targetBasket.textContent = id;
-  if (targetBasket === id) {
-    const createLi = document.createElement('li');
-    createLi.textContent = id.next;
-    createLi.append(targetBasket);
-  }
+  // targetBasket.textContent = id;
+  const response = await fetch(`/api/brick=${id}`);
+  const brick = await response.json();
+  JSON.stringify(brick);
+  const createName = document.createElement('p');
+  createName.textContent = brick.name;
+  createName.append(targetBasket);
 }
 
 // export the function that will do some storage (handle the click on the button)
