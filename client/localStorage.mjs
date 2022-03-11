@@ -9,10 +9,8 @@ export async function addProductToCart(id) {
   // targetBasket.textContent = id;
   const response = await fetch(`/api/brick=${id}`);
   const brick = await response.json();
-  JSON.stringify(brick);
-  const createName = document.createElement('p');
-  createName.textContent = brick.name;
-  createName.append(targetBasket);
+  const content = JSON.stringify(brick);
+  targetBasket.textContent = content;
 }
 
 // export the function that will do some storage (handle the click on the button)
