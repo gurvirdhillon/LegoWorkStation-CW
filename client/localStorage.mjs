@@ -8,6 +8,7 @@ export function addProductToCart(id) {
   if (targetBasket === id) {
     const createLi = document.createElement('li');
     createLi.textContent = id.next;
+    createLi.append(targetBasket);
   }
 }
 

@@ -42,8 +42,8 @@ footer{
     background-color: black;
     color: white;
     /* text-align: center; */
-    grid-area: auto;
-    display: grid;
+    /* grid-area: auto;
+    display: grid; */
 }
 
 #filter{
@@ -97,7 +97,8 @@ footer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     /* grid-template-rows: ; */
-    grid-template-areas: "head head head";
+    grid-template-areas: "head head head"
+                        "footer footer footer";
                          /* "master master other" */
                          /* "another lowermaster lowermaster"; */
     height: 100vh;
