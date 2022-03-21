@@ -16,16 +16,5 @@ async function init() {
   const price = document.querySelector('#price');
   price.textContent = `${brickDetails.p}`;
 }
+
 window.addEventListener('load', init);
-
-// const targetNavGuide = document.querySelector('.navigationGuide');
-
-// function makeNavigationMenu(NavMe = 3) {
-//   for (let i = 0; i < NavMe; i++) {
-//     const navigationButton = document.createElement('nav');
-//     navigationButton.textContent = `hello${i}`;
-//     targetNavGuide.append(navigationButton);
-//   }
-// }
-
-// window.addEventListener('load', makeNavigationMenu);
