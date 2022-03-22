@@ -5,18 +5,27 @@
 </head>
 
 <body>
-<p>Name: </p>
-<input placeholder="" class="">
-<p>Last name: </p>
-<input placeholder="" class="">
-<p>Address: </p>
-<input placeholder="" class="">
-<p>Postcode: </p>
-<input placeholder="" class="" id="" required pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})">
-<p>Contact number: </p>
-<input placeholder="" class="">
-<p>Email: </p>
-<input placeholder="" class="">
-<input type="submit" value="Submit">
+
+<form>
+    <label for="name">Name: </label>
+    <input id="fname" required placeholder="First Name">
+    <label for="lname">Last Name: </label>
+    <input id="" required placeholder="Last Name">
+    <label for="Email Address">Email address</label>
+    <input id="emailAdd" required placeholder="email address please">
+    <label for="contactInfo">Contact Number: </label>
+    <input id="contactNo" required type="tel" placeholder="contact number" pattern="[-+0-9( )]{7,}">
+    <h3>Where to?</h3>
+    <label for="address line 1">Address line 1: </label>
+    <input id="add1" required placeholder="">
+    <label for="address line 2">Address line 2: </label>
+    <input id="add2" required placeholder="">
+    <label for="cityInfo">City: </label>
+    <input id="city" placeholder="city...">
+    <label for="postcode details">Postcode: </label>
+    <input id="postcode" required pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})">
+    <input type="submit" value="Submit">
+</form>
+
 
 </body>
