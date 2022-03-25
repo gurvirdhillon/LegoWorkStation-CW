@@ -8,11 +8,13 @@ export async function addProductToCart(id) {
   const brickImage = document.createElement('img');
   brickImage.classList = 'BrickBasket';
   brickImage.src = `${brick.img}`;
-  brickImage.alt = 'Your Brick ' + brick.name;
+  brickImage.alt = 'Your Brick is ' + brick.name;
   const brickText = document.createElement('p');
   brickText.textContent = `${brick.name}`;
   targetBasket.append(brickText);
   targetBasket.append(brickImage);
+  const storeItems = localStorage.setItem(id, JSON.stringify(brick));
+  storeItems.textContent = JSON.stringify(brick);
 }
 
 // export the function that will do some storage (handle the click on the button)

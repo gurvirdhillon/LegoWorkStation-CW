@@ -7,3 +7,7 @@ export function getBrick(id) {
   }
   return null;
 }
+
+export function addProductToCart() {
+  
+}
