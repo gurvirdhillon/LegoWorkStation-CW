@@ -11,8 +11,11 @@ export async function addProductToCart(id) {
   brickImage.alt = 'Your Brick is ' + brick.name;
   const brickText = document.createElement('p');
   brickText.textContent = `${brick.name}`;
+  const price = document.createElement('p');
+  price.textContent = `${brick.price}`;
   targetBasket.append(brickText);
   targetBasket.append(brickImage);
+  targetBasket.append(price);
   const storeItems = localStorage.setItem(id, JSON.stringify(brick));
   storeItems.textContent = JSON.stringify(brick);
 }
