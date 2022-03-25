@@ -97,10 +97,7 @@ footer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     /* grid-template-rows: ; */
-    grid-template-areas: "head head head"
-                        "footer footer footer";
-                         /* "master master other" */
-                         /* "another lowermaster lowermaster"; */
+    grid-template-areas: "head head head";
     height: 100vh;
     width: 100vw;
 }
@@ -130,5 +127,10 @@ summary{
     float: right;
     border: thick solid black;
     border-radius: 1em;
-    
+    background-color: grey;
+    padding: 2em;
+}
+
+.BrickBasket{
+    width: 100%;
 }
