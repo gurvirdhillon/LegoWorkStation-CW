@@ -12,7 +12,7 @@ export async function addProductToCart(id) {
   const brickText = document.createElement('p');
   brickText.textContent = `${brick.name}`;
   const price = document.createElement('p');
-  price.textContent = `${brick.price}`;
+  price.textContent = `${brick.p}`;
   targetBasket.append(brickText);
   targetBasket.append(brickImage);
   targetBasket.append(price);
