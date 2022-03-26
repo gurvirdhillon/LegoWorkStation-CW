@@ -13,11 +13,21 @@ export async function addProductToCart(id) {
   brickText.textContent = `${brick.name}`;
   const price = document.createElement('p');
   price.textContent = `${brick.p}`;
+  const removeBtn = document.createElement('button');
+  removeBtn.textContent = 'Remove item';
+  removeBtn.classList = 'removeBtn';
+  removeBtn.addEventListener('click', () => {
+    targetBasket.removeChild(brickImage);
+    targetBasket.removeChild(brickText);
+    targetBasket.removeChild(price);
+    targetBasket.removeChild(removeBtn);
+  });
   targetBasket.append(brickText);
   targetBasket.append(brickImage);
   targetBasket.append(price);
-  const storeItems = localStorage.setItem(id, JSON.stringify(brick));
-  storeItems.textContent = JSON.stringify(brick);
+  targetBasket.append(removeBtn);
+  localStorage.setItem(id, JSON.stringify(brick));
+  console.log(localStorage);
 }
 
 // export the function that will do some storage (handle the click on the button)

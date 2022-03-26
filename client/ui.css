@@ -127,10 +127,15 @@ summary{
     float: right;
     border: thick solid black;
     border-radius: 1em;
-    background-color: grey;
+    background-color: white;
     padding: 2em;
 }
 
 .BrickBasket{
     width: 100%;
+}
+
+.showItems{
+    padding: 4em;
+    background-color: grey;
 }
