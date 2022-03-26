@@ -27,7 +27,8 @@
     <label for="postcode details">Postcode: </label>
     <input id="postcode" required pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})" placeholder="LLN NLL">
     <p>Card Details</p>
-    <input id="ccn" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
+    <input id="cardValidator" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
+    <input id="cvv" type="tel" inputmode="numeric" pattern="[0-9]{3}" autocomplete="cc-csc" maxlength="3" placeholder="xxx">
     <a href="confirmation.html"><input type="submit" value="Submit"></a>
 </form>
 
