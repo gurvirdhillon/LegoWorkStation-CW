@@ -13,6 +13,7 @@ export async function addProductToCart(id) {
   brickText.textContent = `${brick.name}`;
   const price = document.createElement('p');
   price.textContent = `${brick.p}`;
+  price.classList = 'price';
   const removeBtn = document.createElement('button');
   removeBtn.textContent = 'Remove item';
   removeBtn.classList = 'removeBtn';
@@ -35,8 +36,25 @@ export async function addProductToCart(id) {
     return targetBasket;
   }
   localStorage.setItem(id, JSON.stringify(brick));
-  console.log(localStorage);
+  console.log({ localStorage });
+  countBtnClick();
+  addPrices();
 }
+
+function countBtnClick() {
+  document.querySelector('.btnElem').addEventListener('click', () => {
+    const count = document.querySelector('#quantity');
+    count.textContent = parseInt(count.textContent) + 1;
+  });
+}
+
+function addPrices() {
+  const price = document.querySelector('.price');
+  const totalDisplay = document.querySelector('#totalOut');
+  price.textContent = totalDisplay;
+  price.append(totalDisplay);
+}
+
 
 // export the function that will do some storage (handle the click on the button)
 // inside createDivs.mjs import that function and add it as an eventListener when creating the buttons
