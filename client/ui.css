@@ -123,6 +123,10 @@ summary{
     color: white;
 }
 
+.btnElem{
+    background-color: #8ca0ff;
+}
+
 .HoldMyItems{
     float: right;
     border: thick solid black;
