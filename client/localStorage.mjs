@@ -9,15 +9,23 @@ export async function addProductToCart(id) {
   brickImage.classList = 'BrickBasket';
   brickImage.src = `${brick.img}`;
   brickImage.alt = 'Your Brick is ' + brick.name;
+  localStorage.getItem(`${brickImage}`);
   const brickText = document.createElement('p');
   brickText.textContent = `${brick.name}`;
+  // localStorage.setItem(`${brickText}`);
   const price = document.createElement('p');
   price.textContent = `${brick.p}`;
   price.classList = 'price';
+  // localStorage.setItem(`${price}`);
   const removeBtn = document.createElement('button');
   removeBtn.textContent = 'Remove item';
   removeBtn.classList = 'removeBtn';
   removeBtn.addEventListener('click', () => {
+    localStorage.removeItem(`${brick.id}`);
+    localStorage.removeItem(`${brick.name}`);
+    localStorage.removeItem(`${brick.p}`);
+    localStorage.removeItem(`${brick.img}`);
+
     targetBasket.removeChild(brickImage);
     targetBasket.removeChild(brickText);
     targetBasket.removeChild(price);
@@ -45,8 +53,8 @@ export async function addProductToCart(id) {
   } else {
     return targetBasket;
   }
-  localStorage.setItem(id, JSON.stringify(brick));
-  console.log({ localStorage });
+  // localStorage.setItem(id, JSON.stringify(brick));
+  // console.log({ localStorage });
   countBtnClick();
   addPrices();
 }
