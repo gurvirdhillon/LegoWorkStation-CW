@@ -1,6 +1,7 @@
 // for loop that checks all the ID's of the legoDivs
 // then stringifys all the children within that ID and keeps it in storage.
 
+window.jacekAdd = addProductToCart;
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
   const response = await fetch(`/api/brick?id=${id}`);
@@ -9,7 +10,7 @@ export async function addProductToCart(id) {
   brickImage.classList = 'BrickBasket';
   brickImage.src = `${brick.img}`;
   brickImage.alt = 'Your Brick is ' + brick.name;
-  localStorage.getItem(`${brickImage}`);
+  // localStorage.setItem(`${brickImage}`);
   const brickText = document.createElement('p');
   brickText.textContent = `${brick.name}`;
   // localStorage.setItem(`${brickText}`);
@@ -35,16 +36,17 @@ export async function addProductToCart(id) {
   targetBasket.append(brickImage);
   targetBasket.append(price);
   targetBasket.append(removeBtn);
-  for (const elem of bricks) {
-    const parentBrick = document.createElement('div');
-    parentBrick.textContent = 'hello';
-    parentBrick.classList.add('parentItem');
-    parentBrick.id = `${elem.id}`;
-    targetBasket.appendChild(parentBrick);
-    brickImage(parentBrick, elem);
-    brickText(parentBrick, elem);
-    price(parentBrick, elem);
-  }
+  // for (const elem of bricks) {
+  //   const parentBrick = document.createElement('div');
+  //   parentBrick.textContent = 'hello';
+  //   parentBrick.classList.add('parentItem');
+  //   parentBrick.id = `${elem.id}`;
+  //   targetBasket.appendChild(parentBrick);
+  //   brickImage(parentBrick, elem);
+  //   brickText(parentBrick, elem);
+  //   price(parentBrick, elem);
+  // }
+
   const showItems = document.querySelector('.showItems');
   if (showItems.children === 0) {
     const informUser = showItems.textContent = 'Your basket is empty';
@@ -57,6 +59,20 @@ export async function addProductToCart(id) {
   // console.log({ localStorage });
   countBtnClick();
   addPrices();
+  shoppingBasket(id);
+}
+
+// create a function that, given an array of IDs, cleans the shopping basket part of the page and fills it with the products specified in the array
+// when I click the button "add to basket", you add the ID to the array, and call the above function
+// the array wants to be a global variable somewhere
+
+function shoppingBasket(id) {
+  const clearItem = document.querySelector('.showItems');
+  clearItem.textContent = '';
+  const clickBasket = document.querySelector('.btnElem');
+  clickBasket.addEventListener('click', () => {
+    localStorage.setItem(id);
+  });
 }
 
 function countBtnClick() {
