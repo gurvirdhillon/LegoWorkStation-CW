@@ -27,6 +27,16 @@ export async function addProductToCart(id) {
   targetBasket.append(brickImage);
   targetBasket.append(price);
   targetBasket.append(removeBtn);
+  for (const elem of bricks) {
+    const parentBrick = document.createElement('div');
+    parentBrick.textContent = 'hello';
+    parentBrick.classList.add('parentItem');
+    parentBrick.id = `${elem.id}`;
+    targetBasket.appendChild(parentBrick);
+    brickImage(parentBrick, elem);
+    brickText(parentBrick, elem);
+    price(parentBrick, elem);
+  }
   const showItems = document.querySelector('.showItems');
   if (showItems.children === 0) {
     const informUser = showItems.textContent = 'Your basket is empty';
