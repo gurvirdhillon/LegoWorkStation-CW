@@ -23,9 +23,6 @@ export async function addProductToCart(id) {
   removeBtn.classList = 'removeBtn';
   removeBtn.addEventListener('click', () => {
     localStorage.removeItem(`${brick.id}`);
-    localStorage.removeItem(`${brick.name}`);
-    localStorage.removeItem(`${brick.p}`);
-    localStorage.removeItem(`${brick.img}`);
 
     targetBasket.removeChild(brickImage);
     targetBasket.removeChild(brickText);
@@ -62,14 +59,14 @@ export async function addProductToCart(id) {
   shoppingBasket(id);
 }
 
-// create a function that, given an array of IDs, cleans the shopping basket part of the page and fills it with the products specified in the array
+// create a function that, given an array of IDs, clean's the shopping basket part of the page and fills it with the products specified in the array
 // when I click the button "add to basket", you add the ID to the array, and call the above function
 // the array wants to be a global variable somewhere
 
 function shoppingBasket(id) {
-  const clearItem = document.querySelector('.showItems');
+  const clearItem = document.querySelectorAll('.showItems');
   clearItem.textContent = '';
-  const clickBasket = document.querySelector('.btnElem');
+  const clickBasket = document.querySelector('.btnElem', id);
   clickBasket.addEventListener('click', () => {
     localStorage.setItem(id);
   });
