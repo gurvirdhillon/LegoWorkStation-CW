@@ -2,8 +2,27 @@
 // then stringifys all the children within that ID and keeps it in storage.
 
 window.jacekAdd = addProductToCart;
+
+
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
+  const addProd = document.querySelectorAll('.btnElem');
+  for (let i = 0; i < addProd.length; i++) {
+    addProd[i].addEventListener('click', () => {
+      let prodNo = localStorage.getItem('addProductToCart');
+      prodNo = parseInt(prodNo);
+      if (prodNo) {
+        localStorage.setItem(`Lego${id}`, id + 1);
+        document.querySelector('#quantity').textContent = prodNo + 1;
+      } else {
+        localStorage.setItem('addProductToCart', 1);
+        document.querySelector('#quantity').textContent = prodNo + 1;
+      }
+      console.log(typeof prodNo);
+      // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5. 
+      // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
+    });
+  }
   const response = await fetch(`/api/brick?id=${id}`);
   const brick = await response.json();
   const brickImage = document.createElement('img');
@@ -44,6 +63,11 @@ export async function addProductToCart(id) {
   //   price(parentBrick, elem);
   // }
 
+  function loadNumbersInCart() {
+    
+  }
+
+
   const showItems = document.querySelector('.showItems');
   if (showItems.children === 0) {
     const informUser = showItems.textContent = 'Your basket is empty';
@@ -58,6 +82,7 @@ export async function addProductToCart(id) {
   addPrices();
   shoppingBasket(id);
 }
+
 
 // create a function that, given an array of IDs, clean's the shopping basket part of the page and fills it with the products specified in the array
 // when I click the button "add to basket", you add the ID to the array, and call the above function
@@ -85,7 +110,6 @@ function addPrices() {
   price.textContent = totalDisplay;
   price.append(totalDisplay);
 }
-
 
 // export the function that will do some storage (handle the click on the button)
 // inside createDivs.mjs import that function and add it as an eventListener when creating the buttons
