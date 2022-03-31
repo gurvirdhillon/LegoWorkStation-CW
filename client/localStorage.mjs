@@ -74,11 +74,6 @@ function play() {
   audio.play();
 }
 
-function init() {
-}
-
-window.addEventListener('load', init);
-
 /* code extracted from:
  Karahanidi, A., & Elton, D. (2021). Javascript Audio Play on click.
  Retrieved from https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
