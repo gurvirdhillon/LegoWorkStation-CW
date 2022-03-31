@@ -19,7 +19,7 @@ export async function addProductToCart(id) {
         document.querySelector('#quantity').textContent = prodNo + 1;
       }
       console.log(typeof prodNo);
-      // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5. 
+      // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
       // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
     });
   }
@@ -52,21 +52,6 @@ export async function addProductToCart(id) {
   targetBasket.append(brickImage);
   targetBasket.append(price);
   targetBasket.append(removeBtn);
-  // for (const elem of bricks) {
-  //   const parentBrick = document.createElement('div');
-  //   parentBrick.textContent = 'hello';
-  //   parentBrick.classList.add('parentItem');
-  //   parentBrick.id = `${elem.id}`;
-  //   targetBasket.appendChild(parentBrick);
-  //   brickImage(parentBrick, elem);
-  //   brickText(parentBrick, elem);
-  //   price(parentBrick, elem);
-  // }
-
-  function loadNumbersInCart() {
-    
-  }
-
 
   const showItems = document.querySelector('.showItems');
   if (showItems.children === 0) {
@@ -78,7 +63,6 @@ export async function addProductToCart(id) {
   }
   // localStorage.setItem(id, JSON.stringify(brick));
   // console.log({ localStorage });
-  countBtnClick();
   addPrices();
   shoppingBasket(id);
 }
@@ -94,13 +78,6 @@ function shoppingBasket(id) {
   const clickBasket = document.querySelector('.btnElem', id);
   clickBasket.addEventListener('click', () => {
     localStorage.setItem(id);
-  });
-}
-
-function countBtnClick() {
-  document.querySelector('.btnElem').addEventListener('click', () => {
-    const count = document.querySelector('#quantity');
-    count.textContent = parseInt(count.textContent) + 1;
   });
 }
 
