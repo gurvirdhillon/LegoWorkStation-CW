@@ -15,6 +15,10 @@ const bricks = [
   { id: 'brk14', name: 'The ultimate minecraft set', colour: 'All', x: 1, y: 1, img: 'img/treehouse.jpeg', p: '£25', quantity: '5', type: 'brick' },
   { id: 'brk15', name: 'The victors colloseum', colour: 'All', x: 1, y: 1, img: 'img/colloseum.jpg', p: '£400', quantity: '2', type: 'brick' },
 ];
+// save price as pence.
+// use the backtick and £ sign when implementing into a db
+// price / 100 = get price
+// store whatever you have in here in a database
 
 // brick images extracted from https://rebrickable.com/
 // brick images extracted from https://www.lego.com/en-gb

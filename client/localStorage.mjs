@@ -4,21 +4,20 @@
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
   const addProd = document.querySelectorAll('.btnElem');
-  for (let i = 0; i < addProd.length; i++) {
-    addProd[i].addEventListener('click', () => {
-      let prodNo = localStorage.getItem(`${id}`);
-      prodNo = parseInt(prodNo);
-      if (prodNo) {
-        localStorage.setItem(`${id}`, i + 1);
-        document.querySelector('#quantity').textContent = prodNo + 1;
-      } else {
-        localStorage.setItem(`${id}`, 1);
-        document.querySelector('#quantity').textContent = prodNo + i;
-      }
-      // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
-      // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
-    });
+  console.log(addProd);
+  let prodNo = localStorage.getItem(id);
+  prodNo = parseInt(prodNo);
+  console.log({ id, prodNo });
+  if (prodNo) {
+    localStorage.setItem(id, 1 + prodNo);
+    document.querySelector('#quantity').textContent = prodNo + 1;
+  } else {
+    localStorage.setItem(`${id}`, 1);
+    document.querySelector('#quantity').textContent = prodNo + 1;
   }
+  // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
+  // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
+
   const response = await fetch(`/api/brick?id=${id}`);
   const brick = await response.json();
   const brickImage = document.createElement('img');
@@ -34,7 +33,7 @@ export async function addProductToCart(id) {
   removeBtn.textContent = 'Remove item';
   removeBtn.classList = `removeBtn=${id}`;
   removeBtn.addEventListener('click', () => {
-    localStorage.removeItem(`${id}`);
+    localStorage.removeItem(id);
     targetBasket.removeChild(brickImage);
     targetBasket.removeChild(brickText);
     targetBasket.removeChild(price);
@@ -56,7 +55,7 @@ export async function addProductToCart(id) {
 }
 
 function clearItems() {
-  
+
 }
 
 window.addEventListener('load', clearItems);
