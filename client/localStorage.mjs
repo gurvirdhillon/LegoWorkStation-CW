@@ -6,14 +6,14 @@ export async function addProductToCart(id) {
   const addProd = document.querySelectorAll('.btnElem');
   for (let i = 0; i < addProd.length; i++) {
     addProd[i].addEventListener('click', () => {
-      let prodNo = localStorage.getItem('addProductToCart');
+      let prodNo = localStorage.getItem(`${id}`);
       prodNo = parseInt(prodNo);
       if (prodNo) {
         localStorage.setItem(`Lego${id}`, `${id}` + 1);
         document.querySelector('#quantity').textContent = prodNo + 1;
       } else {
-        localStorage.setItem('addProductToCart', 1);
-        document.querySelector('#quantity').textContent = prodNo + 1;
+        localStorage.setItem(`${id}`, 1);
+        document.querySelector('#quantity').textContent = prodNo + i;
       }
       console.log(typeof prodNo);
       // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
@@ -33,8 +33,9 @@ export async function addProductToCart(id) {
   price.classList = 'price';
   const removeBtn = document.createElement('button');
   removeBtn.textContent = 'Remove item';
-  removeBtn.classList = 'removeBtn';
+  removeBtn.classList = `removeBtn=${id}`;
   removeBtn.addEventListener('click', () => {
+    localStorage.removeItem(`${id}`);
     targetBasket.removeChild(brickImage);
     targetBasket.removeChild(brickText);
     targetBasket.removeChild(price);
@@ -54,7 +55,6 @@ export async function addProductToCart(id) {
     return targetBasket;
   }
 }
-
 
 // create a function that, given an array of IDs, clean's the shopping basket part of the page and fills it with the products specified in the array
 // when I click the button "add to basket", you add the ID to the array, and call the above function
