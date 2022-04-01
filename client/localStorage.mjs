@@ -9,13 +9,12 @@ export async function addProductToCart(id) {
       let prodNo = localStorage.getItem(`${id}`);
       prodNo = parseInt(prodNo);
       if (prodNo) {
-        localStorage.setItem(`Lego${id}`, `${id}` + 1);
+        localStorage.setItem(`${id}`, i + 1);
         document.querySelector('#quantity').textContent = prodNo + 1;
       } else {
         localStorage.setItem(`${id}`, 1);
         document.querySelector('#quantity').textContent = prodNo + i;
       }
-      console.log(typeof prodNo);
       // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
       // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
     });
@@ -56,6 +55,12 @@ export async function addProductToCart(id) {
   }
 }
 
+function clearItems() {
+  
+}
+
+window.addEventListener('load', clearItems);
+
 // create a function that, given an array of IDs, clean's the shopping basket part of the page and fills it with the products specified in the array
 // when I click the button "add to basket", you add the ID to the array, and call the above function
 // the array wants to be a global variable somewhere
@@ -66,15 +71,16 @@ export async function addProductToCart(id) {
 
 // attaching music to a button so when checkout is clicked music begins
 
-const playMusic = document.querySelector('#checkout');
-playMusic.addEventListener('click', play);
+// const playMusic = document.querySelector('#checkout');
+// playMusic.addEventListener('click', play);
 
-function play() {
-  const audio = document.querySelector('#audio');
-  audio.play();
-}
+// function play() {
+//   const audio = document.querySelector('#audio');
+//   audio.play();
+// }
 
 /* code extracted from:
- Karahanidi, A., & Elton, D. (2021). Javascript Audio Play on click.
- Retrieved from https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
- edited according to own requirements */
+Karahanidi, A., & Elton, D. (2021). Javascript Audio Play on click.
+Retrieved from https://stackoverflow.com/questions/18826147/javascript-audio-play-on-click
+edited according to own requirements
+*/

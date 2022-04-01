@@ -26,5 +26,6 @@ function countPages(pageCount = 3) {
   }
 }
 
+
 window.addEventListener('load', init);
 window.addEventListener('load', countPages);
