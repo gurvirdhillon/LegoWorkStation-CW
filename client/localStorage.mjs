@@ -10,7 +10,7 @@ export async function addProductToCart(id) {
     document.querySelector('#quantity').textContent = prodNo + 1;
   } else {
     localStorage.setItem(`${id}`, 1);
-    document.querySelector('#quantity').textContent = prodNo + 1;
+    
   }
   // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
   // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
