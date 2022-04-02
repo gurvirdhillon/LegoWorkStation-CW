@@ -46,7 +46,6 @@ clearBasket.addEventListener('click', clearItems);
 
 function clearItems() {
   const targetRemoveArea = document.querySelector('.showItems');
-  const targetRmv = document.querySelector('.removeBtn');
   targetRemoveArea.textContent = '';
   localStorage.clear();
 }
