@@ -36,6 +36,9 @@ export async function addProductToCart(id) {
     targetBasket.removeChild(brickText);
     targetBasket.removeChild(price);
     targetBasket.removeChild(removeBtn);
+    if (removeBtn === 'clicked') {
+      document.querySelector('#quantity').textContent = prodNo - 1;
+    }
   });
   targetBasket.append(brickText);
   targetBasket.append(brickImage);
