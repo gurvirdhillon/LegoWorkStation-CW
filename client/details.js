@@ -17,15 +17,4 @@ async function init() {
   price.textContent = `${brickDetails.p}`;
 }
 
-function countPages(pageCount = 3) {
-  const targetParent = document.querySelector('.navigationGuide');
-  for (let i = 0; i < pageCount; i++) {
-    const pageMkr = document.createElement('button');
-    pageMkr.textContent = `${i}`;
-    pageMkr.appendChild(targetParent);
-  }
-}
-
-
 window.addEventListener('load', init);
-window.addEventListener('load', countPages);

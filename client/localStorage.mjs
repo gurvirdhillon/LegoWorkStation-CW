@@ -2,6 +2,10 @@
 // then stringifys all the children within that ID and keeps it in storage.
 // import sqlite from 'sqlite';
 // import uuid from 'uuid';
+export function testing() {
+  console.log('It works!');
+}
+
 
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
