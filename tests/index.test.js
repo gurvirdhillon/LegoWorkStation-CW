@@ -4,7 +4,6 @@ test('loops through the id of the bricks', () =>{
 });
 
 
-
 // import { addProductToCart } from '../client/localStorage.mjs';
 // test('adds a brick to the cart', () =>{
 //     expect(addProductToCart.id).toBe(addProductToCart.id);

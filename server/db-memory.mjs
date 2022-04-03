@@ -35,9 +35,3 @@ export function getBrick(id) {
   }
   return null;
 }
-
-// const db2 = [
-//   { id: 'brk16', name: 'blue 2 by 2 brick', colour: 'blue', x: 2, y: 2, img: 'https://static.turbosquid.com/Preview/2019/05/23__08_00_58/Lego_Brick_2x2_Dark_Azur_thumbnail_Square_0000.jpgADD1F740-B5A1-4226-9FEE-6E6F7DCA2FE6Large.jpg', p: '£', quantity: '40' },
-//   { id: 'brk17', name: 'cabinet brick', colour: 'blue', x: 2, y: 2, img: 'https://www.lego.com/cdn/cs/set/assets/blt1b165be7adfb300f/5005403_alt2.jpg', p: '£0.50', quantity: '40' },
-//   { id: 'brk18', name: '', colour: '', x: 2, y: 2, img: '', p: '£', quantity: '' },
-// ];
