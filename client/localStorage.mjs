@@ -1,5 +1,7 @@
 // for loop that checks all the ID's of the legoDivs
 // then stringifys all the children within that ID and keeps it in storage.
+// import sqlite from 'sqlite';
+// import uuid from 'uuid';
 
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
@@ -59,3 +61,15 @@ function onLoadCartNumbers(id) {
 }
 
 window.addEventListener('click', onLoadCartNumbers);
+
+async function init() {
+  const db = await sqlite.open('mydb.sqlite', { verbose: true });
+  await db.migrate({ migrationsPath: './migrations.sqlite' });
+}
+
+const dbConnect = init();
+
+export async function getLegoBricks() {
+  const db = await dbConnect();
+  return db.all('SELECT * FROM legos ORDER BY id DESC LIMIT 10');
+}
