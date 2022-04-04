@@ -2,10 +2,6 @@
 // then stringifys all the children within that ID and keeps it in storage.
 // import sqlite from 'sqlite';
 // import uuid from 'uuid';
-export function testing() {
-  console.log('It works!');
-}
-
 
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
@@ -16,7 +12,7 @@ export async function addProductToCart(id) {
     document.querySelector('#quantity').textContent = prodNo + 1;
   } else {
     localStorage.setItem(id, 1);
-    document.querySelector('#quantity').textContent += 1;
+    document.querySelector('#quantity').textContent = 1;
   }
   // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
   // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
@@ -44,7 +40,7 @@ export async function addProductToCart(id) {
   targetBasket.append(brickText);
   targetBasket.append(brickImage);
   targetBasket.append(price);
-  targetBasket.append(removeBtn);
+  // targetBasket.append(removeBtn);
 }
 const clearBasket = document.querySelector('.clearMe');
 clearBasket.addEventListener('click', clearItems);
