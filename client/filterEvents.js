@@ -19,7 +19,6 @@ const bricks = [
 const grabSet = document.querySelector('#set');
 grabSet.addEventListener('click', handleSets);
 
-const grabBrick = document.querySelector('#OverallBrk');
 const targetMain = document.querySelector('#main');
 
 function filterDivs() {
@@ -34,6 +33,12 @@ function handleSets() {
 }
 
 // filter by brick
+const grabBrick = document.querySelector('#OverallBrk');
+grabBrick.addEventListener('click', handleByBrick);
+
+function handleByBrick() {
+
+}
 
 
 // filter by colour
@@ -43,7 +48,21 @@ handleElem.addEventListener('click', handleColour);
 
 function handleColour() {
   const grabColour = document.querySelector('#colourFilter');
-  const targetMain = document.querySelector('#main');
   targetMain.classList.add('activateColour');
   targetMain.textContent = grabColour.value;
+  if (grabColour.value === 'red') {
+    targetMain.textContent = bricks.find(bricks => bricks.colour === 'red');
+  } else if (grabColour.value === 'blue') {
+    targetMain.textContent = bricks.find(bricks => bricks.colour === 'blue');
+  } else if (grabColour.value === 'yellow') {
+    targetMain.textContent = bricks.find(bricks => bricks.colour === 'yellow');
+  } else if (grabColour.value === 'green') {
+    targetMain.textContent = bricks.find(bricks => bricks.colour === 'green');
+  } else if (grabColour.value === 'All colours') {
+    targetMain.textContent = bricks.find(bricks => bricks.colour === 'All Colours');
+  } else if (grabColour.value === 'orange') {
+    targetMain.textContent = bricks.find(bricks => bricks.colour === 'orange');
+  } else if (grabColour.value === 'pink') {
+    targetMain.textContent = bricks.find(bricks => bricks.colour === 'pink');
+  }
 }
