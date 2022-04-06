@@ -5,7 +5,7 @@
 
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
-  let prodNo = localStorage.getItem(id);
+  let prodNo = localStorage.getItem(id, quantity);
   prodNo = parseInt(prodNo);
   if (prodNo) {
     // if the item is already in the cart, increment the quantity
@@ -38,6 +38,7 @@ export async function addProductToCart(id) {
     targetBasket.removeChild(price);
     targetBasket.removeChild(removeBtn);
   });
+  localStorage.getItem(targetBasket);
   targetBasket.append(brickText);
   targetBasket.append(brickImage);
   targetBasket.append(price);

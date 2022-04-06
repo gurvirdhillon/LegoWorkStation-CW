@@ -49,20 +49,50 @@ handleElem.addEventListener('click', handleColour);
 function handleColour() {
   const grabColour = document.querySelector('#colourFilter');
   targetMain.classList.add('activateColour');
-  targetMain.textContent = grabColour.value;
+  // targetMain.textContent = grabColour.value;
   if (grabColour.value === 'red') {
-    targetMain.textContent = bricks.find(bricks => bricks.colour === 'red');
+    const createImage = document.createElement('img');
+    createImage.src = bricks.find(bricks => bricks.colour === 'red').img;
+    createImage.alt = `red brick with the id of ${bricks.id}`;
+    createImage.classList.add('brickable');
+    targetMain.appendChild(createImage);
+    const writeName = document.createElement('p');
+    writeName.textContent = bricks.find(bricks => bricks.colour === 'red').name;
+    targetMain.appendChild(writeName);
   } else if (grabColour.value === 'blue') {
-    targetMain.textContent = bricks.find(bricks => bricks.colour === 'blue');
+    const createImage = document.createElement('img');
+    createImage.src = bricks.find(bricks => bricks.colour === 'blue').img;
+    createImage.alt = `blue brick with the id of ${bricks.id}`;
+    createImage.classList.add('brickable');
+    targetMain.appendChild(createImage);
+    const writeName = document.createElement('p');
+    writeName.textContent = bricks.find(bricks => bricks.colour === 'blue').name;
+    targetMain.appendChild(writeName);
   } else if (grabColour.value === 'yellow') {
-    targetMain.textContent = bricks.find(bricks => bricks.colour === 'yellow');
+    const yellowBrickImg = document.createElement('img');
+    yellowBrickImg.src = bricks.find(bricks => bricks.colour === 'yellow').img;
+    yellowBrickImg.alt = `yellow brick with the id of ${bricks.id}`;
+    yellowBrickImg.classList.add('brickable');
+    targetMain.appendChild(yellowBrickImg);
+    const writeName = document.createElement('p');
+    writeName.textContent = bricks.find(bricks => bricks.colour === 'yellow').name;
+    targetMain.appendChild(writeName);
   } else if (grabColour.value === 'green') {
-    targetMain.textContent = bricks.find(bricks => bricks.colour === 'green');
+    const greenBrickImg = document.createElement('img');
+    greenBrickImg.src = bricks.find(bricks => bricks.colour === 'green').img;
+    greenBrickImg.alt = `green brick with the id of ${bricks.id}`;
+    greenBrickImg.classList.add('brickable');
+    targetMain.appendChild(greenBrickImg);
+    const writeName = document.createElement('p');
+    writeName.textContent = bricks.find(bricks => bricks.colour === 'green').name;
+    targetMain.appendChild(writeName);
   } else if (grabColour.value === 'All colours') {
     targetMain.textContent = bricks.find(bricks => bricks.colour === 'All Colours');
   } else if (grabColour.value === 'orange') {
     targetMain.textContent = bricks.find(bricks => bricks.colour === 'orange');
   } else if (grabColour.value === 'pink') {
     targetMain.textContent = bricks.find(bricks => bricks.colour === 'pink');
+  } else if (grabColour.value === 'All Colour') {
+    targetMain.textContent = targetMain;
   }
 }
