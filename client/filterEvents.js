@@ -32,3 +32,18 @@ function handleSets() {
   targetMain.classList.add('activateSet');
   targetMain.textContent = filterDivs(bricks);
 }
+
+// filter by brick
+
+
+// filter by colour
+
+const handleElem = document.querySelector('#colourFilter');
+handleElem.addEventListener('click', handleColour);
+
+function handleColour() {
+  const grabColour = document.querySelector('#colourFilter');
+  const targetMain = document.querySelector('#main');
+  targetMain.classList.add('activateColour');
+  targetMain.textContent = grabColour.value;
+}

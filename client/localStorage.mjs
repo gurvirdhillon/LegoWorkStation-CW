@@ -8,6 +8,7 @@ export async function addProductToCart(id) {
   let prodNo = localStorage.getItem(id);
   prodNo = parseInt(prodNo);
   if (prodNo) {
+    // if the item is already in the cart, increment the quantity
     localStorage.setItem(id, 1 + prodNo);
     document.querySelector('#quantity').textContent = prodNo + 1;
   } else {
