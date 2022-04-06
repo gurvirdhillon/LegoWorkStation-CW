@@ -65,8 +65,8 @@ function onLoadCartNumbers(id) {
 window.addEventListener('click', onLoadCartNumbers);
 
 async function init() {
-  const db = await sqlite.open('mydb.sqlite', { verbose: true });
-  await db.migrate({ migrationsPath: './migrations.sqlite' });
+  // const db = await sqlite.open('mydb.sqlite', { verbose: true });
+  // await db.migrate({ migrationsPath: './migrations.sqlite' });
 }
 
 const dbConnect = init();

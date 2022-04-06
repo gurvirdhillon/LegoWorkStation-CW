@@ -29,7 +29,7 @@ console.log(bricks.find(filterDivs));
 
 function handleSets() {
   targetMain.classList.add('activateSet');
-  targetMain.textContent = filterDivs(bricks);
+  // targetMain.textContent = filterDivs(bricks);
 }
 
 // filter by brick
@@ -37,7 +37,16 @@ const grabBrick = document.querySelector('#OverallBrk');
 grabBrick.addEventListener('click', handleByBrick);
 
 function handleByBrick() {
-
+  targetMain.classList.add('activateBrick');
+  targetMain.textContent = bricks.find(bricks => bricks.type === 'brick');
+  const createImageElem = document.createElement('img');
+  createImageElem.src = `${bricks.img}`;
+  createImageElem.alt = `brick for sale with the id of ${bricks.id}`;
+  targetMain.appendChild(createImageElem);
+  const name = document.createElement('p');
+  name.textContent = `${bricks.name}`;
+  targetMain.appendChild(name);
+  console.log(name);
 }
 
 
@@ -94,5 +103,7 @@ function handleColour() {
     targetMain.textContent = bricks.find(bricks => bricks.colour === 'pink');
   } else if (grabColour.value === 'All Colour') {
     targetMain.textContent = targetMain;
+  } if (grabColour === 'clicked') {
+    return '';
   }
 }
