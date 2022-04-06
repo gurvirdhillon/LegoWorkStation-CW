@@ -40,7 +40,7 @@ export async function addProductToCart(id) {
   targetBasket.append(brickText);
   targetBasket.append(brickImage);
   targetBasket.append(price);
-  // targetBasket.append(removeBtn);
+  targetBasket.append(removeBtn);
 }
 const clearBasket = document.querySelector('.clearMe');
 clearBasket.addEventListener('click', clearItems);

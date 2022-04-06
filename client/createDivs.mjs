@@ -52,11 +52,9 @@ function giveName(where, what) {
   where.append(createName);
 }
 
-async function loadFunctions() {
+export async function loadFunctions() {
   const response = await fetch('/api/bricks');
   const db = await response.json();
-  // console.log(data);
-  // const db = JSON.parse(data);
   makeDiv(db);
 }
 
