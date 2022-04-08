@@ -76,15 +76,20 @@ function handleColour() {
       }
     }
   } else if (grabColour.value === 'blue') {
-    targetMain.textContent = '';
-    const createImage = document.createElement('img');
-    createImage.src = bricks.find(bricks => bricks.colour === 'blue').img;
-    createImage.alt = `blue brick with the id of ${bricks.id}`;
-    createImage.classList.add('brickable');
-    targetMain.appendChild(createImage);
-    const writeName = document.createElement('p');
-    writeName.textContent = bricks.find(bricks => bricks.colour === 'blue').name;
-    targetMain.appendChild(writeName);
+    for (const brick of bricks) {
+      if (brick.colour === 'red') {
+        console.log(brick);
+        targetMain.textContent = '';
+        const createImage = document.createElement('img');
+        createImage.src = bricks.find(bricks => bricks.colour === 'blue').img;
+        createImage.alt = `blue brick with the id of ${bricks.id}`;
+        createImage.classList.add('brickable');
+        targetMain.appendChild(createImage);
+        const writeName = document.createElement('p');
+        writeName.textContent = bricks.find(bricks => bricks.colour === 'blue').name;
+        targetMain.appendChild(writeName);
+      }
+    }
   } else if (grabColour.value === 'yellow') {
     targetMain.textContent = '';
     const yellowBrickImg = document.createElement('img');
