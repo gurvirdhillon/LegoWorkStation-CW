@@ -49,7 +49,6 @@ function handleByBrick() {
   console.log(name);
 }
 
-
 // filter by colour
 
 const handleElem = document.querySelector('#colourFilter');
@@ -59,16 +58,23 @@ function handleColour() {
   const grabColour = document.querySelector('#colourFilter');
   targetMain.classList.add('activateColour');
   // targetMain.textContent = grabColour.value;
-  if (grabColour.value === 'red') {
+  if (grabColour.value === 'All colours') {
+    targetMain.textContent = bricks.find(bricks => bricks.colour === 'All Colours');
+  } else if (grabColour.value === 'red') {
     targetMain.textContent = '';
-    const createImage = document.createElement('img');
-    createImage.src = bricks.find(bricks => bricks.colour === 'red').img;
-    createImage.alt = `red brick with the id of ${bricks.id}`;
-    createImage.classList.add('brickable');
-    targetMain.appendChild(createImage);
-    const writeName = document.createElement('p');
-    writeName.textContent = bricks.find(bricks => bricks.colour === 'red').name;
-    targetMain.appendChild(writeName);
+    for (const brick of bricks) {
+      if (brick.colour === 'red') {
+        console.log(brick);
+        const createImage = document.createElement('img');
+        createImage.src = `${bricks.find(bricks => bricks.colour === 'red').img}`;
+        createImage.alt = `red brick with the id of ${bricks.id}`;
+        createImage.classList.add('brickable');
+        targetMain.appendChild(createImage);
+        const writeName = document.createElement('p');
+        writeName.textContent = bricks.find(bricks => bricks.colour === 'red').name;
+        targetMain.appendChild(writeName);
+      }
+    }
   } else if (grabColour.value === 'blue') {
     targetMain.textContent = '';
     const createImage = document.createElement('img');
@@ -99,9 +105,6 @@ function handleColour() {
     const writeName = document.createElement('p');
     writeName.textContent = bricks.find(bricks => bricks.colour === 'green').name;
     targetMain.appendChild(writeName);
-  } else if (grabColour.value === 'All colours') {
-    targetMain.textContent = '';
-    targetMain.textContent = bricks.find(bricks => bricks.colour === 'All Colours');
   } else if (grabColour.value === 'orange') {
     targetMain.textContent = '';
     targetMain.textContent = bricks.find(bricks => bricks.colour === 'orange');

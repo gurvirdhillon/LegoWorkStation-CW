@@ -30,8 +30,14 @@ export function getAddButton(where, row) {
   getBtn.textContent = 'Add to basket';
   getBtn.classList.add('btnElem');
   getBtn.addEventListener('click', () => addProductToCart(row.id));
+  // getBtn.addEventListener('click', () => addBasketQty());
   where.append(getBtn);
 }
+
+// function addBasketQty() {
+//   let basketQty = JSON.parse(localStorage.getItem('basketQty'));
+//   localStorage.setItem('basketQty', basketQty += 1);
+// }
 
 function getPriceAndDescription(where, what) {
   const getPrice = document.createElement('p');

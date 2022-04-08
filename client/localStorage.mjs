@@ -3,18 +3,24 @@
 // import sqlite from 'sqlite';
 // import uuid from 'uuid';
 
+let tempBasket = {};
+
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
-  let prodNo = localStorage.getItem(id);
-  prodNo = parseInt(prodNo);
-  if (prodNo) {
-    // if the item is already in the cart, increment the quantity
-    localStorage.setItem(id, 1 + prodNo);
-    document.querySelector('#quantity').textContent = prodNo + 1;
-  } else {
-    localStorage.setItem(id, 1);
-    document.querySelector('#quantity').textContent = 1;
-  }
+  // let prodNo = localStorage.getItem(id);
+  let basketQty = JSON.parse(localStorage.getItem('basketQty'));
+  localStorage.setItem('basketQty', basketQty += 1);
+  // tempBasket = JSON.parse(localStorage.getItem('basket'));
+  console.log(id);
+  // prodNo = parseInt(prodNo);
+  // if (prodNo) {
+  // if the item is already in the cart, increment the quantity
+  // localStorage.setItem(id, 1 + prodNo);
+  // document.querySelector('#quantity').textContent = prodNo + 1;
+  // } else {
+  // localStorage.setItem(id, 1);
+  // document.querySelector('#quantity').textContent = 1;
+  // }
   // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
   // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
   const response = await fetch(`/api/brick?id=${id}`);
