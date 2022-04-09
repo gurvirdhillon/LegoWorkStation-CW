@@ -12,10 +12,10 @@ export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
   let basketQty = JSON.parse(localStorage.getItem('basketQty'));
   localStorage.setItem('basketQty', basketQty += 1);
-  localStorage.setItem(id);
   // for (let i = 0; i < bricks.length; i++) {
   //   if (bricks[i].id === bricks.id) {
-  //     localStorage.setItem(bricks.id);
+  //     console.log(bricks[i]);
+  //     localStorage.setItem(id);
   //   }
   // }
   const updateQuantity = document.querySelector('#quantity');
