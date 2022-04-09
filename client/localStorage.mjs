@@ -54,15 +54,6 @@ function clearItems() {
   targetQuantity.textContent = 0;
 }
 
-function onLoadCartNumbers(id) {
-  const prodNo = localStorage.getItem(id);
-  if (prodNo) {
-    document.querySelector('#quantity').textContent = prodNo;
-  }
-}
-
-window.addEventListener('click', onLoadCartNumbers);
-
 async function init() {
   // const db = await sqlite.open('mydb.sqlite', { verbose: true });
   // await db.migrate({ migrationsPath: './migrations.sqlite' });
