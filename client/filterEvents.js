@@ -64,7 +64,6 @@ function handleColour() {
     targetMain.textContent = '';
     for (const brick of bricks) {
       if (brick.colour === 'red') {
-        console.log(brick);
         const createImage = document.createElement('img');
         createImage.src = `${bricks.find(bricks => bricks.colour === 'red').img}`;
         createImage.alt = `red brick with the id of ${bricks.id}`;

@@ -10,17 +10,9 @@ export async function addProductToCart(id) {
   // let prodNo = localStorage.getItem(id);
   let basketQty = JSON.parse(localStorage.getItem('basketQty'));
   localStorage.setItem('basketQty', basketQty += 1);
-  // tempBasket = JSON.parse(localStorage.getItem('basket'));
+  const updateQuantity = document.querySelector('#quantity');
+  updateQuantity.textContent = basketQty;
   console.log(id);
-  // prodNo = parseInt(prodNo);
-  // if (prodNo) {
-  // if the item is already in the cart, increment the quantity
-  // localStorage.setItem(id, 1 + prodNo);
-  // document.querySelector('#quantity').textContent = prodNo + 1;
-  // } else {
-  // localStorage.setItem(id, 1);
-  // document.querySelector('#quantity').textContent = 1;
-  // }
   // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
   // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
   const response = await fetch(`/api/brick?id=${id}`);
