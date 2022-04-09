@@ -2,16 +2,14 @@
 // then stringifys all the children within that ID and keeps it in storage.
 // import { sqlite } from 'sqlite';
 // import { uuid } from 'uuid';
-import { bricks } from './filterEvents.js';
-console.log(bricks);
+// import { bricks } from './filterEvents.js';
+// console.log(bricks);
 
 const tempBasket = {};
 console.log(tempBasket);
 
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
-  let basketQty = JSON.parse(localStorage.getItem('basketQty'));
-  localStorage.setItem('basketQty', basketQty += 1);
   let prodNo = localStorage.getItem(id);
   prodNo = parseInt(prodNo);
   if (prodNo) {
@@ -22,6 +20,8 @@ export async function addProductToCart(id) {
     localStorage.setItem(id, 1);
     document.querySelector('#quantity').textContent = 1;
   }
+  let basketQty = JSON.parse(localStorage.getItem('basketQty'));
+  localStorage.setItem('basketQty', basketQty += 1);
   // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
   // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
 
