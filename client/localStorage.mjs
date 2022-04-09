@@ -1,9 +1,10 @@
 // for loop that checks all the ID's of the legoDivs
 // then stringifys all the children within that ID and keeps it in storage.
-// import sqlite from 'sqlite';
-// import uuid from 'uuid';
+// import { sqlite } from 'sqlite';
+// import { uuid } from 'uuid';
 
 const tempBasket = {};
+console.log(tempBasket);
 
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');

@@ -21,15 +21,23 @@ grabSet.addEventListener('click', handleSets);
 
 const targetMain = document.querySelector('#main');
 
-function filterDivs() {
-  return bricks.find(bricks => bricks.type === 'set');
-}
-
-console.log(bricks.find(filterDivs));
+// console.log(bricks.find(filterDivs));
 
 function handleSets() {
   targetMain.classList.add('activateSet');
-  // targetMain.textContent = filterDivs(bricks);
+  for (const brick of bricks) {
+    console.log(bricks);
+    if (brick.type === 'set') {
+      targetMain.textContent = bricks.find(bricks => bricks.type === 'set');
+      const createImageElem = document.createElement('img');
+      createImageElem.src = `${bricks.img}`;
+      createImageElem.alt = `set for sale with the id of ${bricks.id}`;
+      targetMain.appendChild(createImageElem);
+      const name = document.createElement('p');
+      name.textContent = `${bricks.name}`;
+      targetMain.appendChild(name);
+    }
+  }
 }
 
 // filter by brick
@@ -59,7 +67,19 @@ function handleColour() {
   targetMain.classList.add('activateColour');
   // targetMain.textContent = grabColour.value;
   if (grabColour.value === 'All colours') {
-    targetMain.textContent = bricks.find(bricks => bricks.colour === 'All Colours');
+    targetMain.textContent = '';
+    for (const brick of bricks) {
+      if (brick.colour === 'All') {
+        const createImage = document.createElement('img');
+        createImage.src = `${bricks.find(bricks => bricks.colour === 'All').img}`;
+        createImage.alt = `red brick with the id of ${bricks.id}`;
+        createImage.classList.add('brickable');
+        targetMain.appendChild(createImage);
+        const writeName = document.createElement('p');
+        writeName.textContent = bricks.find(bricks => bricks.colour === 'All').name;
+        targetMain.appendChild(writeName);
+      }
+    }
   } else if (grabColour.value === 'red') {
     targetMain.textContent = '';
     for (const brick of bricks) {
