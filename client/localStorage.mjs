@@ -3,7 +3,7 @@
 // import sqlite from 'sqlite';
 // import uuid from 'uuid';
 
-let tempBasket = {};
+const tempBasket = {};
 
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
@@ -12,7 +12,6 @@ export async function addProductToCart(id) {
   localStorage.setItem('basketQty', basketQty += 1);
   const updateQuantity = document.querySelector('#quantity');
   updateQuantity.textContent = basketQty;
-  console.log(id);
   // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
   // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
   const response = await fetch(`/api/brick?id=${id}`);
@@ -30,11 +29,13 @@ export async function addProductToCart(id) {
   removeBtn.textContent = 'Remove item';
   removeBtn.classList = 'removeBtn';
   removeBtn.addEventListener('click', () => {
-    localStorage.removeItem(id);
+    localStorage.getItem('basketQty', basketQty -= 1);
+    // localStorage.removeItem(basketQty - 1);
     targetBasket.removeChild(brickImage);
     targetBasket.removeChild(brickText);
     targetBasket.removeChild(price);
     targetBasket.removeChild(removeBtn);
+    updateQuantity.textContent = basketQty;
   });
   localStorage.getItem(targetBasket);
   targetBasket.append(brickText);
