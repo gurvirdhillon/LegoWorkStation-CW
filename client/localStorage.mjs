@@ -2,15 +2,22 @@
 // then stringifys all the children within that ID and keeps it in storage.
 // import { sqlite } from 'sqlite';
 // import { uuid } from 'uuid';
+import { bricks } from './filterEvents.js';
+console.log(bricks);
 
 const tempBasket = {};
 console.log(tempBasket);
 
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
-  // let prodNo = localStorage.getItem(id);
   let basketQty = JSON.parse(localStorage.getItem('basketQty'));
   localStorage.setItem('basketQty', basketQty += 1);
+  localStorage.setItem(id);
+  // for (let i = 0; i < bricks.length; i++) {
+  //   if (bricks[i].id === bricks.id) {
+  //     localStorage.setItem(bricks.id);
+  //   }
+  // }
   const updateQuantity = document.querySelector('#quantity');
   updateQuantity.textContent = basketQty;
   // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
@@ -30,7 +37,7 @@ export async function addProductToCart(id) {
   removeBtn.textContent = 'Remove item';
   removeBtn.classList = 'removeBtn';
   removeBtn.addEventListener('click', () => {
-    localStorage.getItem('basketQty', basketQty -= 1);
+    localStorage.getItem('basketQty', id);
     // localStorage.removeItem(basketQty - 1);
     targetBasket.removeChild(brickImage);
     targetBasket.removeChild(brickText);
@@ -44,6 +51,7 @@ export async function addProductToCart(id) {
   targetBasket.append(price);
   targetBasket.append(removeBtn);
 }
+
 const clearBasket = document.querySelector('.clearMe');
 clearBasket.addEventListener('click', clearItems);
 

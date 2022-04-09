@@ -15,16 +15,16 @@ async function init() {
   colour.textContent = `colour: ${brickDetails.colour}`;
   const price = document.querySelector('#price');
   price.textContent = `${brickDetails.p}`;
-  handleSubmit();
+  // handleSubmit();
 }
-const subBtn = document.querySelector('#subBtn');
-subBtn.addEventListener('click', handleSubmit);
+// const subBtn = document.querySelector('#subBtn');
+// subBtn.addEventListener('click', handleSubmit);
 
-function handleSubmit() {
-  if (subBtn === 'submit') {
-    window.location.href = '/confirmation.html';
-  }
-}
+// function handleSubmit() {
+//   if (subBtn === 'submit') {
+//     window.location.href = '/confirmation.html';
+//   }
+// }
 
 
 window.addEventListener('load', init);
