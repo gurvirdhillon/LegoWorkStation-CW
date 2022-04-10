@@ -12,6 +12,8 @@ export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
   let prodNo = localStorage.getItem(id);
   prodNo = parseInt(prodNo);
+  let basketQty = JSON.parse(localStorage.getItem('basketQty'));
+  localStorage.setItem('basketQty', basketQty += 1);
   if (prodNo) {
     // if the item is already in the cart, increment the quantity
     localStorage.setItem(id, 1 + prodNo);
@@ -20,24 +22,29 @@ export async function addProductToCart(id) {
     localStorage.setItem(id, 1);
     document.querySelector('#quantity').textContent = 1;
   }
-  let basketQty = JSON.parse(localStorage.getItem('basketQty'));
-  localStorage.setItem('basketQty', basketQty += 1);
   // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
   // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
 
   const updateQuantity = document.querySelector('#quantity');
   updateQuantity.textContent = basketQty;
-  // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
-  // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
+
   const response = await fetch(`/api/brick?id=${id}`);
   const brick = await response.json();
+  const makeParent = document.createElement('div');
+  makeParent.append(brick.name);
+  makeParent.append(brick.price);
+  makeParent.append(brick.removeBtn);
   const brickImage = document.createElement('img');
+  brickImage.id = `brickImg${id}`;
   brickImage.classList = 'BrickBasket';
   brickImage.src = `${brick.img}`;
   brickImage.alt = 'Your Brick is ' + brick.name;
   const brickText = document.createElement('p');
+  brickText.id = `brickText${id}`;
+  brickText.classList = 'BrickPara';
   brickText.textContent = `${brick.name}`;
   const price = document.createElement('p');
+  price.id = `price${id}`;
   price.textContent = `${brick.p}`;
   price.classList = 'price';
   const removeBtn = document.createElement('button');
@@ -45,7 +52,8 @@ export async function addProductToCart(id) {
   removeBtn.classList = 'removeBtn';
   removeBtn.addEventListener('click', () => {
     localStorage.getItem('basketQty', id);
-    // localStorage.removeItem(basketQty - 1);
+    localStorage.removeItem(id);
+    localStorage.removeItem('basketQty');
     targetBasket.removeChild(brickImage);
     targetBasket.removeChild(brickText);
     targetBasket.removeChild(price);
@@ -69,6 +77,26 @@ function clearItems() {
   const targetQuantity = document.querySelector('#quantity');
   targetQuantity.textContent = 0;
 }
+
+// this function remembers the quantities placed within the basket
+function rememberQty() {
+  let prodValues = localStorage.getItem('basketQty');
+  prodValues = parseInt(prodValues);
+  if (prodValues) {
+    document.querySelector('#quantity').textContent = prodValues;
+  } else {
+    document.querySelector('#quantity').textContent = 0;
+  }
+}
+
+rememberQty();
+
+function rememberProducts(id) {
+  let showItems = localStorage.getItem('showItems');
+  showItems = JSON.parse(showItems);
+
+}
+rememberProducts();
 
 async function init() {
   // const db = await sqlite.open('mydb.sqlite', { verbose: true });
