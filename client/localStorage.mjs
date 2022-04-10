@@ -22,7 +22,7 @@ export async function addProductToCart(id) {
     localStorage.setItem(id, 1);
     document.querySelector('#quantity').textContent = 1;
   }
-  
+
   // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
   // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
 
@@ -91,11 +91,6 @@ function rememberQty() {
 }
 
 rememberQty();
-
-function rememberProducts() {
-
-}
-
 
 async function init() {
   // const db = await sqlite.open('mydb.sqlite', { verbose: true });
