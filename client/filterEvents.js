@@ -28,7 +28,7 @@ function handleSets() {
   for (const brick of bricks) {
     console.log(bricks);
     if (brick.type === 'set') {
-      targetMain.textContent = bricks.find(bricks => bricks.type === 'set');
+      targetMain.textContent = JSON.stringify(bricks.find(bricks => bricks.type === 'set'));
       const createImageElem = document.createElement('img');
       createImageElem.src = `${bricks.img}`;
       createImageElem.alt = `set for sale with the id of ${bricks.id}`;
