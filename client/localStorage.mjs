@@ -54,7 +54,7 @@ export async function addProductToCart(id) {
   removeBtn.addEventListener('click', () => {
     localStorage.getItem('basketQty', id);
     localStorage.removeItem(id);
-    localStorage.removeItem('basketQty');
+    localStorage.removeItem(basketQty);
     targetBasket.removeChild(brickImage);
     targetBasket.removeChild(brickText);
     targetBasket.removeChild(price);
