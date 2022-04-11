@@ -5,8 +5,8 @@
 // import { bricks } from './filterEvents.js';
 // console.log(bricks);
 
-const tempBasket = {};
-console.log(tempBasket);
+// const tempBasket = {};
+// console.log(tempBasket);
 
 export async function addProductToCart(id) {
   const targetBasket = document.querySelector('.showItems');
@@ -53,7 +53,7 @@ export async function addProductToCart(id) {
   removeBtn.classList = 'removeBtn';
   removeBtn.addEventListener('click', () => {
     localStorage.getItem('basketQty', id);
-    localStorage.removeItem(id);
+    localStorage.removeItem(basketQty - 1);
     localStorage.removeItem(basketQty);
     targetBasket.removeChild(brickImage);
     targetBasket.removeChild(brickText);
@@ -103,3 +103,4 @@ export async function getLegoBricks() {
   const db = await dbConnect();
   return db.all('SELECT * FROM legos ORDER BY id DESC LIMIT 10');
 }
+

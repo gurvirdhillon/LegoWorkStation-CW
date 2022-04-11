@@ -12,7 +12,7 @@
   "author": "up2016988@myport.ac.uk",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "install": "^0.13.0",
     "sqlite": "^4.0.23",
     "uuid": "^8.3.2"

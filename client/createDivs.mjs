@@ -1,5 +1,6 @@
 import { addProductToCart } from './localStorage.mjs';
 
+
 function makeDiv(data) {
   const main = document.querySelector('#main');
   for (const row of data) {
@@ -32,6 +33,16 @@ export function getAddButton(where, row) {
   getBtn.addEventListener('click', () => addProductToCart(row.id));
   // getBtn.addEventListener('click', () => addBasketQty());
   where.append(getBtn);
+}
+
+function insertToLS() {
+  const loopBtn = document.querySelectorAll('.btnElem');
+  console.log(loopBtn);
+  for (const btn of loopBtn) {
+    btn.addEventListener('click', () => {
+      // console.log(btn);
+    });
+  }
 }
 
 // function addBasketQty() {
@@ -79,4 +90,5 @@ function detailsHandler(event) {
   window.location = `details.html?brick=${id}`;
 }
 
+insertToLS()
 window.addEventListener('load', loadFunctions);
