@@ -1,15 +1,5 @@
-// for loop that checks all the ID's of the legoDivs
-// then stringifys all the children within that ID and keeps it in storage.
-// import { sqlite } from 'sqlite';
-// import { uuid } from 'uuid';
-// import { bricks } from './filterEvents.js';
-// console.log(bricks);
-
-// const tempBasket = {};
-// console.log(tempBasket);
-
+const targetBasket = document.querySelector('.showItems');
 export async function addProductToCart(id) {
-  const targetBasket = document.querySelector('.showItems');
   let prodNo = localStorage.getItem(id);
   prodNo = parseInt(prodNo);
   let basketQty = JSON.parse(localStorage.getItem('basketQty'));
@@ -22,19 +12,10 @@ export async function addProductToCart(id) {
     localStorage.setItem(id, 1);
     document.querySelector('#quantity').textContent = 1;
   }
-
-  // code extracted from Sampaio, T. (2022). JavaScript Shopping Cart Tutorial - Part 2/5.
-  // Youtube.com. Retrieved from https://www.youtube.com/watch?v=PoTGs38DR9E.
-
   const updateQuantity = document.querySelector('#quantity');
   updateQuantity.textContent = basketQty;
-
   const response = await fetch(`/api/brick?id=${id}`);
   const brick = await response.json();
-  const makeParent = document.createElement('div');
-  makeParent.append(brick.name);
-  makeParent.append(brick.price);
-  makeParent.append(brick.removeBtn);
   const brickImage = document.createElement('img');
   brickImage.id = `brickImg${id}`;
   brickImage.classList = 'BrickBasket';
@@ -53,7 +34,7 @@ export async function addProductToCart(id) {
   removeBtn.classList = 'removeBtn';
   removeBtn.addEventListener('click', () => {
     localStorage.getItem('basketQty', id);
-    localStorage.removeItem(basketQty - 1);
+    localStorage.removeItem(id);
     localStorage.removeItem(basketQty);
     targetBasket.removeChild(brickImage);
     targetBasket.removeChild(brickText);
@@ -62,45 +43,26 @@ export async function addProductToCart(id) {
     updateQuantity.textContent = basketQty;
   });
   localStorage.getItem(targetBasket);
-  targetBasket.append(brickText);
-  targetBasket.append(brickImage);
-  targetBasket.append(price);
-  targetBasket.append(removeBtn);
+  targetBasket.append(brickText, brickImage, price, removeBtn);
 }
 
-const clearBasket = document.querySelector('.clearMe');
-clearBasket.addEventListener('click', clearItems);
+const grabClear = document.querySelector('.clearMe');
+grabClear.addEventListener('click', clearBasket);
 
-function clearItems() {
-  const targetRemoveArea = document.querySelector('.showItems');
-  targetRemoveArea.textContent = '';
+function clearBasket() {
+  const updateQty = document.querySelector('#quantity');
+  updateQty.textContent = '0';
+  targetBasket.textContent = '';
   localStorage.clear();
-  const targetQuantity = document.querySelector('#quantity');
-  targetQuantity.textContent = 0;
+  localStorage.setItem('basketQty', 0);
 }
 
-// this function remembers the quantities placed within the basket
 function rememberQty() {
+  // this function will remember the quantity of items in the basket when the page is refreshed
   let prodValues = localStorage.getItem('basketQty');
   prodValues = parseInt(prodValues);
   if (prodValues) {
     document.querySelector('#quantity').textContent = prodValues;
-  } else {
-    document.querySelector('#quantity').textContent = 0;
   }
 }
-
 rememberQty();
-
-async function init() {
-  // const db = await sqlite.open('mydb.sqlite', { verbose: true });
-  // await db.migrate({ migrationsPath: './migrations.sqlite' });
-}
-
-const dbConnect = init();
-
-export async function getLegoBricks() {
-  const db = await dbConnect();
-  return db.all('SELECT * FROM legos ORDER BY id DESC LIMIT 10');
-}
-

@@ -17,5 +17,4 @@ async function init() {
   price.textContent = `${brickDetails.p}`;
 }
 
-
 window.addEventListener('load', init);

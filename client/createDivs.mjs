@@ -1,4 +1,5 @@
 import { addProductToCart } from './localStorage.mjs';
+// import { makeElems } from './localStorage.mjs';
 
 
 function makeDiv(data) {
@@ -29,20 +30,9 @@ function imagePlacer(where, what) {
 export function getAddButton(where, row) {
   const getBtn = document.createElement('button');
   getBtn.textContent = 'Add to basket';
-  getBtn.classList.add('btnElem');
-  getBtn.addEventListener('click', () => addProductToCart(row.id));
-  // getBtn.addEventListener('click', () => addBasketQty());
+  getBtn.className = 'btnElem';
   where.append(getBtn);
-}
-
-function insertToLS() {
-  const loopBtn = document.querySelectorAll('.btnElem');
-  console.log(loopBtn);
-  for (const btn of loopBtn) {
-    btn.addEventListener('click', () => {
-      // console.log(btn);
-    });
-  }
+  getBtn.addEventListener('click', () => addProductToCart(row.id));
 }
 
 // function addBasketQty() {
@@ -90,5 +80,4 @@ function detailsHandler(event) {
   window.location = `details.html?brick=${id}`;
 }
 
-insertToLS()
 window.addEventListener('load', loadFunctions);
