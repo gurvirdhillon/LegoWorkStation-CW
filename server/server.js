@@ -4,8 +4,33 @@ import url from 'url';
 import * as db from './db-memory.mjs';
 
 import authConfig from './auth-config.mjs';
+import * as lego from '..client/lego.js';
 
 const app = express();
+
+app.use(express.static('client', { extensions: ['html'] }));
+
+async function getBrick(req, res) {
+  res.JSON(await lego.listBricks());
+}
+
+async function getBrick(req, res){
+  const result = await db.findBrick(req.params.id);
+  if(!result){
+    res.status(404).send('Not found');
+    return;
+  }
+  res.json(result);
+}
+
+async function postBricks(req, res) {
+  const bricks = await db.addBrick(req.body.bricks);
+  res.json(bricks);
+}
+
+async function putBricks(req, res) {
+  
+}
 
 // serve the auth config publicly
 app.get('/auth-config', (req, res) => {
