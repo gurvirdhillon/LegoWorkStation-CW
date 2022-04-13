@@ -66,3 +66,15 @@ function rememberQty() {
   }
 }
 rememberQty();
+// window.location.reload the page once a value changes
+const checkout = document.querySelector('#checkout');
+checkout.addEventListener('click', handleCheckOut);
+
+function handleCheckOut() {
+  if (localStorage.getItem('basketQty') === '0') {
+    const noItems = document.querySelector('.showItems');
+    noItems.textContent = 'Your basket is empty!';
+  } else {
+    window.location.href = './information.html';
+  }
+}
