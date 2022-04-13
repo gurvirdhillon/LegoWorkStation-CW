@@ -74,10 +74,8 @@ function handleCheckOut() {
   if (localStorage.getItem('basketQty') === '0') {
     const noItems = document.querySelector('.showItems');
     noItems.textContent = 'Your basket is empty!';
+    noItems.id = 'noItems';
   } else {
     window.location.href = './information.html';
-  } if (localStorage.getItem('basketQty') === '0') {
-    const noItems = document.querySelector('.showItems');
-    noItems.textContent = 'Your basket is empty!';
   }
 }
