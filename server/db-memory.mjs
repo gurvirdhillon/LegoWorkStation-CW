@@ -14,6 +14,7 @@ export const bricks = [
   { id: 'brk13', name: 'The plane!', colour: 'All', x: 1, y: 1, img: 'img/rocketPlane.jpg', p: '£15', quantity: '35', type: 'set' },
   { id: 'brk14', name: 'The ultimate minecraft set', colour: 'All', x: 1, y: 1, img: 'img/treehouse.jpeg', p: '£25', quantity: '5', type: 'brick' },
   { id: 'brk15', name: 'The victors colloseum', colour: 'All', x: 1, y: 1, img: 'img/colloseum.jpg', p: '£400', quantity: '2', type: 'brick' },
+  { id: 'brk16', name: 'The Avengers X Justice League Set', colour: 'All', x: 1, y: 1, img: 'img/heroLego.jpg', p: '£25', quantity: '20', type: 'brick' },
 ];
 // save price as pence.
 // use the backtick and £ sign when implementing into a db

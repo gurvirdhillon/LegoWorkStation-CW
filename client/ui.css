@@ -95,7 +95,7 @@ footer{
 #main{
     grid-area: head;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     /* grid-template-rows: ; */
     /* grid-template-areas: "head head head"; */
     height: 100vh;
