@@ -4,33 +4,34 @@ import url from 'url';
 import * as db from './db-memory.mjs';
 
 import authConfig from './auth-config.mjs';
-import * as lego from '..client/lego.js';
+import * as lego from '../client/lego.js';
 
 const app = express();
 
 app.use(express.static('client', { extensions: ['html'] }));
 
-async function getBrick(req, res) {
-  res.JSON(await lego.listBricks());
-}
+// async function getBrick(req, res) {
+//   res.JSON(await lego.listBricks());
+// }
 
-async function getBrick(req, res){
-  const result = await db.findBrick(req.params.id);
-  if(!result){
+async function getBricks(req, res) {
+  const result = await lego.findBrick();
+  if (!result) {
     res.status(404).send('Not found');
     return;
   }
   res.json(result);
 }
 
-async function postBricks(req, res) {
-  const bricks = await db.addBrick(req.body.bricks);
-  res.json(bricks);
-}
+// async function postBricks(req, res) {
+//   const bricks = await lego.addBrick(req.body.bricks);
+//   res.json(bricks);
+// }
 
-async function putBricks(req, res) {
-  
-}
+// async function putBricks(req, res) {
+//   const brick = await lego.editBricks(req.body.bricks);
+//   res.JSON(brick);
+// }
 
 // serve the auth config publicly
 app.get('/auth-config', (req, res) => {
@@ -47,10 +48,12 @@ app.get('/api/brick', (req, res) => {
   res.send(JSON.stringify(db.getBrick(req.query.id)));
 });
 
-app.get('/api/bricks', (req, res) => {
-  const bricks = db.getAllBricks();
-  res.send(JSON.stringify(bricks));
-});
+// app.get('/api/bricks', (req, res) => {
+//   const bricks = db.getAllBricks();
+//   res.send(JSON.stringify(bricks));
+// });
+
+app.get('/api/bricks', getBricks);
 
 // this will serve the files present in static/ inside this stage
 app.use(express.static(path.join(path.dirname(url.fileURLToPath(import.meta.url)), '../client')));
