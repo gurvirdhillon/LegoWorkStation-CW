@@ -1,4 +1,4 @@
-import sqlite from 'sqlite';
+import * as sqlite from 'sqlite';
 
 async function init() {
   const db = await sqlite.open('./database.sqlite', { verbose: true });
@@ -6,25 +6,28 @@ async function init() {
   return db;
 }
 
-const dbConn = init();
 
 export async function listBricks() {
+  const dbConn = init();
   const db = await dbConn;
   return db.all('SELECT * FROM bricks');
 }
 
 export async function findBrick(id) {
+  const dbConn = init();
   const db = await dbConn;
   db.get('SELECT * FROM bricks WHERE id = ?', id);
 }
 
 export async function addBrick(brick) {
+  const dbConn = init();
   const db = await dbConn;
   await db.run('INSERT INTO bricks (name, img, p, colour, quantity) VALUES (?, ?, ?, ?, ?)');
   return listBricks();
 }
 
 export async function editBricks(updateBricks) {
+  const dbConn = init();
   const db = await dbConn;
   const id = updateBricks.id;
   const name = updateBricks.name;
