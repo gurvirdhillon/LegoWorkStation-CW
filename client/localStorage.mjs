@@ -12,6 +12,9 @@ export async function addProductToCart(id) {
     localStorage.setItem(id, 1);
     document.querySelector('#quantity').textContent = 1;
   }
+  const brk = localStorage.getItem('basketQty');
+
+
   const updateQuantity = document.querySelector('#quantity');
   updateQuantity.textContent = basketQty;
   const response = await fetch(`/api/brick?id=${id}`);
@@ -45,6 +48,15 @@ export async function addProductToCart(id) {
   localStorage.getItem(targetBasket);
   targetBasket.append(brickText, brickImage, price, removeBtn);
 }
+
+function subtractBrkQty(id) {
+  const brk = localStorage.getItem('basketQty');
+  if (brk === id) {
+    localStorage.removeItem('basketQty' - 1);
+  }
+  // console.log(brk);
+}
+subtractBrkQty();
 
 const grabClear = document.querySelector('.clearMe');
 grabClear.addEventListener('click', clearBasket);
