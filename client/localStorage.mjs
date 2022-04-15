@@ -52,9 +52,9 @@ export async function addProductToCart(id) {
 function subtractBrkQty(id) {
   const brk = localStorage.getItem('basketQty');
   if (brk === id) {
-    localStorage.removeItem('basketQty' - 1);
+    // localStorage.removeItem('basketQty' - 1);
+    console.log(brk);
   }
-  // console.log(brk);
 }
 subtractBrkQty();
 
