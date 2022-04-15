@@ -61,6 +61,8 @@ function asyncWrap(f) {
 
 app.get('/api/bricks', asyncWrap(getBricks));
 app.get('/api/bricks/:id', asyncWrap(getBrick));
+app.get('/api/bricks/:id', asyncWrap(postBricks));
+app.put('/api/bricks/:id', asyncWrap(putBricks));
 
 // app.get('/api/bricks', getBricks);
 

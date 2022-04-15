@@ -1,9 +1,8 @@
-import { application } from 'express';
 import * as sqlite from 'sqlite';
 
 async function init() {
   const db = await sqlite.open('./database.sqlite', { verbose: true });
-  await db.migrate({ migrationsPath: './migrations-sqlite' });
+  await db.migrate({ migrationsPath: '../migrations-sqlite' });
   return db;
 }
 
