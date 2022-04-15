@@ -1,8 +1,8 @@
 DROP DATABASE IF EXISTS legoStore;
 
-CREATE DATABASE LegoStore;
+CREATE DATABASE legoStore;
 
-\c LegoStore;
+\c legoStore;
 
 CREATE TABLE Legos (ProductID SERIAL PRIMARY KEY, ProductName VARCHAR(30), 
 Colour VARCHAR(30), ProductPrice INT, ProductImage VARCHAR(30), Quantity INT, typeOfLego VARCHAR(30));
