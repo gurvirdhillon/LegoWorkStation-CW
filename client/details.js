@@ -1,7 +1,10 @@
 async function init() {
   let brickId = window.location.search;
+  console.log(brickId, '1');
   brickId = brickId.slice(1);
+  console.log('slice', brickId);
   brickId = brickId.split('=');
+  console.log('split', brickId);
   brickId = brickId[1];
   const response = await fetch(`/api/brick?id=${brickId}`);
   const brickDetails = await response.json();

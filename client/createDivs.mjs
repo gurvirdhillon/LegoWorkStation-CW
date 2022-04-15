@@ -66,13 +66,13 @@ export async function loadFunctions() {
 }
 
 function makeViewDetails(where) {
-  const brick = document.querySelector('.brickable');
+  // const brick = document.querySelector('.brickable');
   const createBtn = document.createElement('button');
   createBtn.textContent = 'View details';
   createBtn.classList.add('viewMe');
   where.append(createBtn);
   createBtn.addEventListener('click', detailsHandler);
-  brick.addEventListener('click', detailsHandler);
+  // brick.addEventListener('click', detailsHandler);
 }
 
 function detailsHandler(event) {
