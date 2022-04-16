@@ -67,10 +67,16 @@ function rememberQty() {
 }
 rememberQty();
 
-const obj = [name, price, img];
+// const obj = [name, price, img];
 
-function rememberItem() {
-  localStorage.setItem('BrickBasket', `${img}`);
-  let itemImg = localStorage.getItem('BrickBasket');
-  itemImg = parseInt(itemImg);
+const grabCheckout = document.querySelector('#checkout');
+grabCheckout.addEventListener('click', checkoutHandler);
+
+function checkoutHandler() {
+  const showItems = document.querySelector('.showItems');
+  if (localStorage.getItem('basketQty') === '0' || showItems.textContent === '') {
+    alert('Your basket is empty');
+  } else {
+    window.location.href = '/confirmation.html';
+  }
 }

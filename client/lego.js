@@ -38,6 +38,6 @@ export async function addBrick(brick) {
 //   return findBrick(id);
 // }
 
-// Code extracted from Kocepky, J., Dennis, M., & Boakes, R. (2020). 
-// staged-simple-message-board/stages at master · portsoc/staged-simple-message-board. 
+// Code extracted from Kocepky, J., Dennis, M., & Boakes, R. (2020).
+// staged-simple-message-board/stages at master · portsoc/staged-simple-message-board.
 // GitHub. Retrieved from https://github.com/portsoc/staged-simple-message-board/tree/master/stages.
