@@ -66,3 +66,11 @@ function rememberQty() {
   }
 }
 rememberQty();
+
+const obj = [name, price, img];
+
+function rememberItem() {
+  localStorage.setItem('BrickBasket', `${img}`);
+  let itemImg = localStorage.getItem('BrickBasket');
+  itemImg = parseInt(itemImg);
+}
