@@ -12,9 +12,6 @@ export async function addProductToCart(id) {
     localStorage.setItem(id, 1);
     document.querySelector('#quantity').textContent = 1;
   }
-  const brk = localStorage.getItem('basketQty');
-
-
   const updateQuantity = document.querySelector('#quantity');
   updateQuantity.textContent = basketQty;
   const response = await fetch(`/api/brick?id=${id}`);
@@ -43,7 +40,6 @@ export async function addProductToCart(id) {
     targetBasket.removeChild(brickText);
     targetBasket.removeChild(price);
     targetBasket.removeChild(removeBtn);
-    updateQuantity.textContent = basketQty;
   });
   localStorage.getItem(targetBasket);
   targetBasket.append(brickText, brickImage, price, removeBtn);
@@ -52,7 +48,7 @@ export async function addProductToCart(id) {
 function subtractBrkQty(id) {
   const brk = localStorage.getItem('basketQty');
   if (brk === id) {
-    // localStorage.removeItem('basketQty' - 1);
+    localStorage.removeItem('basketQty' - 1);
     console.log(brk);
   }
 }
@@ -78,6 +74,18 @@ function rememberQty() {
   }
 }
 rememberQty();
+
+const brickPara = document.querySelector('.BrickPara');
+
+function rememberText() {
+  // this function will remember the text of the items in the basket when the page is refreshed
+  localStorage.setItem('prodText', brickPara);
+  const brkProd = localStorage.getItem('prodText');
+  if (brkProd) {
+    targetBasket.textContent = brkProd.value;
+  }
+}
+rememberText();
 
 // const obj = [name, price, img];
 
