@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <title>Information details</title>
+    <link rel="stylesheet" href="ui.css">
+    <link rel="stylesheet" href="info.css">
+    <script src="details.js"></script>
+    <script src="handle.js"></script>
+</head>
+
+<body>
+<a href="index.html"><button>Go back?</button></a>
+<form>
+    <label for="name">Name: </label>
+    <input id="fname" required placeholder="First Name">
+    <label for="">Last Name: </label>
+    <input id="lname" required placeholder="Last Name">
+    <label for="Email Address">Email address</label>
+    <input id="emailAdd" required placeholder="email address please">
+    <label for="contactInfo">Contact Number: </label>
+    <input id="contactNo" required type="tel" placeholder="contact number" pattern="[-+0-9( )]{7,}">
+    <h3>Where to?</h3>
+    <label for="address line 1">Address line 1: </label>
+    <input id="add1" required placeholder="address line 1">
+    <label for="address line 2">Address line 2: </label>
+    <input id="add2" required placeholder="address line 2">
+    <label for="cityInfo">City: </label>
+    <input id="city" placeholder="city...">
+    <label for="postcode details">Postcode: </label>
+    <input id="postcode" required pattern="([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\s?[0-9][A-Za-z]{2})" placeholder="LLN NLL">
+    <p>Card Details</p>
+    <input id="cardName" placeholder="card name" required>
+    <input id="cardNo" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" required>
+    <input id="cvv" type="tel" inputmode="numeric" pattern="[0-9]{3}" maxlength="3" placeholder="CVV" required>
+    <input id="expiryDate" type="month" placeholder="expiry date" required>
+    <input type="submit" value="Submit" id="SubBtn">
+    <!-- <a href="confirmation.html"></a> -->
+
+</form>
+
+</body>
+
+<!--
+    Friesen, M. What is the correct input type for credit card numbers?. Stack Overflow. 
+    Retrieved from https://stackoverflow.com/questions/48534229/what-is-the-correct-input-type-
+    for-credit-card-numbers.
+-->

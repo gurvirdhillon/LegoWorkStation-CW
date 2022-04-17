@@ -1,7 +1,6 @@
 import { addProductToCart } from './localStorage.mjs';
 // import { makeElems } from './localStorage.mjs';
 
-
 function makeDiv(data) {
   const main = document.querySelector('#main');
   for (const row of data) {
