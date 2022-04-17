@@ -52,6 +52,10 @@ app.get('/api/bricks', (req, res) => {
   res.send(JSON.stringify(bricks));
 });
 
+app.get('/api/brick/showItems', (req, res) => {
+  res.send(JSON.stringify(db.getBrick(req.query.id)));
+});
+
 function asyncWrap(f) {
   return (req, res, next) => {
     Promise.resolve(f(req, res, next))

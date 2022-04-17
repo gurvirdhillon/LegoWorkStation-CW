@@ -1,4 +1,5 @@
 const targetBasket = document.querySelector('.showItems');
+
 export async function addProductToCart(id) {
   let prodNo = localStorage.getItem(id);
   prodNo = parseInt(prodNo);
@@ -41,7 +42,6 @@ export async function addProductToCart(id) {
     targetBasket.removeChild(price);
     targetBasket.removeChild(removeBtn);
   });
-  localStorage.getItem(targetBasket);
   targetBasket.append(brickText, brickImage, price, removeBtn);
 }
 
