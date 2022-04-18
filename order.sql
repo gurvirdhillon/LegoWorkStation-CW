@@ -1,4 +1,4 @@
-/c LegoStore;
+-- /c LegoStore;
 
 CREATE TABLE orderLego(orderID SERIAL PRIMARY KEY, legoId INT, orderDate DATE, orderStatus VARCHAR(30), orderTotal INT);
 

@@ -1,8 +1,6 @@
-DROP DATABASE IF EXISTS legoStore;
+-- CREATE DATABASE legoStore;
 
-CREATE DATABASE legoStore;
-
-/c legoStore;
+-- Up
 
 CREATE TABLE Legos (ProductID SERIAL PRIMARY KEY, ProductName VARCHAR(30), 
 Colour VARCHAR(30), ProductPrice INT, ProductImage VARCHAR(30), Quantity INT, typeOfLego VARCHAR(30));
@@ -18,3 +16,9 @@ VALUES (001, 'Red 2 by 4', 'red', 0.3, 'img/red2by4.jpg', 40, 'brick'),
 (008, 'Mixed Crate', 'All', 4000, 'img/legoCrate.jpeg', 10, 'set'),
 (009, 'Bonsai!', 'All', 1500,'img/bonsai.png', 4, 'set'),
 (010, 'Lego master set', 'All', 10, 'img/house.png', 2000, 'set');
+
+-- Down
+
+DROP TABLE Legos;
+
+-- DROP DATABASE IF EXISTS legoStore;

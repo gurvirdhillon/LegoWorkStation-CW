@@ -3,18 +3,18 @@ import path from 'path';
 import url from 'url';
 import * as db from './db-memory.mjs';
 import authConfig from './auth-config.mjs';
-import * as lego from '../client/lego.js';
+import * as lego from './lego.js';
 
 const app = express();
 
 app.use(express.static('client', { extensions: ['html'] }));
 
-async function getBrick(req, res) {
+async function getBricks(req, res) {
   res.JSON(await lego.listBricks());
 }
 
-async function getBricks(req, res) {
-  const result = await lego.findBrick();
+async function getBrick(req, res) {
+  const result = await lego.findBrick(req.params.id);
   if (!result) {
     res.status(404).send('Not found');
     return;
@@ -22,15 +22,15 @@ async function getBricks(req, res) {
   res.json(result);
 }
 
-async function postBricks(req, res) {
-  const bricks = await lego.addBrick(req.body.bricks);
-  res.json(bricks);
-}
+// async function postBricks(req, res) {
+//   const bricks = await lego.addBrick(req.body.bricks);
+//   res.json(bricks);
+// }
 
-async function putBricks(req, res) {
-  const brick = await lego.editBricks(req.body.bricks);
-  res.JSON(brick);
-}
+// async function putBricks(req, res) {
+//   const brick = await lego.editBricks(req.body.bricks);
+//   res.JSON(brick);
+// }
 
 // serve the auth config publicly
 app.get('/auth-config', (req, res) => {
@@ -42,19 +42,19 @@ app.get('/api/hello', (req, res) => {
   res.send(`Hello! The time is ${new Date()}`);
 });
 
-app.get('/api/brick', (req, res) => {
-  // const brick = db.getBrick(req.query.id);
-  res.send(JSON.stringify(db.getBrick(req.query.id)));
-});
+// app.get('/api/brick', (req, res) => {
+//   // const brick = db.getBrick(req.query.id);
+//   res.send(JSON.stringify(db.getBrick(req.query.id)));
+// });
 
-app.get('/api/bricks', (req, res) => {
-  const bricks = db.getAllBricks();
-  res.send(JSON.stringify(bricks));
-});
+// app.get('/api/bricks', (req, res) => {
+//   const bricks = db.getAllBricks();
+//   res.send(JSON.stringify(bricks));
+// });
 
-app.get('/api/brick/showItems', (req, res) => {
-  res.send(JSON.stringify(db.getBrick(req.query.id)));
-});
+// app.get('/api/brick/showItems', (req, res) => {
+//   res.send(JSON.stringify(db.getBrick(req.query.id)));
+// });
 
 function asyncWrap(f) {
   return (req, res, next) => {
@@ -65,8 +65,8 @@ function asyncWrap(f) {
 
 app.get('/api/bricks', asyncWrap(getBricks));
 app.get('/api/bricks/:id', asyncWrap(getBrick));
-app.get('/api/bricks/:id', asyncWrap(postBricks));
-app.put('/api/bricks/:id', asyncWrap(putBricks));
+// app.get('/api/bricks/:id', asyncWrap(postBricks));
+// app.put('/api/bricks/:id', asyncWrap(putBricks));
 
 // app.get('/api/bricks', getBricks);
 

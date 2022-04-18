@@ -15,6 +15,7 @@
     "express": "^4.17.3",
     "install": "^0.13.0",
     "sqlite": "^4.0.25",
+    "sqlite3": "^5.0.4",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
@@ -29,5 +30,17 @@
     "env": {
       "browser": true
     }
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UP2016988/LegoWorkStation-CW.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/UP2016988/LegoWorkStation-CW/issues"
+  },
+  "homepage": "https://github.com/UP2016988/LegoWorkStation-CW#readme"
 }
