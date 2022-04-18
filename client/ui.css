@@ -3,6 +3,10 @@ body {
     color: black
 }
 
+#legoTitle{
+    text-align: center;
+}
+
 #adminBtn{
     position: absolute;
     top: 0.6em;
@@ -143,3 +147,15 @@ summary{
     padding: 4em;
     background-color: grey;
 }
+
+main{
+    background-color: grey;
+    margin: auto;
+    width: 50%;
+    text-align: center;
+  }
+  
+  #fetchContent{
+      text-align: center;
+      
+  }
