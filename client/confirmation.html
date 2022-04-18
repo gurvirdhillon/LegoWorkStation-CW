@@ -3,16 +3,23 @@
     <title>Order Confirmation</title>
     <script src="confirmation.js"></script>
     <link rel="stylesheet" href="ui.css">
+    <script src="index.js" type="module"></script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js" async defer></script>
+
 </head>
 <body>
 <header>
     <h1 id="legoTitle">LegoWorkStation</h1>
+    <button id="logout" disabled="true">Home page</button>
+    <button id="login" disabled="true">Confirm payment</button>
+
 </header>
 <main>
+
     <h2>Your order has been confirmed!</h2>
 
     <h2>Lego order:</h2>
-    <p>confirmation will be sent to you shortly.</p>
+    <p>confirmation will be sent to you shortly<p id="greeting"></p></p>
     
 <div id="contain-order">
 

@@ -7,7 +7,6 @@
 <script src="createDivs.mjs" type="module"></script>
 <script src="index.js" type="module"></script>
 <script src="localStorage.mjs" type="module"></script>
-<script type="module" href="auth0.js"></script>
 <link rel="stylesheet" href="ui.css">
 <script src="filterEvents.js" type="module"></script>
 <!-- <link rel="icon" href="data:,"> -->
@@ -21,8 +20,9 @@
 <div></div>
 <section id="sect1">
         <input type="search" id="SEngine"><button type="submit" id="btnSend"><img src="https://image.shutterstock.com/image-vector/search-icon-vector-260nw-415924606.jpg" alt="hi" id="searchEngine"></button>
-        
-        <p id="greeting">Hello!</p>
+    <div id="GreetUser">
+       <p>Hello <p id="greeting"></p></p>
+    </div>
        <a href="aboutus.html">About us:</a>
        <details id="BasketBar">
          <summary>My basket:</summary>
@@ -30,16 +30,10 @@
 
           <h1>Your Items: </h1>
           <p>Quantity: <output id="quantity">0</output></p>
-          <div class="showItems">
-              <form>
-
-              </form>
-          </div>
+          <div class="showItems"></div>
           <button class="clearMe">Clear Items</button>
           <p>Total: <output id="totalOut"></output></p>
-
           <input type="button" value="Checkout" id="checkout">
-
     </div>
        </details>
        
@@ -90,10 +84,5 @@
 <p></p>
 
 <div id="main"></div>
-
-<!-- need to make a function where it automates the 3 of these -->
-<nav class="navigationGuide">
-
-</nav>
 
 </body>

@@ -173,3 +173,11 @@ main{
     display: flex;
     justify-items: center;
 }
+
+#GreetUser{
+    text-align: center;
+    /* margin: auto; */
+    white-space: normal;
+    display: flex;
+    justify-items: center;
+}
