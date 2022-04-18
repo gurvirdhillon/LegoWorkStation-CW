@@ -157,5 +157,19 @@ main{
   
   #fetchContent{
       text-align: center;
-      
   }
+
+#legoTitle{
+    background-color: grey;
+    border: thin solid #8ca0ff;
+    margin: auto;
+    width: 30%;
+    border-radius: 0.2em;
+}
+
+#backBtn{
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-items: center;
+}
