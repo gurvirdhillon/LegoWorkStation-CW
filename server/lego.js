@@ -14,6 +14,9 @@ async function init() {
   });
 }
 
+// suteki, t. (2022). sqlite. npm.com. Retrieved 20 April 2022, from
+// https://www.npmjs.com/package/sqlite#install-sqlite.
+
 // async function init() {
 //   const db = await sqlite.open('./database.sqlite', { verbose: true });
 //   await db.migrate({ migrationsPath: '../migrations-sqlite' });
