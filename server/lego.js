@@ -1,5 +1,3 @@
-// import * as sqlite from 'sqlite';
-
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 
@@ -9,9 +7,7 @@ async function init() {
     verbose: true,
     driver: sqlite3.Database,
   });
-  await db.migrate({
-    migrationsPath: '../migrations-sqlite',
-  });
+  await db.migrate();
 }
 
 // suteki, t. (2022). sqlite. npm.com. Retrieved 20 April 2022, from

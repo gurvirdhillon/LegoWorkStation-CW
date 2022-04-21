@@ -42,15 +42,15 @@ app.get('/api/hello', (req, res) => {
   res.send(`Hello! The time is ${new Date()}`);
 });
 
-// app.get('/api/brick', (req, res) => {
-//   // const brick = db.getBrick(req.query.id);
-//   res.send(JSON.stringify(db.getBrick(req.query.id)));
-// });
+app.get('/api/brick', (req, res) => {
+  // const brick = db.getBrick(req.query.id);
+  res.send(JSON.stringify(db.getBrick(req.query.id)));
+});
 
-// app.get('/api/bricks', (req, res) => {
-//   const bricks = db.getAllBricks();
-//   res.send(JSON.stringify(bricks));
-// });
+app.get('/api/bricks', (req, res) => {
+  const bricks = db.getAllBricks();
+  res.send(JSON.stringify(bricks));
+});
 
 // app.get('/api/brick/showItems', (req, res) => {
 //   res.send(JSON.stringify(db.getBrick(req.query.id)));
