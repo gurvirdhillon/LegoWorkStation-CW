@@ -23,16 +23,6 @@ async function getBrick(req, res) {
   res.json(result);
 }
 
-// async function postBricks(req, res) {
-//   const bricks = await lego.addBrick(req.body.bricks);
-//   res.json(bricks);
-// }
-
-// async function putBricks(req, res) {
-//   const brick = await lego.editBricks(req.body.bricks);
-//   res.JSON(brick);
-// }
-
 // serve the auth config publicly
 app.get('/auth-config', (req, res) => {
   res.json(authConfig);
@@ -53,10 +43,6 @@ app.get('/api/bricks', asyncWrap(async (req, res) => {
   res.send(JSON.stringify(bricks));
 }));
 
-// app.get('/api/brick/showItems', (req, res) => {
-//   res.send(JSON.stringify(db.getBrick(req.query.id)));
-// });
-
 function asyncWrap(f) {
   return (req, res, next) => {
     Promise.resolve(f(req, res, next))
@@ -66,8 +52,6 @@ function asyncWrap(f) {
 
 app.get('/api/bricks', asyncWrap(getBricks));
 app.get('/api/bricks/:id', asyncWrap(getBrick));
-// app.get('/api/bricks/:id', asyncWrap(postBricks));
-// app.put('/api/bricks/:id', asyncWrap(putBricks));
 
 // app.get('/api/bricks', getBricks);
 
