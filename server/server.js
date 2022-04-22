@@ -1,7 +1,8 @@
 import express from 'express';
 import path from 'path';
 import url from 'url';
-import * as db from './db-memory.mjs';
+// import * as db from './db-memory.mjs';
+import * as db from './db-sqlite.mjs';
 import authConfig from './auth-config.mjs';
 import * as lego from './lego.js';
 
