@@ -10,6 +10,18 @@ export async function init() {
   await db.migrate();
 }
 
+const dbConn = init();
+
+export async function getBrick(id) {
+  const db = await dbConn;
+  db.get('SELECT * FROM Legos WHERE id = ?', id);
+}
+
+export async function getAllBricks() {
+  const db = await dbConn;
+  return db.all('SELECT * FROM Legos');
+}
+
 // suteki, t. (2022). sqlite. npm.com. Retrieved 20 April 2022, from
 // https://www.npmjs.com/package/sqlite#install-sqlite.
 
