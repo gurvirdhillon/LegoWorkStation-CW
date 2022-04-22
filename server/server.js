@@ -53,8 +53,6 @@ function asyncWrap(f) {
 app.get('/api/bricks', asyncWrap(getBricks));
 app.get('/api/bricks/:id', asyncWrap(getBrick));
 
-// app.get('/api/bricks', getBricks);
-
 // this will serve the files present in static/ inside this stage
 app.use(express.static(path.join(path.dirname(url.fileURLToPath(import.meta.url)), '../client')));
 
