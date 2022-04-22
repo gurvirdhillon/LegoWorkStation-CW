@@ -8,6 +8,7 @@ export async function init() {
     driver: sqlite3.Database,
   });
   await db.migrate();
+  return db;
 }
 
 const dbConn = init();

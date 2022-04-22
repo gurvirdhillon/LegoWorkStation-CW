@@ -4,24 +4,23 @@ import url from 'url';
 // import * as db from './db-memory.mjs';
 import * as db from './db-sqlite.mjs';
 import authConfig from './auth-config.mjs';
-import * as lego from './lego.js';
 
 const app = express();
 
 app.use(express.static('client', { extensions: ['html'] }));
 
-async function getBricks(req, res) {
-  res.JSON(await lego.listBricks());
-}
+// async function getBricks(req, res) {
+//   res.JSON(await lego.listBricks());
+// }
 
-async function getBrick(req, res) {
-  const result = await lego.findBrick(req.params.id);
-  if (!result) {
-    res.status(404).send('Not found');
-    return;
-  }
-  res.json(result);
-}
+// async function getBrick(req, res) {
+//   const result = await lego.findBrick(req.params.id);
+//   if (!result) {
+//     res.status(404).send('Not found');
+//     return;
+//   }
+//   res.json(result);
+// }
 
 // async function postBricks(req, res) {
 //   const bricks = await lego.addBrick(req.body.bricks);
@@ -48,10 +47,10 @@ app.get('/api/brick', (req, res) => {
   res.send(JSON.stringify(db.getBrick(req.query.id)));
 });
 
-app.get('/api/bricks', (req, res) => {
-  const bricks = db.getAllBricks();
+app.get('/api/bricks', asyncWrap(async (req, res) => {
+  const bricks = await db.getAllBricks();
   res.send(JSON.stringify(bricks));
-});
+}));
 
 // app.get('/api/brick/showItems', (req, res) => {
 //   res.send(JSON.stringify(db.getBrick(req.query.id)));
