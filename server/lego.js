@@ -10,7 +10,7 @@
 //   await db.migrate();
 // }
 
-// const dbConn = init();
+// export const dbConn = init();
 
 // export async function getBrick(id) {
 //   const db = await dbConn;
@@ -25,6 +25,6 @@
 // // suteki, t. (2022). sqlite. npm.com. Retrieved 20 April 2022, from
 // // https://www.npmjs.com/package/sqlite#install-sqlite.
 
-// // Code extracted from Kocepky, J., Dennis, M., & Boakes, R. (2020).
-// // staged-simple-message-board/stages at master · portsoc/staged-simple-message-board.
-// // GitHub. Retrieved from https://github.com/portsoc/staged-simple-message-board/tree/master/stages.
+// Code extracted from Kocepky, J., Dennis, M., & Boakes, R. (2020).
+// staged-simple-message-board/stages at master · portsoc/staged-simple-message-board.
+// GitHub. Retrieved from https://github.com/portsoc/staged-simple-message-board/tree/master/stages.

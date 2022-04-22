@@ -11,11 +11,11 @@ const app = express();
 app.use(express.static('client', { extensions: ['html'] }));
 
 async function getBricks(req, res) {
-  res.JSON(await lego.listBricks());
+  res.JSON(await lego.getAllBricks());
 }
 
 async function getBrick(req, res) {
-  const result = await lego.findBrick(req.params.id);
+  const result = await lego.getBrick(req.params.id);
   if (!result) {
     res.status(404).send('Not found');
     return;

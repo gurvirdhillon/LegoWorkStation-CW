@@ -2,10 +2,10 @@
 
 -- Up
 
-CREATE TABLE Legos (ProductID VARCHAR(7), ProductName VARCHAR(30), 
+CREATE TABLE Legos (id VARCHAR(7), ProductName VARCHAR(30), 
 Colour VARCHAR(30), ProductPrice INT, ProductImage VARCHAR(30), Quantity INT, typeOfLego VARCHAR(30));
 
-INSERT INTO Legos(ProductID, ProductName, Colour, ProductPrice, ProductImage, Quantity, typeOfLego)
+INSERT INTO Legos(id, ProductName, Colour, ProductPrice, ProductImage, Quantity, typeOfLego)
 VALUES ('brk1', 'Red 2 by 4', 'red', 0.3, './img/red2by4.jpg', 40, 'brick'),
 ('brk2', 'Blue 2 by 4', 'blue', 0.4, './img/blue2by4.jpg', 20, 'brick'),
 ('brk3', 'Yellow 2 by 4', 'yellow', 0.2, './img/yellow2by4.jpg', 20, 'brick'),
