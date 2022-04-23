@@ -43,6 +43,11 @@ app.get('/api/bricks', asyncWrap(async (req, res) => {
   res.send(JSON.stringify(bricks));
 }));
 
+app.get('/api/bricks/:ProductId', asyncWrap(async (req, res) => {
+  const brick = await db.getBrick(req.params.ProductId);
+  res.send(JSON.stringify(brick));
+}));
+
 function asyncWrap(f) {
   return (req, res, next) => {
     Promise.resolve(f(req, res, next))
