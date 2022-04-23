@@ -1,41 +1,41 @@
 const targetBasket = document.querySelector('.showItems');
 
-export async function addProductToCart(id) {
-  let prodNo = localStorage.getItem(id);
+export async function addProductToCart(ProductId) {
+  let prodNo = localStorage.getItem(ProductId);
   prodNo = parseInt(prodNo);
   let basketQty = JSON.parse(localStorage.getItem('basketQty'));
   localStorage.setItem('basketQty', basketQty += 1);
   if (prodNo) {
     // if the item is already in the cart, increment the quantity
-    localStorage.setItem(id, 1 + prodNo);
+    localStorage.setItem(ProductId, 1 + prodNo);
     document.querySelector('#quantity').textContent = prodNo + 1;
   } else {
-    localStorage.setItem(id, 1);
+    localStorage.setItem(ProductId, 1);
     document.querySelector('#quantity').textContent = 1;
   }
   const updateQuantity = document.querySelector('#quantity');
   updateQuantity.textContent = basketQty;
-  const response = await fetch(`/api/brick?id=${id}`);
+  const response = await fetch(`/api/brick?id=${ProductId}`);
   const brick = await response.json();
   const brickImage = document.createElement('img');
-  brickImage.id = `brickImg${id}`;
+  brickImage.id = `brickImg${ProductId}`;
   brickImage.classList = 'BrickBasket';
   brickImage.src = `${brick.img}`;
   brickImage.alt = 'Your Brick is ' + brick.name;
   const brickText = document.createElement('p');
-  brickText.id = `brickText${id}`;
+  brickText.id = `brickText${ProductId}`;
   brickText.classList = 'BrickPara';
   brickText.textContent = `${brick.name}`;
   const price = document.createElement('p');
-  price.id = `price${id}`;
+  price.id = `price${ProductId}`;
   price.textContent = `${brick.p}`;
   price.classList = 'price';
   const removeBtn = document.createElement('button');
   removeBtn.textContent = 'Remove item';
   removeBtn.classList = 'removeBtn';
   removeBtn.addEventListener('click', () => {
-    localStorage.getItem('basketQty', id);
-    localStorage.removeItem(id);
+    localStorage.getItem('basketQty', ProductId);
+    localStorage.removeItem(ProductId);
     localStorage.removeItem(basketQty);
     targetBasket.removeChild(brickImage);
     targetBasket.removeChild(brickText);
@@ -45,9 +45,9 @@ export async function addProductToCart(id) {
   targetBasket.append(brickText, brickImage, price, removeBtn);
 }
 
-function subtractBrkQty(id) {
+function subtractBrkQty(ProductId) {
   const brk = localStorage.getItem('basketQty');
-  if (brk === id) {
+  if (brk === ProductId) {
     localStorage.removeItem('basketQty' - 1);
     console.log(brk);
   }
