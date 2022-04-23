@@ -6,7 +6,7 @@ function makeDiv(data) {
   for (const row of data) {
     const createDiv = document.createElement('div');
     createDiv.classList.add('legoHolder');
-    createDiv.id = `${row.id}`;
+    createDiv.id = `${row.ProductId}`;
     main.appendChild(createDiv);
     imagePlacer(createDiv, row);
     giveName(createDiv, row);
@@ -19,7 +19,7 @@ function makeDiv(data) {
 
 function imagePlacer(where, what) {
   const getImage = document.createElement('img');
-  getImage.src = what.img;
+  getImage.src = `${what.ProductImage}`;
   getImage.alt = 'lego-brick';
   getImage.classList.add('brickable');
   where.append(getImage);
@@ -31,7 +31,7 @@ export function getAddButton(where, row) {
   getBtn.textContent = 'Add to basket';
   getBtn.className = 'btnElem';
   where.append(getBtn);
-  getBtn.addEventListener('click', () => addProductToCart(row.id));
+  getBtn.addEventListener('click', () => addProductToCart(row.ProductId));
 }
 
 // function addBasketQty() {
@@ -47,14 +47,14 @@ function getPriceAndDescription(where, what) {
 
 function getQuantity(where, what) {
   const createQuantity = document.createElement('p');
-  createQuantity.textContent = `Number of items in stock: ${what.quantity}`;
+  createQuantity.textContent = `Number of items in stock: ${what.Quantity}`;
   createQuantity.classList.add('quant');
   where.append(createQuantity);
 }
 
 function giveName(where, what) {
   const createName = document.createElement('h3');
-  createName.textContent = `${what.name}`;
+  createName.textContent = `${what.ProductName}`;
   where.append(createName);
 }
 
@@ -75,8 +75,8 @@ function makeViewDetails(where) {
 }
 
 function detailsHandler(event) {
-  const id = event.target.parentElement.id;
-  window.location = `details.html?brick=${id}`;
+  const ProductId = event.target.parentElement.ProductId;
+  window.location = `details.html?brick=${ProductId}`;
 }
 
 window.addEventListener('load', loadFunctions);
