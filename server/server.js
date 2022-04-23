@@ -23,6 +23,10 @@ async function getBrick(req, res) {
   res.json(result);
 }
 
+app.get(`api/brick/${db.ProductId}`, (req, res) => {
+  res.JSON(lego.getBrick(req.params.ProductId));
+});
+
 // serve the auth config publicly
 app.get('/auth-config', (req, res) => {
   res.json(authConfig);

@@ -6,4 +6,4 @@
 
 * Why does it come up as undefined when in the basket?
 
-* View details isnt working properly
+* View details isnt working properly.
