@@ -4,10 +4,8 @@ async function init(ProductId) {
   brickId = brickId.slice(1);
   brickId = brickId.split('=');
   ProductId = brickId[1];
-  const response = await fetch(`api/brick/${ProductId}`);
-  const brickDetails = await response.json();
-  // const response1 = await fetch(`/api/brick?id=${ProductId}`);
-  // const brickDetails = await response1.json();
+  const response1 = await fetch(`/api/brick?id=${ProductId}`);
+  const brickDetails = await response1.json();
   // console.log(brickDetails);
   const title = document.querySelector('#productTitle');
   title.textContent = `${brickDetails.ProductName}`;
