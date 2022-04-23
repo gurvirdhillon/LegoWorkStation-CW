@@ -15,20 +15,20 @@ export async function addProductToCart(ProductId) {
   }
   const updateQuantity = document.querySelector('#quantity');
   updateQuantity.textContent = basketQty;
-  const response = await fetch(`/api/brick?id=${ProductId}`);
+  const response = await fetch(`/api/brick?ProductId=${ProductId}`);
   const brick = await response.json();
   const brickImage = document.createElement('img');
   brickImage.id = `brickImg${ProductId}`;
   brickImage.classList = 'BrickBasket';
-  brickImage.src = `${brick.img}`;
-  brickImage.alt = 'Your Brick is ' + brick.name;
+  brickImage.src = `${brick.ProductImage}`;
+  brickImage.alt = 'Your Brick is ' + brick.ProductName;
   const brickText = document.createElement('p');
   brickText.id = `brickText${ProductId}`;
   brickText.classList = 'BrickPara';
-  brickText.textContent = `${brick.name}`;
+  brickText.textContent = `${brick.ProductName}`;
   const price = document.createElement('p');
   price.id = `price${ProductId}`;
-  price.textContent = `${brick.p}`;
+  price.textContent = `${brick.ProductPrice}`;
   price.classList = 'price';
   const removeBtn = document.createElement('button');
   removeBtn.textContent = 'Remove item';

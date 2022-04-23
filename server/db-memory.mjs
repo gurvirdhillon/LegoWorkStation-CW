@@ -1,20 +1,20 @@
 export const bricks = [
-  { id: 'brk1', name: 'Red 2 by 4', colour: 'red', x: 2, y: 4, img: 'img/red2by4.jpg', p: '£0.30', quantity: '40', type: 'brick' },
-  { id: 'brk2', name: 'Blue 2 by 4', colour: 'blue', x: 2, y: 4, img: 'img/blue2by4.jpg', p: '£0.40', quantity: '20', type: 'brick' },
-  { id: 'brk3', name: 'Yellow 2 by 4', colour: 'yellow', x: 2, y: 4, img: 'img/yellow2by4.jpg', p: '£0.20', quantity: '300', type: 'brick' },
-  { id: 'brk4', name: 'Green 2 by 4', colour: 'green', x: 2, y: 4, img: 'img/green2by4.jpg', p: '£0.20', quantity: '22', type: 'brick' },
-  { id: 'brk5', name: 'Black 2 by 4', colour: 'black', x: 2, y: 4, img: 'img/black2by4.jpg', p: '£0.20', quantity: '91', type: 'brick' },
-  { id: 'brk6', name: 'Green 2 by 4', colour: 'green', x: 4, y: 4, img: 'img/green2by4c.jpg', p: '£0.10', quantity: '51', type: 'brick' },
-  { id: 'brk7', name: 'Red 2 by 1', colour: 'red', x: 2, y: 2, img: 'img/red2by1.jpg', p: '£0.05', quantity: '29', type: 'brick' },
-  { id: 'brk8', name: 'Mixed Crate', colour: 'All', x: 1, y: 1, img: 'img/legoCrate.jpeg', p: '£40', quantity: '10', type: 'set' },
-  { id: 'brk9', name: 'Bonsai!', colour: 'All', x: 1, y: 1, img: 'img/bonsai.png', p: '£15', quantity: '4', type: 'set' },
-  { id: 'brk10', name: 'Lego master set', colour: 'All', x: 1, y: 1, img: 'img/house.png', p: '£20', quantity: '10', type: 'set' },
-  { id: 'brk11', name: 'The education bundle', colour: 'All', x: 1, y: 1, img: 'img/educationBundle.jpg', p: '£30', quantity: '40', type: 'set' },
-  { id: 'brk12', name: 'The ol\' saloon', colour: 'All', x: 1, y: 1, img: 'img/saloon.png', p: '£45', quantity: '5', type: 'set' },
-  { id: 'brk13', name: 'The plane!', colour: 'All', x: 1, y: 1, img: 'img/rocketPlane.jpg', p: '£15', quantity: '35', type: 'set' },
-  { id: 'brk14', name: 'The ultimate minecraft set', colour: 'All', x: 1, y: 1, img: 'img/treehouse.jpeg', p: '£25', quantity: '5', type: 'brick' },
-  { id: 'brk15', name: 'The victors colloseum', colour: 'All', x: 1, y: 1, img: 'img/colloseum.jpg', p: '£400', quantity: '2', type: 'brick' },
-  { id: 'brk16', name: 'The Avengers X Justice League Set', colour: 'All', x: 1, y: 1, img: 'img/heroLego.jpg', p: '£25', quantity: '20', type: 'brick' },
+  { ProductId: 'brk2', ProductName: 'Blue 2 by 4', Colour: 'blue', x: 2, y: 4, ProductImage: 'img/blue2by4.jpg', ProductPrice: '£0.40', quantity: '20', type: 'brick' },
+  { ProductId: 'brk1', ProductName: 'Red 2 by 4', Colour: 'red', x: 2, y: 4, ProductImage: 'img/red2by4.jpg', ProductPrice: '£0.30', quantity: '40', type: 'brick' },
+  { ProductId: 'brk3', ProductName: 'Yellow 2 by 4', Colour: 'yellow', x: 2, y: 4, img: 'img/yellow2by4.jpg', ProductPrice: '£0.20', quantity: '300', type: 'brick' },
+  { ProductId: 'brk4', ProductName: 'Green 2 by 4', Colour: 'green', x: 2, y: 4, ProductImage: 'img/green2by4.jpg', ProductPrice: '£0.20', quantity: '22', type: 'brick' },
+  { ProductId: 'brk5', ProductName: 'Black 2 by 4', Colour: 'black', x: 2, y: 4, ProductImage: 'img/black2by4.jpg', ProductPrice: '£0.20', quantity: '91', type: 'brick' },
+  { ProductId: 'brk6', ProductName: 'Green 2 by 4', Colour: 'green', x: 4, y: 4, ProductImage: 'img/green2by4c.jpg', ProductPrice: '£0.10', quantity: '51', type: 'brick' },
+  { ProductId: 'brk7', ProductName: 'Red 2 by 1', Colour: 'red', x: 2, y: 2, ProductImage: 'img/red2by1.jpg', ProductPrice: '£0.05', quantity: '29', type: 'brick' },
+  { ProductId: 'brk8', ProductName: 'Mixed Crate', Colour: 'All', x: 1, y: 1, ProductImage: 'img/legoCrate.jpeg', ProductPrice: '£40', quantity: '10', type: 'set' },
+  { ProductId: 'brk9', ProductName: 'Bonsai!', Colour: 'All', x: 1, y: 1, ProductImage: 'img/bonsai.png', ProductPrice: '£15', quantity: '4', type: 'set' },
+  { ProductId: 'brk10', ProductName: 'Lego master set', Colour: 'All', x: 1, y: 1, ProductImage: 'img/house.png', ProductPrice: '£20', quantity: '10', type: 'set' },
+  { ProductId: 'brk11', ProductName: 'The education bundle', Colour: 'All', x: 1, y: 1, ProductImage: 'img/educationBundle.jpg', ProductPrice: '£30', quantity: '40', type: 'set' },
+  { ProductId: 'brk12', ProductName: 'The ol\' saloon', Colour: 'All', x: 1, y: 1, ProductImage: 'img/saloon.png', ProductPrice: '£45', quantity: '5', type: 'set' },
+  { ProductId: 'brk13', ProductName: 'The plane!', Colour: 'All', x: 1, y: 1, ProductImage: 'img/rocketPlane.jpg', ProductPrice: '£15', quantity: '35', type: 'set' },
+  { ProductId: 'brk14', ProductName: 'The ultimate minecraft set', Colour: 'All', x: 1, y: 1, ProductImage: 'img/treehouse.jpeg', p: '£25', quantity: '5', type: 'brick' },
+  { ProductId: 'brk15', ProductName: 'The victors colloseum', Colour: 'All', x: 1, y: 1, ProductImage: 'img/colloseum.jpg', ProductPrice: '£400', quantity: '2', type: 'brick' },
+  { ProductId: 'brk16', ProductName: 'The Avengers X Justice League Set', Colour: 'All', x: 1, y: 1, ProductImageProductPrice: 'img/heroLego.jpg', ProductPrice: '£25', quantity: '20', type: 'brick' },
 ];
 
 // save price as pence.
@@ -29,9 +29,9 @@ export function getAllBricks() {
   return bricks;
 }
 
-export function getBrick(id) {
+export function getBrick(ProductId) {
   for (const brick of bricks) {
-    if (id === brick.id) {
+    if (ProductId === brick.ProductId) {
       return brick;
     }
   }

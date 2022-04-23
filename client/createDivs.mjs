@@ -41,7 +41,7 @@ export function getAddButton(where, row) {
 
 function getPriceAndDescription(where, what) {
   const getPrice = document.createElement('p');
-  getPrice.textContent = what.p;
+  getPrice.textContent = what.ProductPrice;
   where.append(getPrice);
 }
 

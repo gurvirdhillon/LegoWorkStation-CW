@@ -15,7 +15,7 @@ async function getBricks(req, res) {
 }
 
 async function getBrick(req, res) {
-  const result = await lego.getBrick(req.params.id);
+  const result = await lego.getBrick(req.params.ProductId);
   if (!result) {
     res.status(404).send('Not found');
     return;
@@ -35,7 +35,7 @@ app.get('/api/hello', (req, res) => {
 
 app.get('/api/brick', (req, res) => {
   // const brick = db.getBrick(req.query.id);
-  res.send(JSON.stringify(db.getBrick(req.query.id)));
+  res.send(JSON.stringify(db.getBrick(req.query.ProductId)));
 });
 
 app.get('/api/bricks', asyncWrap(async (req, res) => {
@@ -51,7 +51,7 @@ function asyncWrap(f) {
 }
 
 app.get('/api/bricks', asyncWrap(getBricks));
-app.get('/api/bricks/:id', asyncWrap(getBrick));
+app.get('/api/bricks/:ProductId', asyncWrap(getBrick));
 
 // this will serve the files present in static/ inside this stage
 app.use(express.static(path.join(path.dirname(url.fileURLToPath(import.meta.url)), '../client')));
