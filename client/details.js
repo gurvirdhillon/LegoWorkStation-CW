@@ -1,10 +1,10 @@
-async function init() {
+async function init(ProductId) {
   let brickId = window.location.search;
-  console.log(brickId);
+  // console.log(brickId);
   brickId = brickId.slice(1);
   brickId = brickId.split('=');
-  brickId = brickId[1];
-  const response = await fetch(`/api/brick?ProductId=${brickId}`);
+  ProductId = brickId[1];
+  const response = await fetch(`/api/brick?id=${ProductId}`);
   const brickDetails = await response.json();
   // console.log(brickDetails);
   const title = document.querySelector('#productTitle');

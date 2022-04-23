@@ -41,7 +41,7 @@ export function getAddButton(where, row) {
 
 function getPriceAndDescription(where, what) {
   const getPrice = document.createElement('p');
-  getPrice.textContent = what.ProductPrice;
+  getPrice.textContent = what.ProductId;
   where.append(getPrice);
 }
 
@@ -75,8 +75,8 @@ function makeViewDetails(where) {
 }
 
 function detailsHandler(event) {
-  const ProductId = event.target.parentElement.ProductId;
-  window.location = `details.html?brick=${ProductId}`;
+  const id = event.target.parentElement.ProductId;
+  window.location = `details.html?brick=${id}`;
 }
 
 window.addEventListener('load', loadFunctions);

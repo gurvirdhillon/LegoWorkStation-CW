@@ -15,7 +15,7 @@ export async function addProductToCart(ProductId) {
   }
   const updateQuantity = document.querySelector('#quantity');
   updateQuantity.textContent = basketQty;
-  const response = await fetch(`/api/brick?ProductId=${ProductId}`);
+  const response = await fetch(`/api/brick?id=${ProductId}`);
   const brick = await response.json();
   const brickImage = document.createElement('img');
   brickImage.id = `brickImg${ProductId}`;
