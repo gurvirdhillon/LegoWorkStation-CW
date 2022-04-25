@@ -75,7 +75,7 @@ function makeViewDetails(where) {
 }
 
 function detailsHandler(event) {
-  const ProductId = event.target.parentElement.ProductId;
+  const ProductId = event.target.parentElement.id;
   window.location = `details.html?brick=${ProductId}`;
 }
 
