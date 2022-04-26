@@ -1,5 +1,7 @@
 const targetBasket = document.querySelector('.showItems');
 
+const getArr = [];
+
 export async function addProductToCart(ProductID) {
   const response = await fetch('api/bricks');
   if (response.ok) {
