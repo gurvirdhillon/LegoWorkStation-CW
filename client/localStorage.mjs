@@ -78,19 +78,17 @@ function rememberQty() {
 }
 rememberQty();
 
-const brickPara = document.querySelector('.BrickPara');
+// const brickPara = document.querySelector('.BrickPara');
 
-function rememberText() {
-  // this function will remember the text of the items in the basket when the page is refreshed
-  localStorage.setItem('prodText', brickPara);
-  const brkProd = localStorage.getItem('prodText');
-  if (brkProd) {
-    targetBasket.textContent = brkProd.value;
-  }
-}
-rememberText();
-
-// const obj = [name, price, img];
+// function rememberText() {
+// // this function will remember the text of the items in the basket when the page is refreshed
+//   localStorage.setItem('prodText', brickPara);
+//   const brkProd = localStorage.getItem('prodText');
+//   if (brkProd) {
+//     targetBasket.textContent = brkProd.value;
+//   }
+// }
+// rememberText();
 
 const grabCheckout = document.querySelector('#checkout');
 grabCheckout.addEventListener('click', checkoutHandler);

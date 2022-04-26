@@ -1,12 +1,10 @@
-async function init(ProductID) {
-  const response1 = await fetch(`/api/bricks/:${ProductID}`);
+async function detailsHandler() {
   let brickId = window.location.search;
   console.log(brickId);
-  // console.log(id);
   brickId = brickId.slice(1);
   brickId = brickId.split('=');
-  ProductID = brickId[1];
-  // const response1 = await fetch(`/api/brick?id=${ProductID}`);
+  brickId = brickId[1];
+  const response1 = await fetch(`/api/bricks/${brickId}`);
   const brickDetails = await response1.json();
   const title = document.querySelector('#productTitle');
   title.textContent = `${brickDetails.ProductName}`;
@@ -16,8 +14,7 @@ async function init(ProductID) {
   const colour = document.querySelector('#colourSpan');
   colour.textContent = `colour: ${brickDetails.Colour}`;
   const price = document.querySelector('#price');
-  price.textContent = `${brickDetails.ProductPrice}`;
+  price.textContent = `£${brickDetails.ProductPrice}`;
 }
-// init();
 
-window.addEventListener('load', init);
+window.addEventListener('load', detailsHandler);
