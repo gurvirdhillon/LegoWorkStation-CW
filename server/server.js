@@ -28,10 +28,16 @@ app.get('/auth-config', (req, res) => {
 });
 
 app.get('/api/brick', (req, res) => {
-  res.send(JSON.stringify((db.getBrick(req.query.id))));
-  // const brick = db.getBrick(req.query.id);
-  res.send(JSON.stringify(db.getBrick(req.query.ProductId)));
+  const brick = db.getBrick(req.query.id);
+  res.send(JSON.stringify(brick));
 });
+
+
+// app.get('/api/brick', (req, res) => {
+// res.send(JSON.stringify((db.getBrick(req.query.id))));
+// const brick = db.getBrick(req.query.id);
+// res.send(JSON.stringify(db.getBrick(req.query.ProductId)));
+// });
 
 app.get('/api/bricks', asyncWrap(async (req, res) => {
   const bricks = await db.getAllBricks();
