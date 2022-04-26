@@ -27,13 +27,13 @@ function imagePlacer(where, what) {
 }
 
 // this makes the + button
-export function getAddButton(where, row) {
+export function getAddButton(where) {
   const getBtn = document.createElement('button');
   getBtn.textContent = 'Add to basket';
   getBtn.className = 'btnElem';
   where.append(getBtn);
   getBtn.addEventListener('click', () => {
-    const brickId = parseInt(getBtn.parentElement.id)
+    const brickId = parseInt(getBtn.parentElement.id);
     addProductToCart(brickId);
     // console.log(getBtn.parentElement.id)
   });
@@ -46,7 +46,7 @@ export function getAddButton(where, row) {
 
 function getPriceAndDescription(where, what) {
   const getPrice = document.createElement('p');
-  getPrice.textContent = what.ProductPrice;
+  getPrice.textContent = `£${what.ProductPrice}`;
   where.append(getPrice);
 }
 
