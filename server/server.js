@@ -42,6 +42,7 @@ app.get('/api/brick/:ProductId', asyncWrap(async (req, res) => {
   const bricks = await db.getAllBricks();
   res.send(JSON.stringify(bricks));
   const result = await db.getBrick(req.params.ProductId);
+  // const result = res.send(JSON.stringify(await db.getBrick(req.query.id)));
   if (!result) {
     res.status(404).send('Not found');
     return;
