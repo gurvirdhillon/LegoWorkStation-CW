@@ -4,9 +4,10 @@ import { addProductToCart } from './localStorage.mjs';
 function makeDiv(data) {
   const main = document.querySelector('#main');
   for (const row of data) {
+    console.log(row);
     const createDiv = document.createElement('div');
     createDiv.classList.add('legoHolder');
-    createDiv.id = `${row.ProductId}`;
+    createDiv.id = `${row.ProductID}`;
     main.appendChild(createDiv);
     imagePlacer(createDiv, row);
     giveName(createDiv, row);
@@ -31,7 +32,7 @@ export function getAddButton(where, row) {
   getBtn.textContent = 'Add to basket';
   getBtn.className = 'btnElem';
   where.append(getBtn);
-  getBtn.addEventListener('click', () => addProductToCart(row.ProductId));
+  getBtn.addEventListener('click', () => addProductToCart(row.ProductID));
 }
 
 // function addBasketQty() {
@@ -41,7 +42,7 @@ export function getAddButton(where, row) {
 
 function getPriceAndDescription(where, what) {
   const getPrice = document.createElement('p');
-  getPrice.textContent = what.ProductId;
+  getPrice.textContent = what.ProductID;
   where.append(getPrice);
 }
 
@@ -75,8 +76,8 @@ function makeViewDetails(where) {
 }
 
 function detailsHandler(event) {
-  const ProductId = event.target.parentElement.id;
-  window.location = `details.html?brick=${ProductId}`;
+  const ProductID = event.target.parentElement.id;
+  window.location = `details.html?brick=${ProductID}`;
 }
 
 window.addEventListener('load', loadFunctions);
