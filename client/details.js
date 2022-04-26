@@ -1,4 +1,5 @@
 async function init(ProductID) {
+  const response1 = await fetch(`/api/bricks/:${ProductID}`);
   let brickId = window.location.search;
   console.log(brickId);
   // console.log(id);
@@ -6,7 +7,6 @@ async function init(ProductID) {
   brickId = brickId.split('=');
   ProductID = brickId[1];
   // const response1 = await fetch(`/api/brick?id=${ProductID}`);
-  const response1 = await fetch(`/api/brick/:${ProductID}`);
   const brickDetails = await response1.json();
   const title = document.querySelector('#productTitle');
   title.textContent = `${brickDetails.ProductName}`;

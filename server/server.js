@@ -27,10 +27,10 @@ app.get('/auth-config', (req, res) => {
   res.json(authConfig);
 });
 
-app.get('/api/brick', (req, res) => {
-  const brick = db.getBrick(req.query.id);
-  res.send(JSON.stringify(brick));
-});
+// app.get('/api/brick', (req, res) => {
+//   const brick = db.getBrick(req.query.id);
+//   res.send(JSON.stringify(brick));
+// });
 
 
 // app.get('/api/brick', (req, res) => {
@@ -44,17 +44,17 @@ app.get('/api/bricks', asyncWrap(async (req, res) => {
   res.send(JSON.stringify(bricks));
 }));
 
-app.get('/api/brick/:ProductId', asyncWrap(async (req, res) => {
-  const bricks = await db.getAllBricks();
-  res.send(JSON.stringify(bricks));
-  const result = await db.getBrick(req.params.ProductId);
-  // const result = res.send(JSON.stringify(await db.getBrick(req.query.id)));
-  if (!result) {
-    res.status(404).send('Not found');
-    return;
-  }
-  res.JSON(result);
-}));
+// app.get('/api/brick/:ProductId', asyncWrap(async (req, res) => {
+//   // const bricks = await db.gtAllBricks();
+//   // res.send(JSON.stringify(bricks));
+//   const result = await db.getBrick(req.params.ProductId);
+// // const result = res.send(JSON.stringify(await db.getBrick(req.query.id)));
+//   if (!result) {
+//     res.status(404).send('Not found');
+//     return;
+//   }
+//   res.JSON(result);
+// }));
 
 // app.get(`/api/brick?id=${ProductID}`, asyncWrap(async (req, res) => {
 //   const brick = await db.getBrick(req.query.id);

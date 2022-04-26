@@ -1,48 +1,51 @@
 const targetBasket = document.querySelector('.showItems');
 
 export async function addProductToCart(ProductID) {
-  let prodNo = localStorage.getItem(ProductID);
-  prodNo = parseInt(prodNo);
-  let basketQty = JSON.parse(localStorage.getItem('basketQty'));
-  localStorage.setItem('basketQty', basketQty += 1);
-  if (prodNo) {
+  const response = await fetch('api/bricks');
+  if (response.ok) {
+    const array = await response.json();
+    let prodNo = localStorage.getItem(ProductID);
+    prodNo = parseInt(prodNo);
+    let basketQty = JSON.parse(localStorage.getItem('basketQty'));
+    localStorage.setItem('basketQty', basketQty += 1);
+    if (prodNo) {
     // if the item is already in the cart, increment the quantity
-    localStorage.setItem(ProductID, 1 + prodNo);
-    document.querySelector('#quantity').textContent = prodNo + 1;
-  } else {
-    localStorage.setItem(ProductID, 1);
-    document.querySelector('#quantity').textContent = 1;
+      localStorage.setItem(ProductID, 1 + prodNo);
+      document.querySelector('#quantity').textContent = prodNo + 1;
+    } else {
+      localStorage.setItem(ProductID, 1);
+      document.querySelector('#quantity').textContent = 1;
+    }
+    const updateQuantity = document.querySelector('#quantity');
+    updateQuantity.textContent = basketQty;
+    const brickImage = document.createElement('img');
+    brickImage.id = `brickImg${ProductID}`;
+    brickImage.classList = 'BrickBasket';
+    brickImage.src = `${array[ProductID - 1].ProductImage}`;
+    brickImage.alt = 'Your Brick is ' + array[ProductID - 1].ProductName;
+    const brickText = document.createElement('p');
+    brickText.id = `brickText${ProductID}`;
+    brickText.classList = 'BrickPara';
+    brickText.textContent = `${array[ProductID - 1].ProductName}`;
+    const price = document.createElement('p');
+    price.id = `price${ProductID}`;
+    price.textContent = `${array[ProductID - 1].ProductPrice}`;
+    price.classList = 'price';
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove item';
+    removeBtn.classList = 'removeBtn';
+    removeBtn.addEventListener('click', () => {
+      localStorage.getItem('basketQty', ProductID);
+      localStorage.removeItem(ProductID);
+      // removeItem(ProductID);
+      localStorage.removeItem(basketQty);
+      targetBasket.removeChild(brickImage);
+      targetBasket.removeChild(brickText);
+      targetBasket.removeChild(price);
+      targetBasket.removeChild(removeBtn);
+    });
+    targetBasket.append(brickText, brickImage, price, removeBtn);
   }
-  const updateQuantity = document.querySelector('#quantity');
-  updateQuantity.textContent = basketQty;
-  const response = await fetch(`/api/brick?id=${ProductID}`);
-  const brick = await response.json();
-  const brickImage = document.createElement('img');
-  brickImage.id = `brickImg${ProductID}`;
-  brickImage.classList = 'BrickBasket';
-  brickImage.src = `${brick.ProductImage}`;
-  brickImage.alt = 'Your Brick is ' + brick.ProductName;
-  const brickText = document.createElement('p');
-  brickText.id = `brickText${ProductID}`;
-  brickText.classList = 'BrickPara';
-  brickText.textContent = `${brick.ProductName}`;
-  const price = document.createElement('p');
-  price.id = `price${ProductID}`;
-  price.textContent = `${brick.ProductPrice}`;
-  price.classList = 'price';
-  const removeBtn = document.createElement('button');
-  removeBtn.textContent = 'Remove item';
-  removeBtn.classList = 'removeBtn';
-  removeBtn.addEventListener('click', () => {
-    localStorage.getItem('basketQty', ProductID);
-    localStorage.removeItem(ProductID);
-    localStorage.removeItem(basketQty);
-    targetBasket.removeChild(brickImage);
-    targetBasket.removeChild(brickText);
-    targetBasket.removeChild(price);
-    targetBasket.removeChild(removeBtn);
-  });
-  targetBasket.append(brickText, brickImage, price, removeBtn);
 }
 
 function subtractBrkQty(ProductID) {
