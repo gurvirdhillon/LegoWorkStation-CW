@@ -41,3 +41,5 @@ npm run test.only
 ## Explanation on the project
 
 I decided to use a database called SQLite which leads to more maintainable code as i initially started off with an array of objects. However, an array of objects can not handle stock management. 
+
+## Paradigm
