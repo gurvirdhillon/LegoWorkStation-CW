@@ -25,13 +25,13 @@ export async function addProductToCart(id) {
 
   let prevBasketItem = localStorage.getItem('basket');
   prevBasketItem = JSON.parse(prevBasketItem);
-  // if (prevBasketItem === prevBasketItem.value) {
-  let tempBasket = [];
-  tempBasket = prevBasketItem;
-  // tempBasket.push(brick);
-  JSON.stringify(tempBasket);
-  localStorage.setItem('basket', JSON.stringify(tempBasket));
-  // }
+  if (prevBasketItem === prevBasketItem.value) {
+    let tempBasket = [];
+    tempBasket = prevBasketItem;
+    tempBasket.push(brick);
+    JSON.stringify(tempBasket);
+    localStorage.setItem('basket', JSON.stringify(tempBasket));
+  }
 
   // console.log(typeof brick);
   const brickImage = document.createElement('img');
