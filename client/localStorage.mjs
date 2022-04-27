@@ -1,6 +1,6 @@
 const targetBasket = document.querySelector('.showItems');
+
 export async function addProductToCart(ProductId) {
-  // debugger;
   const response = await fetch('api/bricks');
   if (response.ok) {
     const array = await response.json();
@@ -37,7 +37,7 @@ export async function addProductToCart(ProductId) {
     removeBtn.addEventListener('click', () => {
       localStorage.getItem('basketQty', ProductId);
       localStorage.removeItem(ProductId);
-      // removeItem(ProductID);
+      // removeItem(ProductId);
       localStorage.removeItem(basketQty);
       targetBasket.removeChild(brickImage);
       targetBasket.removeChild(brickText);
@@ -47,6 +47,7 @@ export async function addProductToCart(ProductId) {
     targetBasket.append(brickText, brickImage, price, removeBtn);
   }
 }
+
 function subtractBrkQty(ProductId) {
   const brk = localStorage.getItem('basketQty');
   if (brk === ProductId) {
@@ -54,9 +55,12 @@ function subtractBrkQty(ProductId) {
     console.log(brk);
   }
 }
+
 subtractBrkQty();
+
 const grabClear = document.querySelector('.clearMe');
 grabClear.addEventListener('click', clearBasket);
+
 function clearBasket() {
   const updateQty = document.querySelector('#quantity');
   updateQty.textContent = '0';
@@ -64,6 +68,7 @@ function clearBasket() {
   localStorage.clear();
   localStorage.setItem('basketQty', 0);
 }
+
 function rememberQty() {
   // this function will remember the quantity of items in the basket when the page is refreshed
   let prodValues = localStorage.getItem('basketQty');
