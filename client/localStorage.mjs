@@ -1,7 +1,4 @@
 const targetBasket = document.querySelector('.showItems');
-
-const getArr = [];
-
 export async function addProductToCart(ProductID) {
   const response = await fetch('api/bricks');
   if (response.ok) {
@@ -49,7 +46,6 @@ export async function addProductToCart(ProductID) {
     targetBasket.append(brickText, brickImage, price, removeBtn);
   }
 }
-
 function subtractBrkQty(ProductID) {
   const brk = localStorage.getItem('basketQty');
   if (brk === ProductID) {
@@ -58,10 +54,8 @@ function subtractBrkQty(ProductID) {
   }
 }
 subtractBrkQty();
-
 const grabClear = document.querySelector('.clearMe');
 grabClear.addEventListener('click', clearBasket);
-
 function clearBasket() {
   const updateQty = document.querySelector('#quantity');
   updateQty.textContent = '0';
@@ -69,7 +63,6 @@ function clearBasket() {
   localStorage.clear();
   localStorage.setItem('basketQty', 0);
 }
-
 function rememberQty() {
   // this function will remember the quantity of items in the basket when the page is refreshed
   let prodValues = localStorage.getItem('basketQty');
@@ -94,7 +87,6 @@ rememberQty();
 
 const grabCheckout = document.querySelector('#checkout');
 grabCheckout.addEventListener('click', checkoutHandler);
-
 function checkoutHandler() {
   const showItems = document.querySelector('.showItems');
   if (localStorage.getItem('basketQty') === '0' || showItems.textContent === '') {

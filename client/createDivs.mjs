@@ -76,7 +76,6 @@ function makeViewDetails(where) {
   createBtn.classList.add('viewMe');
   where.append(createBtn);
   createBtn.addEventListener('click', detailsHandler);
-  // brick.addEventListener('click', detailsHandler);
 }
 
 function detailsHandler(event) {
