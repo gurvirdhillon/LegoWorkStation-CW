@@ -34,6 +34,7 @@ app.get('/auth-config', (req, res) => {
 //   const brick = db.getBrick(req.query.id);
 //   res.send(JSON.stringify(brick));
 // });
+
 // app.get('/api/brick', (req, res) => {
 // res.send(JSON.stringify((db.getBrick(req.query.id))));
 // const brick = db.getBrick(req.query.id);
