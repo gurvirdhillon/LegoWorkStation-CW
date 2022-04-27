@@ -32,7 +32,9 @@ export function getAddButton(where) {
   getBtn.className = 'btnElem';
   where.append(getBtn);
   getBtn.addEventListener('click', () => {
-    const brickId = parseInt(getBtn.parentElement.id);
+    console.log(getBtn.parentElement.id);
+    // const brickId = parseInt(getBtn.parentElement.id);
+    const brickId = getBtn.parentElement.id;
     addProductToCart(brickId);
     // console.log(getBtn.parentElement.id)
   });

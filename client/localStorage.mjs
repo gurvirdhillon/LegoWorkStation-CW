@@ -21,17 +21,28 @@ export async function addProductToCart(ProductId) {
     const brickImage = document.createElement('img');
     brickImage.id = `brickImg${ProductId}`;
     brickImage.classList = 'BrickBasket';
-    array.find(response => response.ProductId === ProductId).ProductImage;
-    brickImage.src = `${array[ProductId].ProductImage}`;
-    brickImage.alt = 'Your Brick is ' + array[ProductId].ProductName;
-    const brickText = document.createElement('p');
-    brickText.id = `brickText${ProductId}`;
-    brickText.classList = 'BrickPara';
-    brickText.textContent = `${array[ProductId].ProductName}`;
-    const price = document.createElement('p');
-    price.id = `price${ProductId}`;
-    price.textContent = `${array[ProductId].ProductPrice}`;
-    price.classList = 'price';
+    // array.find(item => ProductId = item.ProductImage);
+    console.log(array);
+    let brickText;
+    let price;
+    for (const item of array) {
+      console.log(item.ProductId);
+      console.log(ProductId);
+      // console.log(item.ProductId === ProductId.id);
+      if (item.ProductId === ProductId) {
+        brickImage.src = `${item.ProductImage}`;
+        brickImage.alt = 'Your Brick is ' + item.ProductName;
+        brickText = document.createElement('p');
+        brickText.id = `brickText${ProductId}`;
+        brickText.classList = 'BrickPara';
+        brickText.textContent = item.ProductName;
+        price = document.createElement('p');
+        price.id = `price${ProductId}`;
+        price.textContent = item.price;
+        price.classList = 'price';
+      }
+    }
+    targetBasket.append(brickText, brickImage, price);
     const removeBtn = document.createElement('button');
     removeBtn.textContent = 'Remove item';
     removeBtn.classList = 'removeBtn';
@@ -40,12 +51,10 @@ export async function addProductToCart(ProductId) {
       localStorage.removeItem(ProductId);
       // removeItem(ProductId);
       localStorage.removeItem(basketQty);
-      targetBasket.removeChild(brickImage);
-      targetBasket.removeChild(brickText);
-      targetBasket.removeChild(price);
       targetBasket.removeChild(removeBtn);
     });
-    targetBasket.append(brickText, brickImage, price, removeBtn);
+    // targetBasket.append(brickText, brickImage, price, removeBtn);
+    targetBasket.append(brickImage, removeBtn);
   }
 }
 
