@@ -31,7 +31,7 @@ export function getAddButton(where, row) {
   getBtn.textContent = 'Add to basket';
   getBtn.className = 'btnElem';
   where.append(getBtn);
-  getBtn.addEventListener('click', () => addProductToCart(row.id));
+  getBtn.addEventListener('click', addProductToCart);
 }
 
 // function addBasketQty() {
