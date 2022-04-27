@@ -21,7 +21,7 @@ export async function addProductToCart(ProductId) {
     const brickImage = document.createElement('img');
     brickImage.id = `brickImg${ProductId}`;
     brickImage.classList = 'BrickBasket';
-    console.log(array[ProductId]);
+    array.find(response => response.ProductId === ProductId).ProductImage;
     brickImage.src = `${array[ProductId].ProductImage}`;
     brickImage.alt = 'Your Brick is ' + array[ProductId].ProductName;
     const brickText = document.createElement('p');

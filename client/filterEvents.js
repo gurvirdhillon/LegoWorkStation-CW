@@ -143,3 +143,8 @@
 //     return '';
 //   }
 // }
+
+async function fetchSets() {
+    const response = await fetch('/api/bricks');
+    response = await response.json();
+}
