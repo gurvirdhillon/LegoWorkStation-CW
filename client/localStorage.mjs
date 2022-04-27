@@ -1,5 +1,5 @@
 const targetBasket = document.querySelector('.showItems');
-console.log(targetBasket);
+const grabQuantity = document.querySelector('#quantity');
 
 const cart = [];
 
@@ -12,12 +12,18 @@ export async function addProductToCart(e) {
     if (brick.id == targetId) {
       cart.push(brick);
       window.localStorage.setItem('basket', JSON.stringify(cart));
+      createBricksForStoring();
     }
   }
+}
 
+function createBricksForStoring() {
   const localStorageBricks = JSON.parse(window.localStorage.getItem('basket'));
   for (const brick of localStorageBricks) {
     console.log(brick.id);
+  }
+  if (localStorageBricks == null) return;
+  for (const brick of localStorageBricks) {
     const createTag = document.createElement('p');
     createTag.textContent = brick.name;
     targetBasket.append(createTag);
@@ -30,49 +36,9 @@ export async function addProductToCart(e) {
     brickImage.classList = 'BrickBasket';
     targetBasket.append(brickImage);
   }
-  // if previous basket item has a value
-  // set temp basket to a prev basket item, push new brick
-  // if previous basket item is empty or doesnt exist it will push the first product into the temporary array.
-  // json stringify in between both temporary arrays.
-
-  // let prevBasketItem = localStorage.getItem('basket');
-  // prevBasketItem = JSON.parse(prevBasketItem);
-  // // if (prevBasketItem === prevBasketItem.value) {
-  //   let tempBasket = [];
-  //   tempBasket = prevBasketItem;
-  //   tempBasket.push(brick);
-  //   JSON.stringify(tempBasket);
-  //   localStorage.setItem('basket', JSON.stringify(tempBasket));
-  // }
-
-  // console.log(typeof brick);
-  // const brickImage = document.createElement('img');
-  // brickImage.id = `brickImg${id}`;
-  // brickImage.classList = 'BrickBasket';
-  // brickImage.src = `${brick.img}`;
-  // brickImage.alt = 'Your Brick is ' + brick.name;
-  // const brickText = document.createElement('p');
-  // brickText.id = `brickText${id}`;
-  // brickText.classList = 'BrickPara';
-  // brickText.textContent = `${brick.name}`;
-  // const price = document.createElement('p');
-  // price.id = `price${id}`;
-  // price.textContent = `${brick.p}`;
-  // price.classList = 'price';
-  // const removeBtn = document.createElement('button');
-  // removeBtn.textContent = 'Remove item';
-  // removeBtn.classList = 'removeBtn';
-  // removeBtn.addEventListener('click', () => {
-  //   localStorage.getItem('basketQty', id);
-  //   localStorage.removeItem(id);
-  //   localStorage.removeItem(basketQty);
-  //   targetBasket.removeChild(brickImage);
-  //   targetBasket.removeChild(brickText);
-  //   targetBasket.removeChild(price);
-  //   targetBasket.removeChild(removeBtn);
-  // });
-  // targetBasket.append(brickText, brickImage, price, removeBtn);
 }
+
+window.addEventListener('load', createBricksForStoring);
 
 function subtractBrkQty(id) {
   const brk = localStorage.getItem('basketQty');
