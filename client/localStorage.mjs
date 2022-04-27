@@ -17,6 +17,23 @@ export async function addProductToCart(id) {
   updateQuantity.textContent = basketQty;
   const response = await fetch(`/api/brick?id=${id}`);
   const brick = await response.json();
+  console.log(brick);
+  // if previous basket item has a value
+  // set temp basket to a prev basket item, push new brick
+  // if previous basket item is empty or doesnt exist it will push the first product into the temporary array.
+  // json stringify in between both temporary arrays.
+
+  let prevBasketItem = localStorage.getItem('basket');
+  prevBasketItem = JSON.parse(prevBasketItem);
+  if (prevBasketItem === prevBasketItem.value) {
+  let tempBasket = [];
+  tempBasket = prevBasketItem;
+  tempBasket.push(brick);
+  JSON.stringify(tempBasket);
+  localStorage.setItem('basket', JSON.stringify(tempBasket));
+  }
+
+  // console.log(typeof brick);
   const brickImage = document.createElement('img');
   brickImage.id = `brickImg${id}`;
   brickImage.classList = 'BrickBasket';
@@ -75,17 +92,17 @@ function rememberQty() {
 }
 rememberQty();
 
-const brickPara = document.querySelector('.BrickPara');
+// const brickPara = document.querySelector('.BrickPara');
 
-function rememberText() {
-  // this function will remember the text of the items in the basket when the page is refreshed
-  localStorage.setItem('prodText', brickPara);
-  const brkProd = localStorage.getItem('prodText');
-  if (brkProd) {
-    targetBasket.textContent = brkProd.value;
-  }
-}
-rememberText();
+// function rememberText() {
+//   // this function will remember the text of the items in the basket when the page is refreshed
+//   localStorage.setItem('prodText', brickPara);
+//   const brkProd = localStorage.getItem('prodText');
+//   if (brkProd) {
+//     targetBasket.textContent = brkProd.value;
+//   }
+// }
+// rememberText();
 
 // const obj = [name, price, img];
 
@@ -99,4 +116,8 @@ function checkoutHandler() {
   } else {
     window.location.href = '/confirmation.html';
   }
+}
+
+function storeItems() {
+  // this function will store items on your basket when refreshing the page
 }

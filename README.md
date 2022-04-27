@@ -34,5 +34,8 @@ npm run test.only
 * JavaScript
 * NodeJS
 * ExpressJS
-* AJAX
 * Jest
+
+## Assumptions
+
+If the user is logged in they are considered an "admin" user and will have access to the admin controls.
