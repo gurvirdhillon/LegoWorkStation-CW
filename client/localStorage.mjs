@@ -9,6 +9,7 @@ export async function addProductToCart(e) {
   const targetId = e.target.parentElement.id;
   for (const brick of bricks) {
     if (brick.id == targetId) {
+      brick.count += 1;
       cart.push(brick);
       window.localStorage.setItem('basket', JSON.stringify(cart));
       createBricksForStoring();
@@ -48,7 +49,7 @@ function grabQuantity() {
     updateHandler.textContent = 0;
   } else {
     for (const lego of LegoStore) {
-      updateQty += Number(lego.quantity);
+      updateQty += Number(lego.count);
       updateHandler.textContent = updateQty;
     }
   }
