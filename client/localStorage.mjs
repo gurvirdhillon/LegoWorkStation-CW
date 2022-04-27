@@ -1,57 +1,71 @@
 const targetBasket = document.querySelector('.showItems');
 
-export async function addProductToCart(id) {
-  let prodNo = localStorage.getItem(id);
-  prodNo = parseInt(prodNo);
-  let basketQty = JSON.parse(localStorage.getItem('basketQty'));
-  localStorage.setItem('basketQty', basketQty += 1);
-  if (prodNo) {
+export async function addProductToCart(ProductId) {
+  const response = await fetch('api/bricks');
+  if (response.ok) {
+    const array = await response.json();
+    let prodNo = localStorage.getItem(ProductId);
+    prodNo = parseInt(prodNo);
+    let basketQty = JSON.parse(localStorage.getItem('basketQty'));
+    localStorage.setItem('basketQty', basketQty += 1);
+    if (prodNo) {
     // if the item is already in the cart, increment the quantity
-    localStorage.setItem(id, 1 + prodNo);
-    document.querySelector('#quantity').textContent = prodNo + 1;
-  } else {
-    localStorage.setItem(id, 1);
-    document.querySelector('#quantity').textContent = 1;
+      localStorage.setItem(ProductId, 1 + prodNo);
+      document.querySelector('#quantity').textContent = prodNo + 1;
+    } else {
+      localStorage.setItem(ProductId, 1);
+      document.querySelector('#quantity').textContent = 1;
+    }
+    const updateQuantity = document.querySelector('#quantity');
+    updateQuantity.textContent = basketQty;
+    const brickImage = document.createElement('img');
+    brickImage.id = `brickImg${ProductId}`;
+    brickImage.classList = 'BrickBasket';
+    // array.find(item => ProductId = item.ProductImage);
+    console.log(array);
+    let brickText;
+    let price;
+    for (const item of array) {
+      console.log(item.ProductId);
+      console.log(ProductId);
+      // console.log(item.ProductId === ProductId.id);
+      if (item.ProductId === ProductId) {
+        brickImage.src = `${item.ProductImage}`;
+        brickImage.alt = 'Your Brick is ' + item.ProductName;
+        brickText = document.createElement('p');
+        brickText.id = `brickText${ProductId}`;
+        brickText.classList = 'BrickPara';
+        brickText.textContent = item.ProductName;
+        price = document.createElement('p');
+        price.id = `price${ProductId}`;
+        price.textContent = item.price;
+        price.classList = 'price';
+      }
+    }
+    targetBasket.append(brickText, brickImage, price);
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'Remove item';
+    removeBtn.classList = 'removeBtn';
+    removeBtn.addEventListener('click', () => {
+      localStorage.getItem('basketQty', ProductId);
+      localStorage.removeItem(ProductId);
+      // removeItem(ProductId);
+      localStorage.removeItem(basketQty);
+      targetBasket.removeChild(removeBtn);
+    });
+    // targetBasket.append(brickText, brickImage, price, removeBtn);
+    targetBasket.append(brickImage, removeBtn);
   }
-  const updateQuantity = document.querySelector('#quantity');
-  updateQuantity.textContent = basketQty;
-  const response = await fetch(`/api/brick?id=${id}`);
-  const brick = await response.json();
-  const brickImage = document.createElement('img');
-  brickImage.id = `brickImg${id}`;
-  brickImage.classList = 'BrickBasket';
-  brickImage.src = `${brick.img}`;
-  brickImage.alt = 'Your Brick is ' + brick.name;
-  const brickText = document.createElement('p');
-  brickText.id = `brickText${id}`;
-  brickText.classList = 'BrickPara';
-  brickText.textContent = `${brick.name}`;
-  const price = document.createElement('p');
-  price.id = `price${id}`;
-  price.textContent = `${brick.p}`;
-  price.classList = 'price';
-  const removeBtn = document.createElement('button');
-  removeBtn.textContent = 'Remove item';
-  removeBtn.classList = 'removeBtn';
-  removeBtn.addEventListener('click', () => {
-    localStorage.getItem('basketQty', id);
-    localStorage.removeItem(id);
-    localStorage.removeItem(basketQty);
-    targetBasket.removeChild(brickImage);
-    targetBasket.removeChild(brickText);
-    targetBasket.removeChild(price);
-    targetBasket.removeChild(removeBtn);
-  });
-  targetBasket.append(brickText, brickImage, price, removeBtn);
 }
 
-function subtractBrkQty(id) {
+function subtractBrkQty(ProductId) {
   const brk = localStorage.getItem('basketQty');
-  if (brk === id) {
+  if (brk === ProductId) {
     localStorage.removeItem('basketQty' - 1);
     console.log(brk);
   }
 }
+
 subtractBrkQty();
 
 const grabClear = document.querySelector('.clearMe');
@@ -75,23 +89,20 @@ function rememberQty() {
 }
 rememberQty();
 
-const brickPara = document.querySelector('.BrickPara');
+// const brickPara = document.querySelector('.BrickPara');
 
-function rememberText() {
-  // this function will remember the text of the items in the basket when the page is refreshed
-  localStorage.setItem('prodText', brickPara);
-  const brkProd = localStorage.getItem('prodText');
-  if (brkProd) {
-    targetBasket.textContent = brkProd.value;
-  }
-}
-rememberText();
-
-// const obj = [name, price, img];
+// function rememberText() {
+// // this function will remember the text of the items in the basket when the page is refreshed
+//   localStorage.setItem('prodText', brickPara);
+//   const brkProd = localStorage.getItem('prodText');
+//   if (brkProd) {
+//     targetBasket.textContent = brkProd.value;
+//   }
+// }
+// rememberText();
 
 const grabCheckout = document.querySelector('#checkout');
 grabCheckout.addEventListener('click', checkoutHandler);
-
 function checkoutHandler() {
   const showItems = document.querySelector('.showItems');
   if (localStorage.getItem('basketQty') === '0' || showItems.textContent === '') {
