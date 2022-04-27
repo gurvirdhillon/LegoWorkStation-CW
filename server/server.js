@@ -7,9 +7,9 @@ import authConfig from './auth-config.mjs';
 const app = express();
 app.use(express.static('client', { extensions: ['html'] }));
 
-async function getBricks(req, res) {
-  res.JSON(await db.getAllBricks());
-}
+// async function getBricks(req, res) {
+//   res.JSON(await db.getAllBricks());
+// }
 
 async function gb2(req, res) {
   const bricks = await db.getAllBricks();

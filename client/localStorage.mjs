@@ -2,6 +2,7 @@ const targetBasket = document.querySelector('.showItems');
 
 export async function addProductToCart(ProductId) {
   const response = await fetch('api/bricks');
+  console.log(response);
   if (response.ok) {
     const array = await response.json();
     let prodNo = localStorage.getItem(ProductId);
