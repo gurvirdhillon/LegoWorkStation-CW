@@ -6,9 +6,16 @@ import * as db from './db-sqlite.mjs';
 import authConfig from './auth-config.mjs';
 const app = express();
 app.use(express.static('client', { extensions: ['html'] }));
+
 async function getBricks(req, res) {
   res.JSON(await db.getAllBricks());
 }
+
+async function gb2(req, res) {
+  const bricks = await db.getAllBricks();
+  res.send(JSON.stringify(bricks));
+}
+
 async function getBrick(req, res) {
   const result = await db.getBrick(req.params.ProductId);
   if (!result) {
@@ -17,10 +24,12 @@ async function getBrick(req, res) {
   }
   res.json(result);
 }
+
 // serve the auth config publicly
 app.get('/auth-config', (req, res) => {
   res.json(authConfig);
 });
+
 // app.get('/api/brick', (req, res) => {
 //   const brick = db.getBrick(req.query.id);
 //   res.send(JSON.stringify(brick));
@@ -30,10 +39,6 @@ app.get('/auth-config', (req, res) => {
 // const brick = db.getBrick(req.query.id);
 // res.send(JSON.stringify(db.getBrick(req.query.ProductId)));
 // });
-app.get('/api/bricks', asyncWrap(async (req, res) => {
-  const bricks = await db.getAllBricks();
-  res.send(JSON.stringify(bricks));
-}));
 
 app.get('/api/brick/:ProductId', asyncWrap(async (req, res) => {
   // const bricks = await db.gtAllBricks();
@@ -57,7 +62,9 @@ function asyncWrap(f) {
       .catch((e) => next(e || new Error()));
   };
 }
-app.get('/api/bricks', asyncWrap(getBricks));
+// app.get('/api/bricks', asyncWrap(getBricks));
+
+app.get('/api/bricks', asyncWrap(gb2));
 
 app.get('/api/bricks/:ProductId', asyncWrap(getBrick));
 // this will serve the files present in static/ inside this stage

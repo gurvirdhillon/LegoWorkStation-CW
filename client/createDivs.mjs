@@ -4,10 +4,10 @@ import { addProductToCart } from './localStorage.mjs';
 function makeDiv(data) {
   const main = document.querySelector('#main');
   for (const row of data) {
-    // console.log(row);
+    console.log(row);
     const createDiv = document.createElement('div');
     createDiv.classList.add('legoHolder');
-    createDiv.id = `${row.ProductID}`;
+    createDiv.id = `${row.ProductId}`;
     main.appendChild(createDiv);
     imagePlacer(createDiv, row);
     giveName(createDiv, row);
