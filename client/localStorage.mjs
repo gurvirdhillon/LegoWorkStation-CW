@@ -1,5 +1,4 @@
 const targetBasket = document.querySelector('.showItems');
-const grabQuantity = document.querySelector('#quantity');
 
 const cart = [];
 
@@ -13,6 +12,7 @@ export async function addProductToCart(e) {
       cart.push(brick);
       window.localStorage.setItem('basket', JSON.stringify(cart));
       createBricksForStoring();
+      grabQuantity();
     }
   }
 }
@@ -21,33 +21,49 @@ function createBricksForStoring() {
   const localStorageBricks = JSON.parse(window.localStorage.getItem('basket'));
   for (const brick of localStorageBricks) {
     console.log(brick.id);
-  }
-  if (localStorageBricks == null) return;
-  for (const brick of localStorageBricks) {
-    const createTag = document.createElement('p');
-    createTag.textContent = brick.name;
-    targetBasket.append(createTag);
-    const price = document.createElement('p');
-    price.textContent = brick.p;
-    targetBasket.append(price);
-    const brickImage = document.createElement('img');
-    brickImage.src = brick.img;
-    brickImage.alt = 'Your brick is' + brick.name;
-    brickImage.classList = 'BrickBasket';
-    targetBasket.append(brickImage);
+    if (localStorageBricks == null) return;
+    for (const brick of localStorageBricks) {
+      const createTag = document.createElement('p');
+      createTag.textContent = brick.name;
+      targetBasket.append(createTag);
+      const price = document.createElement('p');
+      price.textContent = brick.p;
+      targetBasket.append(price);
+      const brickImage = document.createElement('img');
+      brickImage.src = brick.img;
+      brickImage.alt = 'Your brick is' + brick.name;
+      brickImage.classList = 'BrickBasket';
+      targetBasket.append(brickImage);
+    }
   }
 }
 
 window.addEventListener('load', createBricksForStoring);
 
-function subtractBrkQty(id) {
-  const brk = localStorage.getItem('basketQty');
-  if (brk === id) {
-    localStorage.removeItem('basketQty' - 1);
-    console.log(brk);
+function grabQuantity() {
+  let updateQty = 0;
+  const updateHandler = document.querySelector('#quantity');
+  const LegoStore = JSON.parse(window.localStorage.getItem('basket'));
+  if (updateHandler == null) {
+    updateHandler.textContent = 0;
+  } else {
+    for (const lego of LegoStore) {
+      updateQty += Number(lego.quantity);
+      updateHandler.textContent = updateQty;
+    }
   }
 }
-subtractBrkQty();
+
+window.addEventListener('load', grabQuantity);
+
+// get handle of quantity span
+// json parse and get item of the basket
+// if condition == null
+// handler text content is 0
+// else
+// for of loop
+// append updateQty.quantity
+// handler.textcounter = updateQty
 
 const grabClear = document.querySelector('.clearMe');
 grabClear.addEventListener('click', clearBasket);
@@ -94,8 +110,4 @@ function checkoutHandler() {
   } else {
     window.location.href = '/confirmation.html';
   }
-}
-
-function storeItems() {
-  // this function will store items on your basket when refreshing the page
 }
