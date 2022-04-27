@@ -9,6 +9,7 @@
 <script src="localStorage.mjs" type="module"></script>
 <link rel="stylesheet" href="ui.css">
 <script src="filterEvents.js" type="module"></script>
+<script src="admin.js"></script>
 <!-- <link rel="icon" href="data:,"> -->
 <script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js" async defer></script>
 
@@ -82,16 +83,22 @@
 </div>
 
 <form><div>Place in a lego piece:</div>
-    <input type="file">
+    <input type="file" required accept="image/png, image/jpg">
     <div>Place in a name:</div>
-    <input type="text" placeholder="name me...">
+    <input type="text" placeholder="name me..." required>
     <div>Price:</div>
-    <input type="number" min="1" max="10000" placeholder="price">
+    <input type="number" min="1" max="10000" placeholder="price" required>
     <button type="submit">Submit</button>
 </form>
 
 <p></p>
 
 <div id="main"></div>
+<div>
+
+<div>Added quantities:</div>
+<div class="addToMe"></div>
+<img id="output">
+</div>
 
 </body>
