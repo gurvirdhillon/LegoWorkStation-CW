@@ -65,7 +65,13 @@ function asyncWrap(f) {
 }
 // app.get('/api/bricks', asyncWrap(getBricks));
 
+async function getOrders(req, res) {
+  const legoBricks = await db.updateStock(req.query.id, req.query.count);
+  res.JSON(legoBricks);
+}
+
 app.get('/api/bricks', asyncWrap(gb2));
+app.put('/bricks/bought/:ProductId', express.json(), asyncWrap(getOrders));
 
 app.get('/api/bricks/:ProductId', asyncWrap(getBrick));
 // this will serve the files present in static/ inside this stage

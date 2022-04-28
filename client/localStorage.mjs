@@ -95,3 +95,11 @@ function checkoutHandler() {
     window.location.href = '/confirmation.html';
   }
 }
+
+function itemsPurchased() {
+  const itemsPurchased = JSON.parse(localStorage.getItem('productsInBasket'));
+  localStorage.setItem('productsBrought', JSON.stringify(itemsPurchased));
+  for (const items of itemsPurchased) {
+    console.log(items.id, items.count);
+  }
+}

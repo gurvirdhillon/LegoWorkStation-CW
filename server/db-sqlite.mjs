@@ -24,12 +24,12 @@ export async function getAllBricks() {
   return db.all('SELECT * FROM Legos');
 }
 
-// export async function addBrick(brk) {
-//   const db = await dbConn;
-//   const id = uuid();
-//   await db.run('INSERT INTO Legos VALUES(?), [id]');
-//   return getAllBricks();
-// }
+async function updateStock(bought, ProductId) {
+  const db = await dbConn;
+  const levelInStock = (await db.get('SELECT levelInStock FROM Legos WHERE productId = ?', ProductId)).quantity;
+  const newStock = levelInStock - bought;
+  return db.run('UPDATE Legos SET levelInStock = ? WHERE productId = ?', newStock, ProductId);
+}
 
 // suteki, t. (2022). sqlite. npm.com. Retrieved 20 April 2022, from
 // https://www.npmjs.com/package/sqlite#install-sqlite.
