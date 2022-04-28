@@ -1,5 +1,6 @@
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
+// import { uuid } from 'uuid';
 
 export async function init() {
   const db = await open({
@@ -22,6 +23,13 @@ export async function getAllBricks() {
   const db = await dbConn;
   return db.all('SELECT * FROM Legos');
 }
+
+// export async function addBrick(brk) {
+//   const db = await dbConn;
+//   const id = uuid();
+//   await db.run('INSERT INTO Legos VALUES(?), [id]');
+//   return getAllBricks();
+// }
 
 // suteki, t. (2022). sqlite. npm.com. Retrieved 20 April 2022, from
 // https://www.npmjs.com/package/sqlite#install-sqlite.
