@@ -6,7 +6,6 @@ What has been made? The project is a simple web application that allows you to b
 
 ## Future works
 
-
 ## Running the project
 
 The page works with a server hosted on port 8080. Just use your terminal and type:
