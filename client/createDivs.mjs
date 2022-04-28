@@ -6,7 +6,7 @@ function makeDiv(data) {
   for (const row of data) {
     const createDiv = document.createElement('div');
     createDiv.classList.add('legoHolder');
-    createDiv.id = `${row.id}`;
+    createDiv.id = `${row.ProductId}`;
     main.appendChild(createDiv);
     imagePlacer(createDiv, row);
     giveName(createDiv, row);
@@ -19,14 +19,14 @@ function makeDiv(data) {
 
 function imagePlacer(where, what) {
   const getImage = document.createElement('img');
-  getImage.src = what.img;
+  getImage.src = `${what.ProductImage}`;
   getImage.alt = 'lego-brick';
   getImage.classList.add('brickable');
   where.append(getImage);
 }
 
 // this makes the + button
-export function getAddButton(where, row) {
+export function getAddButton(where) {
   const getBtn = document.createElement('button');
   getBtn.textContent = 'Add to basket';
   getBtn.className = 'btnElem';
@@ -41,20 +41,20 @@ export function getAddButton(where, row) {
 
 function getPriceAndDescription(where, what) {
   const getPrice = document.createElement('p');
-  getPrice.textContent = what.p;
+  getPrice.textContent = `£${what.ProductPrice}`;
   where.append(getPrice);
 }
 
 function getQuantity(where, what) {
   const createQuantity = document.createElement('p');
-  createQuantity.textContent = `Number of items in stock: ${what.quantity}`;
+  createQuantity.textContent = `Number of items in stock: ${what.Quantity}`;
   createQuantity.classList.add('quant');
   where.append(createQuantity);
 }
 
 function giveName(where, what) {
   const createName = document.createElement('h3');
-  createName.textContent = `${what.name}`;
+  createName.textContent = `${what.ProductName}`;
   where.append(createName);
 }
 
@@ -71,12 +71,11 @@ function makeViewDetails(where) {
   createBtn.classList.add('viewMe');
   where.append(createBtn);
   createBtn.addEventListener('click', detailsHandler);
-  // brick.addEventListener('click', detailsHandler);
 }
 
 function detailsHandler(event) {
-  const id = event.target.parentElement.id;
-  window.location = `details.html?brick=${id}`;
+  const ProductID = event.target.parentElement.id;
+  window.location = `details.html?brick=${ProductID}`;
 }
 
 window.addEventListener('load', loadFunctions);

@@ -80,7 +80,6 @@ rememberQty();
 
 const grabCheckout = document.querySelector('#checkout');
 grabCheckout.addEventListener('click', checkoutHandler);
-
 function checkoutHandler() {
   const showItems = document.querySelector('.showItems');
   if (localStorage.getItem('basketQty') === '0' || showItems.textContent === '') {

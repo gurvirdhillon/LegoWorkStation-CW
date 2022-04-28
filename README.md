@@ -7,7 +7,6 @@ What has been made? The project is a simple web application that allows you to b
 ## Future works
 
 
-
 ## Running the project
 
 The page works with a server hosted on port 8080. Just use your terminal and type:
@@ -41,9 +40,15 @@ npm run test.only
 * NodeJS
 * ExpressJS
 * Jest
+* SQLite
+* JSON
 
 ## Assumptions
 
 If the user is logged in they are considered an "admin" user and will have access to the admin controls.
 
+## Explanation on the project
 
+I decided to use a database called SQLite which leads to more maintainable code as i initially started off with an array of objects. However, an array of objects can not handle stock management. 
+
+## Paradigm

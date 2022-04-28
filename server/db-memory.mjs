@@ -17,23 +17,23 @@ export const bricks = [
   { id: 'brk16', name: 'The Avengers X Justice League Set', colour: 'All', x: 1, y: 1, img: 'img/heroLego.jpg', p: '£25', quantity: '20', type: 'brick', count: 0 },
 ];
 
-// save price as pence.
-// use the backtick and £ sign when implementing into a db
-// price / 100 = get price
-// store whatever you have in here in a database
+// // save price as pence.
+// // use the backtick and £ sign when implementing into a db
+// // price / 100 = get price
+// // store whatever you have in here in a database
 
-// brick images extracted from https://rebrickable.com/
-// brick images extracted from https://www.lego.com/en-gb
+// // brick images extracted from https://rebrickable.com/
+// // brick images extracted from https://www.lego.com/en-gb
 
-export function getAllBricks() {
-  return bricks;
-}
+// export function getAllBricks() {
+//   return bricks;
+// }
 
-export function getBrick(id) {
-  for (const brick of bricks) {
-    if (id === brick.id) {
-      return brick;
-    }
-  }
-  return null;
-}
+// export function getBrick(ProductId) {
+//   for (const brick of bricks) {
+//     if (ProductId === brick.ProductId) {
+//       return brick;
+//     }
+//   }
+//   return null;
+// }

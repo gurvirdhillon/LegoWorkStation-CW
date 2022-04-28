@@ -3,7 +3,7 @@ grabSet.addEventListener('click', handleSets);
 
 const targetMain = document.querySelector('#main');
 
-// console.log(bricks.find(filterDivs));
+// // console.log(bricks.find(filterDivs));
 
 async function handleSets() {
   let bricks = await fetch('/api/bricks');
