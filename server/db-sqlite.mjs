@@ -16,6 +16,7 @@ const dbConn = init();
 
 export async function getBrick(ProductId) {
   const db = await dbConn;
+
   return db.get('SELECT * FROM Legos WHERE productId = ?', ProductId);
 }
 

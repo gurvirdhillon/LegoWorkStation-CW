@@ -30,6 +30,13 @@ app.get('/auth-config', (req, res) => {
   res.json(authConfig);
 });
 
+app.put('/api/bricks/purchasedItems/', (req, res) => {
+  const { productId, quantity } = req.body;
+  res.payload = { productId, quantity };
+  res.json(db.updateStock(productId, quantity)); 
+  // and make this like this (the function is updateStock, not updateStockLevels as updateStockLevels is a client side function not server)
+});
+
 // app.get('/api/brick', (req, res) => {
 //   const brick = db.getBrick(req.query.id);
 //   res.send(JSON.stringify(brick));
