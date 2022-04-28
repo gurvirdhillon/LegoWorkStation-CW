@@ -43,7 +43,6 @@ function createBricksForStoring() {
     targetBasket.append(brickImage);
   }
 }
-// }
 
 window.addEventListener('load', createBricksForStoring);
 
