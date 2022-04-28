@@ -14,7 +14,9 @@ VALUES ('brk1', 'Red 2 by 4', 'red', 0.3, './img/red2by4.jpg', 40, 'brick', 0),
 ('brk6', 'Green 2 by 4', 'green', 0.1, './img/green2by4c.jpg', 51, 'brick', 0),
 ('brk7', 'Red 2 by 1', 'red', 0.05, './img/red2by1.jpg', 29, 'brick', 0),
 ('brk8', 'Mixed Crate', 'All', 4000, './img/legoCrate.jpeg', 10, 'set', 0),
-('brk9', 'Bonsai!', 'All', 1500,'./img/bonsai.png', 4, 'set', 0);
+('brk9', 'Bonsai!', 'All', 1500,'./img/bonsai.png', 4, 'set', 0),
+('brk10', 'Lego master set', 'All', 0, './img/house.png', 20, 'set', 0),
+('brk11', 'The education bundle', 'All', 40,'./img/educationBundle.jpg', 20, 'set', 0);
 
 -- Down
 
