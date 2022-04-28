@@ -4,6 +4,10 @@ import url from 'url';
 // import * as db from './db-memory.mjs';
 import * as db from './db-sqlite.mjs';
 import authConfig from './auth-config.mjs';
+
+import bodyParser from 'body-parser';
+const jsonParser = bodyParser.json();
+
 const app = express();
 app.use(express.static('client', { extensions: ['html'] }));
 
@@ -30,11 +34,10 @@ app.get('/auth-config', (req, res) => {
   res.json(authConfig);
 });
 
-app.put('/api/bricks/purchasedItems/', (req, res) => {
+app.put('/api/bricks/purchasedItems', jsonParser, (req, res) => {
+  console.log(req.body);
   const { productId, quantity } = req.body;
-  res.payload = { productId, quantity };
-  res.json(db.updateStock(productId, quantity)); 
-  // and make this like this (the function is updateStock, not updateStockLevels as updateStockLevels is a client side function not server)
+  res.json(db.updateStock(productId, quantity));
 });
 
 // app.get('/api/brick', (req, res) => {

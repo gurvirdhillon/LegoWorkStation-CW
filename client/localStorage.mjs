@@ -28,7 +28,7 @@ function createBricksForStoring() {
   //   console.log(localStorageBricks);
   //   console.log(brick.id);
   if (localStorageBricks == null) return;
-  targetBasket.innerHTML = '';
+  targetBasket.textContent = '';
   for (const brick of localStorageBricks) {
     const createTag = document.createElement('p');
     createTag.textContent = brick.ProductName;
@@ -68,7 +68,7 @@ function clearBasket() {
   updateQty.textContent = '0';
   targetBasket.textContent = '';
   localStorage.clear();
-  localStorage.setItem('basketQty', 0);
+  localStorage.setItem('basket', 0);
 }
 
 function rememberQty() {
@@ -101,12 +101,15 @@ function itemsPurchased() {
 }
 
 async function updateStock() {
-  const broughtItems = JSON.parse(localStorage.getItem('productsBrought'));
+  const broughtItems = JSON.parse(localStorage.getItem('basket'));
   localStorage.setItem('productsInBasket', JSON.stringify(broughtItems));
+  // console.log(localStorage.getItem('basket'));
+  console.log(broughtItems);
   for (const cart of broughtItems) {
-    console.log(cart);
-    const id = cart.id;
-    const payload = cart;
+    const payload = {
+      productId: cart.ProductId,
+      quantity: cart.count,
+    };
     console.log('Payload', payload);
 
     const response = await fetch('/api/bricks/purchasedItems', {
@@ -114,11 +117,12 @@ async function updateStock() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
-  } if (response.ok) {
-    const brickResponse = await response.json();
-    console.log('successfully sent to', createBricksForStoring);
-  } else {
-    console.log('failed to send to cart', createBricksForStoring);
+    if (response.ok) {
+      const brickResponse = await response.json();
+      console.log('successfully sent to', createBricksForStoring);
+    } else {
+      console.log('failed to send to cart', createBricksForStoring);
+    }
   }
 }
 

@@ -12,6 +12,7 @@
   "author": "up2016988@myport.ac.uk",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.17.3",
     "install": "^0.13.0",
     "sqlite": "^4.0.25",

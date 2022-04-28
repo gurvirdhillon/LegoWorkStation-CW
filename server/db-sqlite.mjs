@@ -25,11 +25,12 @@ export async function getAllBricks() {
   return db.all('SELECT * FROM Legos');
 }
 
-async function updateStock(bought, ProductId) {
+export async function updateStock(ProductId, Quantity) {
   const db = await dbConn;
-  const levelInStock = (await db.get('SELECT levelInStock FROM Legos WHERE productId = ?', ProductId)).quantity;
-  const newStock = levelInStock - bought;
-  return db.run('UPDATE Legos SET levelInStock = ? WHERE productId = ?', newStock, ProductId);
+  const levelInStock = (await db.get('SELECT Quantity FROM Legos WHERE ProductId = ?1', [ProductId]));
+  console.log(levelInStock);
+  const newStock = levelInStock - Quantity;
+  return db.run('UPDATE Legos SET Quantity = ? WHERE ProductId = ?', newStock, ProductId);
 }
 
 // suteki, t. (2022). sqlite. npm.com. Retrieved 20 April 2022, from
