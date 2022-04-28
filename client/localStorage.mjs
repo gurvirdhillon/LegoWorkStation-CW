@@ -1,14 +1,18 @@
 const targetBasket = document.querySelector('.showItems');
 
-const cart = [];
+let cart = [];
+const checkCart = JSON.parse(window.localStorage.getItem('basket'));
+if (checkCart != null) {
+  cart = checkCart;
+}
 
 export async function addProductToCart(e) {
   const response = await fetch('/api/bricks');
   const bricks = await response.json();
-  console.log(bricks);
+  // console.log(bricks);
   const targetId = e.target.parentElement.id;
   for (const brick of bricks) {
-    if (brick.id == targetId) {
+    if (brick.ProductId === targetId) {
       brick.count += 1;
       cart.push(brick);
       window.localStorage.setItem('basket', JSON.stringify(cart));
@@ -20,38 +24,41 @@ export async function addProductToCart(e) {
 
 function createBricksForStoring() {
   const localStorageBricks = JSON.parse(window.localStorage.getItem('basket'));
+  // for (const brick of localStorageBricks) {
+  //   console.log(localStorageBricks);
+  //   console.log(brick.id);
+  if (localStorageBricks == null) return;
+  targetBasket.innerHTML = '';
   for (const brick of localStorageBricks) {
-    console.log(brick.id);
-    if (localStorageBricks == null) return;
-    for (const brick of localStorageBricks) {
-      const createTag = document.createElement('p');
-      createTag.textContent = brick.name;
-      targetBasket.append(createTag);
-      const price = document.createElement('p');
-      price.textContent = brick.p;
-      targetBasket.append(price);
-      const brickImage = document.createElement('img');
-      brickImage.src = brick.img;
-      brickImage.alt = 'Your brick is' + brick.name;
-      brickImage.classList = 'BrickBasket';
-      targetBasket.append(brickImage);
-    }
+    const createTag = document.createElement('p');
+    createTag.textContent = brick.ProductName;
+    targetBasket.append(createTag);
+    const price = document.createElement('p');
+    price.textContent = brick.ProductPrice;
+    targetBasket.append(price);
+    const brickImage = document.createElement('img');
+    brickImage.src = brick.ProductImage;
+    brickImage.alt = 'Your brick is' + brick.ProductName;
+    brickImage.classList = 'BrickBasket';
+    targetBasket.append(brickImage);
   }
 }
+// }
 
 window.addEventListener('load', createBricksForStoring);
 
 function grabQuantity() {
-  let updateQty = 0;
+  const updateQty = 0;
   const updateHandler = document.querySelector('#quantity');
   const LegoStore = JSON.parse(window.localStorage.getItem('basket'));
   if (updateHandler == null) {
     updateHandler.textContent = 0;
-  } else {
-    for (const lego of LegoStore) {
-      updateQty += Number(lego.count);
-      updateHandler.textContent = updateQty;
-    }
+  } else if (LegoStore != null) {
+    updateHandler.textContent = LegoStore.length;
+    // for (const lego of LegoStore) {
+    //   updateQty += Number(lego.count);
+    //   updateHandler.textContent = updateQty;
+    // }
   }
 }
 

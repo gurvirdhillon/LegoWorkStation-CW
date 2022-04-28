@@ -49,6 +49,6 @@ If the user is logged in they are considered an "admin" user and will have acces
 
 ## Explanation on the project
 
-I decided to use a database called SQLite which leads to more maintainable code as i initially started off with an array of objects. However, an array of objects can not handle stock management. 
+I decided to use a database called SQLite which leads to more maintainable code as i initially started off with an array of objects. However, an array of objects can not handle stock management very well. Therefore i had chosen to switch. I had stored my products in a lego database which holds the properties of the old arrays.
 
 ## Paradigm
