@@ -86,11 +86,11 @@ function rememberQty() {
 rememberQty();
 
 const grabCheckout = document.querySelector('#checkout');
-grabCheckout.addEventListener('click', checkoutHandler);
-function checkoutHandler() {
-  const showItems = document.querySelector('.showItems');
-  if (localStorage.getItem('basketQty') === '0' || showItems.textContent === '') {
-    alert('Your basket is empty');
+grabCheckout.addEventListener('click', handleCheckout);
+
+function handleCheckout() {
+  if (localStorage.getItem('basket') === 0 || targetBasket.textContent === 0) {
+    alert('Your basket is empty, please add something!');
   } else {
     window.location.href = '/confirmation.html';
   }

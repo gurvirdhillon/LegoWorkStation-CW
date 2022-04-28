@@ -23,6 +23,7 @@ export async function getAllBricks() {
   return db.all('SELECT * FROM Legos');
 }
 
+
 // suteki, t. (2022). sqlite. npm.com. Retrieved 20 April 2022, from
 // https://www.npmjs.com/package/sqlite#install-sqlite.
 
