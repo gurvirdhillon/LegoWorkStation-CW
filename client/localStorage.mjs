@@ -57,15 +57,6 @@ function grabQuantity() {
 
 window.addEventListener('load', grabQuantity);
 
-// get handle of quantity span
-// json parse and get item of the basket
-// if condition == null
-// handler text content is 0
-// else
-// for of loop
-// append updateQty.quantity
-// handler.textcounter = updateQty
-
 const grabClear = document.querySelector('.clearMe');
 grabClear.addEventListener('click', clearBasket);
 
@@ -86,20 +77,6 @@ function rememberQty() {
   }
 }
 rememberQty();
-
-// const brickPara = document.querySelector('.BrickPara');
-
-// function rememberText() {
-//   // this function will remember the text of the items in the basket when the page is refreshed
-//   localStorage.setItem('prodText', brickPara);
-//   const brkProd = localStorage.getItem('prodText');
-//   if (brkProd) {
-//     targetBasket.textContent = brkProd.value;
-//   }
-// }
-// rememberText();
-
-// const obj = [name, price, img];
 
 const grabCheckout = document.querySelector('#checkout');
 grabCheckout.addEventListener('click', checkoutHandler);
