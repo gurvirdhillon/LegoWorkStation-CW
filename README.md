@@ -45,10 +45,14 @@ npm run test.only
 
 ## Assumptions
 
-If the user is logged in they are considered an "admin" user and will have access to the admin controls.
+If the user is logged in they are considered an "admin" user and will have access to the admin controls which will allow them to add their own bricks.
 
 ## Explanation on the project
 
 I decided to use a database called SQLite which leads to more maintainable code as i initially started off with an array of objects. However, an array of objects can not handle stock management very well. Therefore i had chosen to switch. I had stored my products in a lego database which holds the properties of the old arrays.
+
+I had set up jest testing and this will be apart of my future works to add unit tests in.
+
+I have been able to use local storage in order to store the users bricks. It has been stored in an array of objects in the local storage set-up. I also set up a counter so it shows how many items are in the basket.
 
 ## Paradigm
