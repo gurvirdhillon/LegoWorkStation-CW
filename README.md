@@ -33,3 +33,10 @@ I had also created a view details page which shows the details of a specific bri
 ## The process
 
 First i had started off with an array of object that was stored in my client. I had then come to the realisation that i must store it in server side code as the user should not be able to have access to these files. I had then transitioned the code over to db-memory.mjs. Once i had been able to display all my items on the array of objects i had decided to switch to the database in order to make my data items maintainable.
+
+I decided filters would be a good addition to the project as it would allow the user to see items that would fit their specific needs and saves them a lot of search time for specific items
+
+## Future works
+
+In my future works testing will be a big priority and ensuring my path roots return all the right data will be a key aspect. 
+I will ensure i get the input field displayed at the top to work as this could be a key bit of functionality which saves the user from scrolling. I will also ensure that the administrators can add products to the page.
