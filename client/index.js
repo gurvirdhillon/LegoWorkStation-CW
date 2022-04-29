@@ -83,3 +83,7 @@ async function init() {
 }
 
 window.addEventListener('load', init);
+
+// GitHub - portsoc/auth0-example. GitHub. (2021). Retrieved 29 April 2022, from https://github.com/portsoc/auth0-example.
+
+// Auth0: Secure access for everyone. But not just anyone.. Auth0. (2013). Retrieved 29 April 2022, from https://auth0.com/.
