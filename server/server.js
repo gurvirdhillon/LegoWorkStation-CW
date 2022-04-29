@@ -4,6 +4,10 @@ import url from 'url';
 // import * as db from './db-memory.mjs';
 import * as db from './db-sqlite.mjs';
 import authConfig from './auth-config.mjs';
+
+import bodyParser from 'body-parser';
+const jsonParser = bodyParser.json();
+
 const app = express();
 app.use(express.static('client', { extensions: ['html'] }));
 
@@ -28,6 +32,12 @@ async function getBrick(req, res) {
 // serve the auth config publicly
 app.get('/auth-config', (req, res) => {
   res.json(authConfig);
+});
+
+app.put('/api/bricks/purchasedItems', jsonParser, (req, res) => {
+  console.log(req.body);
+  const { productId, quantity } = req.body;
+  res.json(db.updateStock(productId, quantity));
 });
 
 // app.get('/api/brick', (req, res) => {
@@ -65,7 +75,13 @@ function asyncWrap(f) {
 }
 // app.get('/api/bricks', asyncWrap(getBricks));
 
+async function getOrders(req, res) {
+  const legoBricks = await db.updateStock(req.query.id, req.query.count);
+  res.JSON(legoBricks);
+}
+
 app.get('/api/bricks', asyncWrap(gb2));
+app.put('/bricks/bought/:ProductId', express.json(), asyncWrap(getOrders));
 
 app.get('/api/bricks/:ProductId', asyncWrap(getBrick));
 // this will serve the files present in static/ inside this stage

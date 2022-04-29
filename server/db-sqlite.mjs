@@ -1,5 +1,6 @@
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
+// import { uuid } from 'uuid';
 
 export async function init() {
   const db = await open({
@@ -15,6 +16,7 @@ const dbConn = init();
 
 export async function getBrick(ProductId) {
   const db = await dbConn;
+
   return db.get('SELECT * FROM Legos WHERE productId = ?', ProductId);
 }
 
@@ -23,6 +25,13 @@ export async function getAllBricks() {
   return db.all('SELECT * FROM Legos');
 }
 
+export async function updateStock(ProductId, Quantity) {
+  const db = await dbConn;
+  const levelInStock = (await db.get('SELECT Quantity FROM Legos WHERE ProductId = ?1', [ProductId]));
+  console.log(levelInStock);
+  const newStock = levelInStock - Quantity;
+  return db.run('UPDATE Legos SET Quantity = ? WHERE ProductId = ?', newStock, ProductId);
+}
 
 // suteki, t. (2022). sqlite. npm.com. Retrieved 20 April 2022, from
 // https://www.npmjs.com/package/sqlite#install-sqlite.

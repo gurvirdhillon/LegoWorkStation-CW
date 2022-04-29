@@ -23,12 +23,19 @@ export async function addProductToCart(e) {
 }
 
 function createBricksForStoring() {
+  // if (window.localStorage == null) {
+  //   return [];
+  // }
+  // if (window.localStorage.getItem('basket') == null) {
+  //   return [];
+  // }
+  // console.log(localStorage.getItem('basket'));
   const localStorageBricks = JSON.parse(window.localStorage.getItem('basket'));
-  // for (const brick of localStorageBricks) {
-  //   console.log(localStorageBricks);
-  //   console.log(brick.id);
+  console.log('localStorageBricks:', localStorageBricks);
+  window.localStorage.setItem('basket', JSON.stringify(localStorageBricks));
   if (localStorageBricks == null) return;
-  targetBasket.innerHTML = '';
+  targetBasket.textContent = '';
+  console.log(localStorageBricks);
   for (const brick of localStorageBricks) {
     const createTag = document.createElement('p');
     createTag.textContent = brick.ProductName;
@@ -43,22 +50,17 @@ function createBricksForStoring() {
     targetBasket.append(brickImage);
   }
 }
-// }
 
 window.addEventListener('load', createBricksForStoring);
 
 function grabQuantity() {
-  const updateQty = 0;
+  // const updateQty = 0;
   const updateHandler = document.querySelector('#quantity');
   const LegoStore = JSON.parse(window.localStorage.getItem('basket'));
   if (updateHandler == null) {
     updateHandler.textContent = 0;
   } else if (LegoStore != null) {
     updateHandler.textContent = LegoStore.length;
-    // for (const lego of LegoStore) {
-    //   updateQty += Number(lego.count);
-    //   updateHandler.textContent = updateQty;
-    // }
   }
 }
 
@@ -72,7 +74,7 @@ function clearBasket() {
   updateQty.textContent = '0';
   targetBasket.textContent = '';
   localStorage.clear();
-  localStorage.setItem('basketQty', 0);
+  localStorage.setItem('basket', 0);
 }
 
 function rememberQty() {
@@ -86,12 +88,50 @@ function rememberQty() {
 rememberQty();
 
 const grabCheckout = document.querySelector('#checkout');
-grabCheckout.addEventListener('click', handleCheckout);
-
-function handleCheckout() {
-  if (localStorage.getItem('basket') === 0 || targetBasket.textContent === 0) {
-    alert('Your basket is empty, please add something!');
+grabCheckout.addEventListener('click', checkoutHandler);
+function checkoutHandler() {
+  const showItems = document.querySelector('.showItems');
+  if (showItems.textContent === '') {
+    alert('Your basket is empty');
   } else {
     window.location.href = '/confirmation.html';
   }
 }
+
+function itemsPurchased() {
+  const itemsPurchased = JSON.parse(localStorage.getItem('productsInBasket'));
+  localStorage.setItem('productsBrought', JSON.stringify(itemsPurchased));
+  for (const items of itemsPurchased) {
+    console.log(items.id, items.count);
+  }
+}
+
+async function updateStock() {
+  const broughtItems = JSON.parse(localStorage.getItem('basket'));
+  localStorage.setItem('productsInBasket', JSON.stringify(broughtItems));
+  // console.log(localStorage.getItem('basket'));
+  console.log(broughtItems, typeof broughtItems);
+  for (const cart of broughtItems) {
+    const payload = {
+      productId: cart.ProductId,
+      quantity: cart.count,
+    };
+    console.log('Payload', payload);
+
+    const response = await fetch('/api/bricks/purchasedItems', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    if (response.ok) {
+      const brickResponse = await response.json();
+      // brickResponse();
+      console.log('successfully stored', brickResponse);
+      console.log('successfully sent to', createBricksForStoring);
+    } else {
+      console.log('failed to send to cart', createBricksForStoring);
+    }
+  }
+}
+
+updateStock();
