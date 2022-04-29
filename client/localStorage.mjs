@@ -23,13 +23,13 @@ export async function addProductToCart(e) {
 }
 
 function createBricksForStoring() {
-  // if (window.localStorage == null) {
-  //   return [];
-  // }
-  // if (window.localStorage.getItem('basket') == null) {
-  //   return [];
-  // }
-  // console.log(localStorage.getItem('basket'));
+  if (window.localStorage == null) {
+    return [];
+  }
+  if (window.localStorage.getItem('basket') == null) {
+    return [];
+  }
+  console.log(localStorage.getItem('basket'));
   const localStorageBricks = JSON.parse(window.localStorage.getItem('basket'));
   console.log('localStorageBricks:', localStorageBricks);
   window.localStorage.setItem('basket', JSON.stringify(localStorageBricks));
@@ -99,8 +99,8 @@ function checkoutHandler() {
 }
 
 function itemsPurchased() {
-  const itemsPurchased = JSON.parse(localStorage.getItem('productsInBasket'));
-  localStorage.setItem('productsBrought', JSON.stringify(itemsPurchased));
+  const itemsPurchased = JSON.parse(localStorage.getItem('purchased'));
+  localStorage.setItem('purchased', JSON.stringify(itemsPurchased));
   for (const items of itemsPurchased) {
     console.log(items.id, items.count);
   }
@@ -108,7 +108,7 @@ function itemsPurchased() {
 
 async function updateStock() {
   const broughtItems = JSON.parse(localStorage.getItem('basket'));
-  localStorage.setItem('productsInBasket', JSON.stringify(broughtItems));
+  localStorage.setItem('purchased', JSON.stringify(broughtItems));
   // console.log(localStorage.getItem('basket'));
   console.log(broughtItems, typeof broughtItems);
   for (const cart of broughtItems) {
@@ -129,7 +129,7 @@ async function updateStock() {
       console.log('successfully stored', brickResponse);
       console.log('successfully sent to', createBricksForStoring);
     } else {
-      console.log('failed to send to cart', createBricksForStoring);
+      console.log('failed to send to cart', response);
     }
   }
 }
